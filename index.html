@@ -21,7 +21,7 @@
     <li><a href="#phil">Features</a></li>
     <li><a href="#hybrid">Hybrid AI</a></li>
     <li><a href="#start">Get Started</a></li>
-    <li><a href="./" class="nav-cta">Docs →</a></li>
+    <li><a href="setup/" class="nav-cta">Docs →</a></li>
   </ul>
 </nav>
 
@@ -78,7 +78,7 @@
   <div class="stat-sep">·</div>
   <div class="stat-item"><strong>8</strong> <span>Apple use cases</span></div>
   <div class="stat-sep">·</div>
-  <div class="stat-item"><strong>6</strong> <span>features rebuilt</span></div>
+  <div class="stat-item"><strong>9</strong> <span>features rebuilt</span></div>
 </div>
 
 <!-- ── Section 1: The Lineage ──────────────────────────────── -->
@@ -280,6 +280,30 @@
         </div>
         <a href="features/rag-search/" class="feature-row-link">Learn more →</a>
       </div>
+      <div class="feature-row reveal">
+        <span class="feature-row-num">07</span>
+        <div class="feature-row-body">
+          <strong>Knowledge Graph &amp; Ontology</strong>
+          <p>A local OWL/RDF knowledge graph models relationships between people, topics and organisations extracted from emails. RDFlib + SPARQL queries surface semantic connections that vector search cannot find.</p>
+        </div>
+        <a href="features/rag-search/" class="feature-row-link">Learn more →</a>
+      </div>
+      <div class="feature-row reveal">
+        <span class="feature-row-num">08</span>
+        <div class="feature-row-body">
+          <strong>Speech Output</strong>
+          <p>Phil reads out briefings and responses using browser-native text-to-speech. Hands-free morning briefings — useful while getting ready or commuting. No additional API required.</p>
+        </div>
+        <a href="features/" class="feature-row-link">Learn more →</a>
+      </div>
+      <div class="feature-row reveal">
+        <span class="feature-row-num">09</span>
+        <div class="feature-row-body">
+          <strong>Exchange &amp; EWS</strong>
+          <p>Phil connects to Microsoft Exchange mailboxes via EWS — not just Gmail. Corporate Exchange Server and Microsoft 365 environments are fully supported via exchangelib, with automatic OAuth or basic auth.</p>
+        </div>
+        <a href="features/" class="feature-row-link">Learn more →</a>
+      </div>
     </div>
 
     <div class="screenshots-grid" id="screenshots">
@@ -329,8 +353,14 @@
           <li>Qwen2.5-32B · Llama 3.3 70B · Mistral</li>
           <li>Automatic fallback to cloud if unavailable</li>
           <li>16 GB VRAM or Apple Silicon M-series</li>
+          <li><strong>DSGVO-konform:</strong> Keine Daten verlassen das Gerät</li>
         </ul>
       </div>
+    </div>
+    <div class="de-note reveal" style="margin-top:2rem;">
+      <strong>DE — Datenschutz:</strong> Im lokalen Modus verlässt kein Prompt und keine E-Mail das eigene Gerät.
+      Die Verarbeitung personenbezogener Daten bleibt damit vollständig unter eigener Kontrolle — relevant für
+      den Einsatz im Hochschul- und Unternehmensumfeld (DSGVO Art. 25 — Privacy by Design).
     </div>
 
     <div class="reveal">
@@ -402,13 +432,14 @@
       <p class="label">For Students</p>
       <h2>Rebuild Phil<br>yourself.</h2>
       <p class="section-lead">
-        Python 3.11+, Node 20+, an Anthropic API key, a Google Workspace account.
-        No Docker required.
+        Python 3.11+ and Node 20+, or Docker Compose for a one-command start.
+        An Anthropic API key and a Google Workspace account are required either way.
       </p>
     </div>
 
     <div class="de-note reveal" style="margin-bottom:2.5rem;">
-      <strong>DE:</strong> Python 3.11+, Node 20+, ein Anthropic API-Key und ein Google Workspace Konto. Docker ist nicht erforderlich.
+      <strong>DE:</strong> Python 3.11+, Node 20+ und ein Anthropic API-Key — oder alternativ Docker Compose
+      für einen Ein-Befehl-Start. Auch ein Google Workspace Konto wird benötigt.
     </div>
 
     <div class="steps">
@@ -450,6 +481,21 @@ cd frontend &amp;&amp; npm run dev
       </div>
     </div>
 
+    <div class="step reveal">
+      <div class="step-num" style="background:var(--surface-2); color:var(--text-muted); border:1px solid var(--border);">OR</div>
+      <div class="step-body">
+        <h3>Run with Docker Compose</h3>
+        <p>Prefer containers? One command starts backend, frontend and Traefik together.</p>
+        <pre>cp backend/.env.example backend/.env
+# Add your API key and Google credentials
+docker compose up --build</pre>
+        <div class="de-note" style="margin-top:.75rem;">
+          <strong>DE:</strong> Docker Compose startet alle Dienste gebündelt. Ideal für reproduzierbare Umgebungen
+          und den Einsatz auf eigenen Servern oder in der Cloud.
+        </div>
+      </div>
+    </div>
+
     <div class="cta-row reveal">
       <a href="setup/" class="btn btn-primary">Full Setup Guide →</a>
       <a href="https://github.com/swrobuts/phil-knowledge-navigator" class="btn btn-outline" target="_blank">View on GitHub →</a>
@@ -461,7 +507,7 @@ cd frontend &amp;&amp; npm run dev
 <footer>
   <div class="footer-inner">
     <div class="footer-links">
-      <a href="./">Documentation</a>
+      <a href="setup/">Documentation</a>
       <a href="story/">The Story</a>
       <a href="prompts/">CO-STAR Prompts</a>
       <a href="https://github.com/swrobuts/phil-knowledge-navigator" target="_blank">GitHub</a>

@@ -1,6 +1,6 @@
 # Getting Started
 
-Run Phil locally — no Docker required.
+Two ways to run Phil: **directly** with Python + Node, or with **Docker Compose**.
 
 ## Prerequisites
 
@@ -84,6 +84,33 @@ npm run dev
 ```
 
 Open your browser at **[http://localhost:5173](http://localhost:5173)**
+
+---
+
+---
+
+## Docker Compose (Alternative)
+
+Prefer containers? Docker Compose starts backend, frontend, and Traefik in a single command.
+
+**Prerequisites:** Docker Desktop (or Docker Engine + Compose plugin)
+
+```bash
+# Clone and configure as above (Steps 1–3), then:
+docker compose up --build
+```
+
+Open **[http://localhost:5173](http://localhost:5173)** — same as the manual setup.
+
+!!! note "DE — Docker Compose"
+    `docker compose up --build` startet alle Dienste automatisch.
+    Ideal für reproduzierbare Entwicklungsumgebungen und den Einsatz auf eigenen Servern.
+    Voraussetzung: Docker Desktop oder Docker Engine mit Compose-Plugin.
+
+!!! tip "DSGVO-Hinweis"
+    Im lokalen Betrieb (mit oder ohne Docker) verlassen **keine E-Mails, Prompts oder
+    personenbezogenen Daten** das eigene Gerät — insbesondere wenn der lokale LLM-Modus
+    aktiviert ist. Dies erleichtert DSGVO-konformen Betrieb gemäß Art. 25 (Privacy by Design).
 
 ---
 
