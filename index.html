@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phil – Knowledge Navigator</title>
+  <meta name="description" content="A student reimagining of Apple's 1987 Knowledge Navigator. Built with FastAPI, React and Claude AI.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<!-- ── Navigation ──────────────────────────────────────────── -->
+<nav>
+  <a href="#" class="nav-logo">Phil ✦</a>
+  <ul class="nav-links">
+    <li><a href="#lineage">The Lineage</a></li>
+    <li><a href="#vision">1987 Vision</a></li>
+    <li><a href="#gap">The Gap</a></li>
+    <li><a href="#phil">Phil 2026</a></li>
+    <li><a href="#start">Get Started</a></li>
+    <li><a href="." class="btn btn-ghost" style="padding:.4rem .9rem">Docs →</a></li>
+  </ul>
+</nav>
+
+<!-- ── Hero ────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Open Student Project · THWS / DHBW · 2026</span>
+    <h1>Standing on the<br><em>Shoulders of Giants</em></h1>
+    <p class="subline">
+      Apple imagined a personal knowledge assistant in 1987 and named it Phil.
+      Decades of visionary thinking made it possible.
+      In 2026, we rebuilt it — as a working system, as a tribute.
+    </p>
+    <div class="btn-group">
+      <a href="#lineage" class="btn btn-primary">Explore the Story</a>
+      <a href="#start" class="btn btn-ghost">Get Started</a>
+      <a href="https://github.com/swrobuts/phil-knowledge-navigator" class="btn btn-ghost" target="_blank">GitHub →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Section 1: The Lineage ──────────────────────────────── -->
+<section class="section" id="lineage">
+  <div class="container">
+    <p class="label">Intellectual Lineage</p>
+    <h2>Every idea has ancestors.</h2>
+    <p style="margin: 1rem 0 2rem;">
+      The Knowledge Navigator did not emerge from nowhere. It was the crystallisation
+      of decades of visionary thinking — from analogue knowledge networks to interactive
+      computing, from the first chatbot to the personal computer. Here is the lineage
+      that made Phil possible.
+    </p>
+
+    <div class="timeline">
+      <div class="timeline-track">
+
+        <div class="timeline-node">
+          <div class="timeline-dot">1935</div>
+          <div class="timeline-content">
+            <h4>Mundaneum</h4>
+            <p>Paul Otlet — a global knowledge network on index cards</p>
+          </div>
+        </div>
+
+        <div class="timeline-node">
+          <div class="timeline-dot">1937</div>
+          <div class="timeline-content">
+            <h4>World Brain</h4>
+            <p>H.G. Wells — a living, always-updated world encyclopaedia</p>
+          </div>
+        </div>
+
+        <div class="timeline-node">
+          <div class="timeline-dot">1945</div>
+          <div class="timeline-content">
+            <h4>Memex</h4>
+            <p>Vannevar Bush — a desk that stores and links documents associatively</p>
+          </div>
+        </div>
+
+        <div class="timeline-node">
+          <div class="timeline-dot">1950</div>
+          <div class="timeline-content">
+            <h4>Turing Test</h4>
+            <p>Alan Turing — can machines think? The measure for AI to this day</p>
+          </div>
+        </div>
+
+        <div class="timeline-node">
+          <div class="timeline-dot">1955</div>
+          <div class="timeline-content">
+            <h4>Artificial Intelligence</h4>
+            <p>John McCarthy — coined the term at the Dartmouth Conference</p>
+          </div>
+        </div>
+
+        <div class="timeline-node">
+          <div class="timeline-dot">1960</div>
+          <div class="timeline-content">
+            <h4>Man–Computer Symbiosis</h4>
+            <p>J.C.R. Licklider — interactive cooperation between human and machine</p>
+          </div>
+        </div>
+
+        <div class="timeline-node">
+          <div class="timeline-dot">1963</div>
+          <div class="timeline-content">
+            <h4>Sketchpad</h4>
+            <p>Ivan Sutherland — first interactive computer graphics, direct manipulation</p>
+          </div>
+        </div>
+
+        <div class="timeline-node">
+          <div class="timeline-dot">1966</div>
+          <div class="timeline-content">
+            <h4>ELIZA</h4>
+            <p>Joseph Weizenbaum — first chatbot, machines simulating empathy</p>
+          </div>
+        </div>
+
+        <div class="timeline-node">
+          <div class="timeline-dot">1968</div>
+          <div class="timeline-content">
+            <h4>Mother of All Demos</h4>
+            <p>Douglas Engelbart — mouse, windows, hypertext, video conferencing</p>
+          </div>
+        </div>
+
+        <div class="timeline-node">
+          <div class="timeline-dot">1972</div>
+          <div class="timeline-content">
+            <h4>Dynabook</h4>
+            <p>Alan Kay — a portable learning device anticipating tablets by 35 years</p>
+          </div>
+        </div>
+
+        <div class="timeline-node">
+          <div class="timeline-dot">1974</div>
+          <div class="timeline-content">
+            <h4>Xanadu / Hypertext</h4>
+            <p>Ted Nelson — a global document network; hypertext before the web</p>
+          </div>
+        </div>
+
+        <div class="timeline-node">
+          <div class="timeline-dot">1986</div>
+          <div class="timeline-content">
+            <h4>Society of Mind</h4>
+            <p>Marvin Minsky — intelligence as the interplay of many simple agents</p>
+          </div>
+        </div>
+
+        <div class="timeline-node highlight">
+          <div class="timeline-dot">1987</div>
+          <div class="timeline-content">
+            <h4>Knowledge Navigator</h4>
+            <p>John Sculley / Apple — united all of this. Named the agent <strong>Phil</strong>.</p>
+          </div>
+        </div>
+
+        <div class="timeline-node highlight">
+          <div class="timeline-dot">2026</div>
+          <div class="timeline-content">
+            <h4>Phil (this project)</h4>
+            <p>Real code. Real AI. Same name.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <blockquote>
+        "A future-generation Macintosh might well be a wonderful fantasy machine called
+        the Knowledge Navigator, a discoverer of worlds, a tool as galvanizing as
+        the printing press."
+      </blockquote>
+      <cite>— John Sculley, <em>Odyssey: Pepsi to Apple</em>, 1987</cite>
+    </div>
+
+    <p style="font-size:.85rem; color:var(--muted); margin-top:1rem;">
+      Sources: Dubberly, H. (2024): <em>Making Knowledge Navigator</em> ·
+      Sculley, J., Byrne, J. A. (1987): <em>Odyssey: Pepsi to Apple</em>, Harper &amp; Row
+    </p>
+  </div>
+</section>
+
+<!-- ── Section 2: The 1987 Vision ──────────────────────────── -->
+<section class="section section--alt" id="vision">
+  <div class="container">
+    <p class="label">Apple · 1987</p>
+    <h2>The Vision</h2>
+    <p style="margin: 1rem 0 2rem;">
+      In 1987, Apple released a concept video showing what a personal knowledge assistant
+      could be. It was fiction — none of the required technology existed yet.
+      But the vision was precise, and the name of the assistant was already <strong>Phil</strong>.
+    </p>
+
+    <a href="https://www.youtube.com/watch?v=HGYFEI6uLy0" target="_blank"
+       style="display:block; max-width:600px; margin:0 auto 3rem; text-decoration:none;">
+      <div style="background:var(--bg); border:1px solid var(--border); border-radius:var(--radius);
+                  padding:3rem; text-align:center; cursor:pointer; transition:border-color .2s;"
+           onmouseover="this.style.borderColor='var(--accent)'"
+           onmouseout="this.style.borderColor='var(--border)'">
+        <div style="font-size:3rem; margin-bottom:1rem;">▶</div>
+        <p style="color:var(--muted); font-size:.9rem; margin:0;">
+          Apple Knowledge Navigator Concept Video (1987)<br>
+          <span style="font-size:.8rem;">Opens on YouTube</span>
+        </p>
+      </div>
+    </a>
+
+    <h3 style="margin-bottom:1.5rem;">Eight use cases Apple demonstrated</h3>
+    <div class="uc-grid">
+      <div class="uc-card">
+        <div class="uc-num">UC 1</div>
+        <h4>Conversational AI Agent</h4>
+        <p>Natural language dialogue with an intelligent "bowtie avatar" — proactive, context-aware</p>
+      </div>
+      <div class="uc-card">
+        <div class="uc-num">UC 2</div>
+        <h4>Calendar Management</h4>
+        <p>Automatic scheduling, reminders, and agenda briefings</p>
+      </div>
+      <div class="uc-card">
+        <div class="uc-num">UC 3</div>
+        <h4>Video Conferencing</h4>
+        <p>Real-time video call with a colleague for collaborative data analysis</p>
+      </div>
+      <div class="uc-card">
+        <div class="uc-num">UC 4</div>
+        <h4>Knowledge Research</h4>
+        <p>Intelligent search across scientific databases and sources</p>
+      </div>
+      <div class="uc-card">
+        <div class="uc-num">UC 5</div>
+        <h4>Data Visualisation</h4>
+        <p>Dynamic, interactive charts and geographic simulations on demand</p>
+      </div>
+      <div class="uc-card">
+        <div class="uc-num">UC 6</div>
+        <h4>Document Summarisation</h4>
+        <p>Automatic briefing from documents, messages and research papers</p>
+      </div>
+      <div class="uc-card">
+        <div class="uc-num">UC 7</div>
+        <h4>Simulation</h4>
+        <p>Modelling and visualisation of complex scenarios (e.g. deforestation over time)</p>
+      </div>
+      <div class="uc-card">
+        <div class="uc-num">UC 8</div>
+        <h4>Multimodal Interaction</h4>
+        <p>Touch, voice, and gesture as input methods — seamless delegation of tasks</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Section 3: The Gap ───────────────────────────────────── -->
+<section class="section" id="gap">
+  <div class="container">
+    <p class="label">1987 – 2022</p>
+    <h2>The Gap — And the Attempt</h2>
+    <p style="margin: 1rem 0 2rem;">
+      The vision was clear. The technology was not. Apple tried — honestly — with the Newton
+      MessagePad in 1993. It failed, not because the idea was wrong, but because the decade
+      was wrong. The Newton is not a failure story. It is proof that the idea was worth pursuing.
+    </p>
+
+    <div class="newton-grid">
+      <div class="newton-col vision">
+        <h3>Vision: Knowledge Navigator (1987)</h3>
+        <ul>
+          <li>Intelligent AI agent with natural language</li>
+          <li>Global knowledge access via network</li>
+          <li>Touch interaction — tablet form factor</li>
+          <li>Personalised, learns from the user</li>
+        </ul>
+      </div>
+      <div class="newton-col">
+        <h3>Reality: Apple Newton (1993)</h3>
+        <ul>
+          <li>$699 entry price — too high for unclear value</li>
+          <li>Handwriting recognition failed publicly (Simpsons parody)</li>
+          <li>No internet, no wireless sync, no ecosystem</li>
+          <li>Released 14 months before it was ready</li>
+        </ul>
+      </div>
+    </div>
+
+    <p style="margin: 2rem 0 1rem; font-weight:600; color:var(--text);">
+      What had to be invented before Phil could exist:
+    </p>
+    <div class="tech-timeline">
+      <div class="tech-year"><span>1990</span>Speech recognition</div>
+      <div class="tech-arrow">→</div>
+      <div class="tech-year"><span>1993</span>World Wide Web</div>
+      <div class="tech-arrow">→</div>
+      <div class="tech-year"><span>2006</span>Cloud computing</div>
+      <div class="tech-arrow">→</div>
+      <div class="tech-year"><span>2007</span>Touch (iPhone)</div>
+      <div class="tech-arrow">→</div>
+      <div class="tech-year"><span>2010</span>Tablet (iPad)</div>
+      <div class="tech-arrow">→</div>
+      <div class="tech-year"><span>2011</span>Siri</div>
+      <div class="tech-arrow">→</div>
+      <div class="tech-year"><span>2022</span>ChatGPT</div>
+      <div class="tech-arrow">→</div>
+      <div class="tech-year" style="border-color:var(--accent); color:var(--accent)"><span>2026</span>Phil ✦</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Section 4: Phil 2026 ─────────────────────────────────── -->
+<section class="section section--alt" id="phil">
+  <div class="container">
+    <p class="label">Phil 2026</p>
+    <h2>Today, the technology finally caught up.</h2>
+    <p style="margin: 1rem 0;">
+      Phil is a working personal information manager — not a concept video, not a demo.
+      It manages email, calendar, tasks and knowledge using today's AI tools.
+      It doesn't do everything Apple envisioned. But it does what matters most, right now.
+    </p>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">📬</div>
+        <h3>Mail Triage</h3>
+        <p>Phil reads your inbox and categorises messages by priority: VIP / Action Required / FYI / Noise. Each mail gets a summary and a concrete recommended action. Powered by Claude.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Dashboard</h3>
+        <p>A daily briefing at a glance: unread mails by category, today's calendar events, pending tasks, and analytical tiles showing your communication patterns.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📅</div>
+        <h3>Calendar</h3>
+        <p>Natural-language calendar search. Ask "What's next week?" or "When is the faculty meeting?" Phil fetches a full year of events and answers from context.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🤝</div>
+        <h3>Meeting Preparation</h3>
+        <p>Given a calendar event, Phil identifies participants, searches related emails via RAG, and drafts a structured briefing: attendees, relevant messages, proposed agenda.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🧠</div>
+        <h3>Memory &amp; Learning</h3>
+        <p>Phil remembers facts about you across sessions, stored in SQLite + ChromaDB. Thumbs up/down feedback drives RLHF-style learning. Facts are visible and editable.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔍</div>
+        <h3>Semantic Search</h3>
+        <p>Emails and attachments (PDF, DOCX) are indexed in a vector store. Phil can retrieve semantically similar past correspondence even when keyword search fails.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Section 5: Tech Stack ────────────────────────────────── -->
+<section class="section" id="tech">
+  <div class="container">
+    <p class="label">How It's Built</p>
+    <h2>Tech Stack</h2>
+    <p style="margin: 1rem 0 1.5rem;">
+      Phil is built entirely on open-source tooling and standard cloud APIs.
+      No proprietary platform lock-in. Everything you need is in the repository.
+    </p>
+    <p style="font-weight:600; color:var(--text); margin-bottom:.5rem;">Backend</p>
+    <div class="badges">
+      <span class="badge">FastAPI</span>
+      <span class="badge">Python 3.12</span>
+      <span class="badge">Anthropic Claude API</span>
+      <span class="badge">ChromaDB</span>
+      <span class="badge">SQLite</span>
+      <span class="badge">RDFlib</span>
+      <span class="badge">pdfplumber</span>
+      <span class="badge">exchangelib</span>
+    </div>
+    <p style="font-weight:600; color:var(--text); margin-bottom:.5rem;">Frontend</p>
+    <div class="badges">
+      <span class="badge">React 18</span>
+      <span class="badge">TypeScript</span>
+      <span class="badge">Vite</span>
+      <span class="badge">CSS Modules</span>
+    </div>
+    <p style="font-weight:600; color:var(--text); margin-bottom:.5rem;">Integrations</p>
+    <div class="badges">
+      <span class="badge">Google Workspace</span>
+      <span class="badge">DuckDuckGo Search</span>
+      <span class="badge">PyHafas (DB)</span>
+    </div>
+    <p style="margin-top:2rem;">
+      Every LLM prompt in Phil follows the <strong>CO-STAR framework</strong>
+      (Context · Objective · Style · Tone · Audience · Response format).
+      <a href="prompts/" style="color:var(--accent)">See all prompts →</a>
+    </p>
+  </div>
+</section>
+
+<!-- ── Section 6: Get Started ──────────────────────────────── -->
+<section class="section section--alt" id="start">
+  <div class="container">
+    <p class="label">For Students</p>
+    <h2>Rebuild Phil yourself.</h2>
+    <p style="margin: 1rem 0 2rem;">
+      You need Python 3.11+, Node 20+, an Anthropic API key and a Google Workspace account.
+      No Docker required.
+    </p>
+    <div class="de-note" style="margin-bottom:2rem;">
+      <strong>DE:</strong> Du brauchst Python 3.11+, Node 20+, einen Anthropic API-Key und ein Google Workspace Konto.
+      Docker ist nicht erforderlich.
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Clone &amp; install dependencies</h3>
+          <p>Get the code and install both Python and JavaScript dependencies.</p>
+          <pre>git clone https://github.com/swrobuts/phil-knowledge-navigator
+cd phil-knowledge-navigator
+pip install -r backend/requirements.txt
+cd frontend &amp;&amp; npm install &amp;&amp; cd ..</pre>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Configure your <code>.env</code></h3>
+          <p>Copy the example file and add your credentials. The only required key is <code>ANTHROPIC_API_KEY</code> for basic chat. Google credentials unlock mail and calendar features.</p>
+          <pre>cp backend/.env.example backend/.env
+# Edit backend/.env and add:
+# ANTHROPIC_API_KEY=sk-ant-...</pre>
+          <div class="de-note">
+            <strong>DE:</strong> Die Datei <code>.env.example</code> erklärt jeden Parameter.
+            Für einen ersten Start reicht der Anthropic API-Key.
+          </div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Run Phil locally</h3>
+          <p>Start the backend and frontend in two terminal tabs.</p>
+          <pre># Terminal 1 — Backend
+uvicorn backend.main:app --reload
+
+# Terminal 2 — Frontend
+cd frontend &amp;&amp; npm run dev
+
+# Open → http://localhost:5173</pre>
+        </div>
+      </div>
+    </div>
+
+    <a href="setup/" class="btn btn-primary">Full Setup Guide →</a>
+    <a href="https://github.com/swrobuts/phil-knowledge-navigator" class="btn btn-ghost" target="_blank" style="margin-left:1rem;">View on GitHub →</a>
+  </div>
+</section>
+
+<!-- ── Footer ───────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-links">
+    <a href=".">Documentation</a>
+    <a href="story/">The Story</a>
+    <a href="prompts/">CO-STAR Prompts</a>
+    <a href="https://github.com/swrobuts/phil-knowledge-navigator" target="_blank">GitHub</a>
+  </div>
+  <p>
+    Phil is a student project at THWS / DHBW in the course <em>Datenbasierte Fallstudien</em>.
+    It is not affiliated with Apple Inc.<br>
+    MIT Licence · Built with Claude Code by Anthropic.
+  </p>
+</footer>
+
+</body>
+</html>
