@@ -2,6 +2,8 @@ site_name: Phil – Knowledge Navigator
 site_url: https://swrobuts.github.io/phil-website/
 site_description: A student reimagining of Apple's 1987 Knowledge Navigator
 site_author: Robert Butscher
+repo_url: https://github.com/swrobuts/phil-knowledge-navigator
+repo_name: swrobuts/phil-knowledge-navigator
 
 docs_dir: docs
 site_dir: site
