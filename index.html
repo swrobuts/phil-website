@@ -1,0 +1,635 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phil – Knowledge Navigator</title>
+  <meta name="description" content="A student reimagining of Apple's 1987 Knowledge Navigator. Built with FastAPI, React and Claude AI.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<!-- ── Navigation ──────────────────────────────────────────── -->
+<nav id="nav">
+  <a href="#" class="nav-logo">Phil</a>
+  <ul class="nav-links">
+    <li><a href="#lineage">Lineage</a></li>
+    <li><a href="#vision">1987</a></li>
+    <li><a href="#phil">Features</a></li>
+    <li><a href="#hybrid">Hybrid AI</a></li>
+    <li><a href="#start">Get Started</a></li>
+    <li><a href="setup/" class="nav-cta">Docs →</a></li>
+  </ul>
+</nav>
+
+<!-- ── Hero ────────────────────────────────────────────────── -->
+<section class="hero" id="hero">
+  <div class="hero-left">
+    <span class="hero-pre">Open Student Project · THWS · 2026</span>
+    <h1>Standing on the<br>Shoulders<br>of Giants</h1>
+    <p class="hero-body">
+      Apple imagined a personal knowledge assistant in 1987 and named it <strong>Phil</strong>.
+      Decades of visionary thinking made it possible.
+      In 2026, we rebuilt it.
+    </p>
+    <div class="btn-group">
+      <a href="#lineage" class="btn btn-primary">Explore the Story</a>
+      <a href="#start" class="btn btn-outline">Get Started</a>
+      <a href="https://github.com/swrobuts/phil-knowledge-navigator" class="btn btn-ghost" target="_blank">GitHub ↗</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="phil-demo">
+      <div class="phil-demo-header">
+        <div class="phil-demo-dot" style="background:#ff5f57"></div>
+        <div class="phil-demo-dot" style="background:#febc2e"></div>
+        <div class="phil-demo-dot" style="background:#28c840"></div>
+        <span class="phil-demo-title">Phil — Knowledge Navigator</span>
+      </div>
+      <div class="phil-demo-body" id="demoBody">
+        <div class="phil-msg phil-msg--system">
+          <span class="phil-msg-label">Phil</span>
+          <p>Guten Morgen. Du hast <strong>3 VIP-Mails</strong> und 2 Termine heute. Soll ich mit dem dringendsten anfangen?</p>
+        </div>
+        <div class="phil-msg phil-msg--user">
+          <p>Was steht heute an?</p>
+        </div>
+        <div class="phil-msg phil-msg--system">
+          <span class="phil-msg-label">Phil</span>
+          <p>10:00 — Fakultätssitzung · Raum 204<br>14:30 — Studentensprechstunde<br><br>VIP: Prof. Schmidt wartet auf Rückmeldung zur Hausarbeit.</p>
+        </div>
+        <div class="phil-demo-typing">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Stats bar ──────────────────────────────────────────── -->
+<div class="stats-bar">
+  <div class="stat-item"><strong data-count="14">14</strong> <span>visionary pioneers</span></div>
+  <div class="stat-sep">·</div>
+  <div class="stat-item"><strong data-count="91">91</strong> <span>years of ideas</span></div>
+  <div class="stat-sep">·</div>
+  <div class="stat-item"><strong data-count="8">8</strong> <span>Apple use cases</span></div>
+  <div class="stat-sep">·</div>
+  <div class="stat-item"><strong data-count="9">9</strong> <span>features rebuilt</span></div>
+</div>
+
+<!-- ── Section 1: The Lineage ──────────────────────────────── -->
+<section class="section" id="lineage">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="label">Intellectual Lineage</p>
+      <h2>Every idea has ancestors.</h2>
+      <p class="section-lead">
+        The Knowledge Navigator crystallised fifty years of visionary thinking.
+        From index cards to artificial intelligence, here is the lineage that made Phil possible.
+      </p>
+    </div>
+
+    <div class="lineage-wrap">
+      <div class="lineage-year-bg" id="lineageYearBg">1935</div>
+      <div class="timeline-v">
+        <div class="timeline-v-item reveal" data-year="1935"><div class="timeline-v-year">1935</div><h4>Mundaneum · Paul Otlet</h4><p>A global knowledge network on 16 million index cards — an analogue internet.</p></div>
+        <div class="timeline-v-item reveal" data-year="1937"><div class="timeline-v-year">1937</div><h4>World Brain · H.G. Wells</h4><p>A living, continuously updated world encyclopaedia accessible to all.</p></div>
+        <div class="timeline-v-item reveal" data-year="1945"><div class="timeline-v-year">1945</div><h4>Memex · Vannevar Bush</h4><p>A desk that stores and links documents associatively — conceptual hypertext, 1945.</p></div>
+        <div class="timeline-v-item reveal" data-year="1950"><div class="timeline-v-year">1950</div><h4>Turing Test · Alan Turing</h4><p>Can machines think? The measure for artificial intelligence to this day.</p></div>
+        <div class="timeline-v-item reveal" data-year="1955"><div class="timeline-v-year">1955</div><h4>Artificial Intelligence · John McCarthy</h4><p>Coined the term at Dartmouth. Set the research agenda for everything that followed.</p></div>
+        <div class="timeline-v-item reveal" data-year="1960"><div class="timeline-v-year">1960</div><h4>Man–Computer Symbiosis · J.C.R. Licklider</h4><p>Interactive cooperation between human and machine — augmentation, not automation.</p></div>
+        <div class="timeline-v-item reveal" data-year="1963"><div class="timeline-v-year">1963</div><h4>Sketchpad · Ivan Sutherland</h4><p>First interactive graphics system. Direct manipulation decades before the mouse.</p></div>
+        <div class="timeline-v-item reveal" data-year="1966"><div class="timeline-v-year">1966</div><h4>ELIZA · Joseph Weizenbaum</h4><p>First chatbot — and a warning about how readily people attribute understanding to machines.</p></div>
+        <div class="timeline-v-item reveal" data-year="1968"><div class="timeline-v-year">1968</div><h4>Mother of All Demos · Douglas Engelbart</h4><p>Mouse, windows, hypertext, video conferencing — demonstrated live, all at once.</p></div>
+        <div class="timeline-v-item reveal" data-year="1972"><div class="timeline-v-year">1972</div><h4>Dynabook · Alan Kay</h4><p>A portable personal computer for children — the iPad, 38 years early.</p></div>
+        <div class="timeline-v-item reveal" data-year="1974"><div class="timeline-v-year">1974</div><h4>Xanadu · Ted Nelson</h4><p>Invented "hypertext". Designed a global non-hierarchical document network.</p></div>
+        <div class="timeline-v-item reveal" data-year="1986"><div class="timeline-v-year">1986</div><h4>Society of Mind · Marvin Minsky</h4><p>Intelligence as emergent from many simple agents — the architecture of today's LLMs.</p></div>
+        <div class="timeline-v-item timeline-v-item--highlight reveal" data-year="1987"><div class="timeline-v-year">1987</div><h4>Knowledge Navigator · John Sculley / Apple</h4><p>United fifty years of visionary thinking into a 9-minute concept video. Named the assistant <strong>Phil</strong>.</p></div>
+        <div class="timeline-v-item timeline-v-item--highlight timeline-v-item--now reveal" data-year="2026"><div class="timeline-v-year">2026</div><h4>Phil · This project</h4><p>Real code. Real AI. Same name.</p></div>
+      </div>
+    </div>
+
+    <div class="quote-block reveal">
+      <blockquote>
+        "A future-generation Macintosh might well be a wonderful fantasy machine called
+        the Knowledge Navigator, a discoverer of worlds, a tool as galvanizing as the printing press."
+      </blockquote>
+      <cite>— John Sculley, <em>Odyssey: Pepsi to Apple</em>, 1987</cite>
+    </div>
+    <p class="source-credit">
+      Sources: Dubberly, H. (2024): <em>Making Knowledge Navigator</em> ·
+      Sculley, J., Byrne, J.A. (1987): <em>Odyssey: Pepsi to Apple</em>, Harper &amp; Row
+    </p>
+  </div>
+</section>
+
+<!-- ── Section 2: The 1987 Vision ──────────────────────────── -->
+<section class="section section--dark" id="vision">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="label">Apple · 1987</p>
+      <h2>The Vision</h2>
+      <p class="section-lead">
+        In 1987, Apple released a concept video of a personal knowledge assistant.
+        It was fiction — none of the required technology existed yet.
+        The assistant was already named <strong>Phil</strong>.
+      </p>
+    </div>
+
+    <a href="https://www.youtube.com/watch?v=HGYFEI6uLy0" target="_blank" class="video-link reveal">
+      <div class="video-thumb">
+        <div class="video-play">&#9654;</div>
+        <div class="video-meta">
+          <strong>Apple Knowledge Navigator Concept Video</strong>
+          <span>1987 · Opens on YouTube</span>
+        </div>
+      </div>
+    </a>
+
+    <h3 class="reveal" style="margin:0 0 1.5rem; font-size:1.1rem; color:var(--text);">Eight use cases Apple demonstrated</h3>
+    <div class="uc-list reveal">
+      <div class="uc-item"><span class="uc-n">01</span><div><strong>Conversational AI Agent</strong><p>Natural language dialogue with an intelligent assistant — proactive, context-aware</p></div></div>
+      <div class="uc-item"><span class="uc-n">02</span><div><strong>Calendar Management</strong><p>Automatic scheduling, reminders, agenda briefings</p></div></div>
+      <div class="uc-item"><span class="uc-n">03</span><div><strong>Video Conferencing</strong><p>Real-time video call for collaborative data analysis</p></div></div>
+      <div class="uc-item"><span class="uc-n">04</span><div><strong>Knowledge Research</strong><p>Intelligent search across scientific databases and sources</p></div></div>
+      <div class="uc-item"><span class="uc-n">05</span><div><strong>Data Visualisation</strong><p>Dynamic, interactive charts and geographic simulations on demand</p></div></div>
+      <div class="uc-item"><span class="uc-n">06</span><div><strong>Document Summarisation</strong><p>Automatic briefing from documents, messages and research papers</p></div></div>
+      <div class="uc-item"><span class="uc-n">07</span><div><strong>Simulation</strong><p>Modelling and visualisation of complex scenarios</p></div></div>
+      <div class="uc-item"><span class="uc-n">08</span><div><strong>Multimodal Interaction</strong><p>Touch, voice, and gesture — seamless delegation of tasks</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Section 3: The Gap ───────────────────────────────────── -->
+<section class="section" id="gap">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="label">1987 – 2022</p>
+      <h2>The Gap —<br>And the Attempt</h2>
+      <p class="section-lead">
+        The vision was clear. The technology was not. Apple tried honestly —
+        the Newton MessagePad in 1993. It failed because the decade was wrong.
+        The Newton is not a failure story. It is proof the idea was worth pursuing.
+      </p>
+    </div>
+
+    <div class="newton-grid reveal">
+      <div class="newton-col newton-col--vision">
+        <div class="newton-col-label">Vision (1987)</div>
+        <h3>Knowledge Navigator</h3>
+        <ul>
+          <li>Intelligent AI agent with natural language</li>
+          <li>Global knowledge access via network</li>
+          <li>Touch interaction — tablet form factor</li>
+          <li>Personalised, learns from the user</li>
+        </ul>
+      </div>
+      <div class="newton-col">
+        <div class="newton-col-label">Reality (1993)</div>
+        <h3>Apple Newton</h3>
+        <ul>
+          <li>$699 entry price — unclear value proposition</li>
+          <li>Handwriting recognition failed publicly</li>
+          <li>No internet, no wireless, no ecosystem</li>
+          <li>Released 14 months before it was ready</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="year-gap reveal">
+      <span class="year-gap-num year-gap-from">1987</span>
+      <span class="year-gap-arrow">→</span>
+      <span class="year-gap-num year-gap-to">2026</span>
+    </div>
+    <p class="reveal" style="margin:0 0 1rem; font-weight:600; color:var(--text);">What had to be invented before Phil could exist</p>
+    <div class="tech-timeline reveal">
+      <div class="tech-year"><span>1990</span>Speech recognition</div>
+      <div class="tech-arrow">→</div>
+      <div class="tech-year"><span>1993</span>World Wide Web</div>
+      <div class="tech-arrow">→</div>
+      <div class="tech-year"><span>2006</span>Cloud computing</div>
+      <div class="tech-arrow">→</div>
+      <div class="tech-year"><span>2007</span>Touch (iPhone)</div>
+      <div class="tech-arrow">→</div>
+      <div class="tech-year"><span>2010</span>Tablet (iPad)</div>
+      <div class="tech-arrow">→</div>
+      <div class="tech-year"><span>2011</span>Siri</div>
+      <div class="tech-arrow">→</div>
+      <div class="tech-year"><span>2022</span>ChatGPT</div>
+      <div class="tech-arrow">→</div>
+      <div class="tech-year tech-year--now"><span>2026</span>Phil</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Section 4: Phil 2026 ─────────────────────────────────── -->
+<section class="section section--dark" id="phil">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="label">Phil 2026</p>
+      <h2>Today, the technology<br>finally caught up.</h2>
+      <p class="section-lead">
+        Phil is a working personal information manager — not a concept video.
+        It manages email, calendar, tasks and knowledge using today's AI tools.
+        It does not do everything Apple envisioned. It does what matters most, right now.
+      </p>
+    </div>
+
+    <div class="feature-list">
+      <div class="feature-row reveal">
+        <span class="feature-row-num">01</span>
+        <div class="feature-row-body">
+          <strong>Mail Triage</strong>
+          <p>Phil reads your inbox and categorises every message: VIP / Action Required / FYI / Noise. Each mail gets a 2-sentence summary and a concrete action recommendation. Powered by Claude.</p>
+        </div>
+        <a href="features/mail-triage/" class="feature-row-link">Learn more →</a>
+      </div>
+      <div class="feature-row reveal">
+        <span class="feature-row-num">02</span>
+        <div class="feature-row-body">
+          <strong>Dashboard</strong>
+          <p>A daily briefing at a glance: unread mail counts by category, today's calendar events, pending tasks, and analytical tiles showing communication patterns over time.</p>
+        </div>
+        <a href="features/dashboard/" class="feature-row-link">Learn more →</a>
+      </div>
+      <div class="feature-row reveal">
+        <span class="feature-row-num">03</span>
+        <div class="feature-row-body">
+          <strong>Calendar</strong>
+          <p>Natural-language calendar search across a full year of events. Ask "What's next week?" or "When is the faculty meeting?" Phil fetches the context and answers — no hallucinations.</p>
+        </div>
+        <a href="features/calendar/" class="feature-row-link">Learn more →</a>
+      </div>
+      <div class="feature-row reveal">
+        <span class="feature-row-num">04</span>
+        <div class="feature-row-body">
+          <strong>Meeting Preparation</strong>
+          <p>Given a calendar event, Phil identifies participants, retrieves related emails via semantic search, and drafts a structured briefing: attendees, relevant messages, agenda suggestion.</p>
+        </div>
+        <a href="features/meeting-prep/" class="feature-row-link">Learn more →</a>
+      </div>
+      <div class="feature-row reveal">
+        <span class="feature-row-num">05</span>
+        <div class="feature-row-body">
+          <strong>Memory &amp; Learning</strong>
+          <p>Phil remembers facts about you across sessions, stored in SQLite and ChromaDB. Thumbs up/down feedback drives RLHF-style learning. All facts are visible and editable.</p>
+        </div>
+        <a href="features/memory-learning/" class="feature-row-link">Learn more →</a>
+      </div>
+      <div class="feature-row reveal">
+        <span class="feature-row-num">06</span>
+        <div class="feature-row-body">
+          <strong>Semantic Search</strong>
+          <p>Emails and PDF/DOCX attachments are indexed in a vector store. Phil retrieves semantically similar past correspondence even when keyword search fails.</p>
+        </div>
+        <a href="features/rag-search/" class="feature-row-link">Learn more →</a>
+      </div>
+      <div class="feature-row reveal">
+        <span class="feature-row-num">07</span>
+        <div class="feature-row-body">
+          <strong>Knowledge Graph &amp; Ontology</strong>
+          <p>A local OWL/RDF knowledge graph models relationships between people, topics and organisations extracted from emails. RDFlib + SPARQL queries surface semantic connections that vector search cannot find.</p>
+        </div>
+        <a href="features/rag-search/" class="feature-row-link">Learn more →</a>
+      </div>
+      <div class="feature-row reveal">
+        <span class="feature-row-num">08</span>
+        <div class="feature-row-body">
+          <strong>Speech Output</strong>
+          <p>Phil reads out briefings and responses using browser-native text-to-speech. Hands-free morning briefings — useful while getting ready or commuting. No additional API required.</p>
+        </div>
+        <a href="features/" class="feature-row-link">Learn more →</a>
+      </div>
+      <div class="feature-row reveal">
+        <span class="feature-row-num">09</span>
+        <div class="feature-row-body">
+          <strong>Exchange &amp; EWS</strong>
+          <p>Phil connects to Microsoft Exchange mailboxes via EWS — not just Gmail. Corporate Exchange Server and Microsoft 365 environments are fully supported via exchangelib, with automatic OAuth or basic auth.</p>
+        </div>
+        <a href="features/" class="feature-row-link">Learn more →</a>
+      </div>
+    </div>
+
+    <div class="screenshots-grid" id="screenshots">
+      <img src="assets/screenshots/dashboard.png" alt="Phil Dashboard" onerror="this.style.display='none'">
+      <img src="assets/screenshots/mail-triage.png" alt="Phil Mail Triage" onerror="this.style.display='none'">
+      <img src="assets/screenshots/chat.png" alt="Phil Chat" onerror="this.style.display='none'">
+    </div>
+  </div>
+</section>
+
+<!-- ── Section 5: Hybrid AI ────────────────────────────────── -->
+<section class="section" id="hybrid">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="label">Hybrid AI</p>
+      <h2>Phil thinks locally —<br>or in the cloud.</h2>
+      <p class="section-lead">
+        By default, Phil uses Anthropic's Claude API for the highest quality results.
+        But it can also run entirely on local hardware — no data leaves your machine,
+        no API costs, full privacy.
+      </p>
+    </div>
+
+    <div class="hybrid-modes reveal">
+      <div class="hybrid-mode">
+        <div class="hybrid-mode-badge">Cloud</div>
+        <h3>Anthropic Claude</h3>
+        <p>Default mode. Highest reasoning quality, instant setup. Requires an Anthropic API key.</p>
+        <div class="hybrid-mode-code">
+          <code>ANTHROPIC_API_KEY=sk-ant-...</code>
+        </div>
+        <ul class="hybrid-mode-list">
+          <li>Claude Sonnet / Haiku — streaming via SSE</li>
+          <li>Best quality for triage, briefing, memory</li>
+          <li>No local GPU required</li>
+        </ul>
+      </div>
+      <div class="hybrid-mode hybrid-mode--local">
+        <div class="hybrid-mode-badge hybrid-mode-badge--local">Local</div>
+        <h3>LM Studio + Open-Source LLM</h3>
+        <p>Run a powerful open-source model entirely on your own hardware. Zero API costs, full data sovereignty.</p>
+        <div class="hybrid-mode-code">
+          <code>LOCAL_LLM_ENDPOINT=http://localhost:1234/v1</code>
+          <code>LOCAL_LLM_MODEL=qwen2.5-32b-instruct</code>
+        </div>
+        <ul class="hybrid-mode-list">
+          <li>Qwen2.5-32B · Llama 3.3 70B · Mistral</li>
+          <li>Automatic fallback to cloud if unavailable</li>
+          <li>16 GB VRAM or Apple Silicon M-series</li>
+          <li><strong>DSGVO-konform:</strong> Keine Daten verlassen das Gerät</li>
+        </ul>
+      </div>
+    </div>
+    <div class="de-note reveal" style="margin-top:2rem;">
+      <strong>DE — Datenschutz:</strong> Im lokalen Modus verlässt kein Prompt und keine E-Mail das eigene Gerät.
+      Die Verarbeitung personenbezogener Daten bleibt damit vollständig unter eigener Kontrolle — relevant für
+      den Einsatz im Hochschul- und Unternehmensumfeld (DSGVO Art. 25 — Privacy by Design).
+    </div>
+
+    <div class="reveal">
+      <p class="label" style="margin-bottom:1rem;">Hardware Requirements for Local LLM</p>
+      <div class="hw-tiers">
+        <div class="hw-tier">
+          <span class="hw-tier-label">Minimum — 7B / 14B models</span>
+          <h4>16 GB unified / VRAM</h4>
+          <ul>
+            <li>Apple M1 Pro / M2 / M3 · 16 GB</li>
+            <li>NVIDIA RTX 3080 · 10 GB</li>
+            <li>Runs Qwen2.5-7B, Llama-3.2-11B</li>
+          </ul>
+        </div>
+        <div class="hw-tier">
+          <span class="hw-tier-label">Recommended — 32B models</span>
+          <h4>24 GB unified / VRAM</h4>
+          <ul>
+            <li>Apple M3 Pro 36 GB / M4 Pro 24 GB+</li>
+            <li>NVIDIA RTX 3090 / 4090 · 24 GB</li>
+            <li>Runs Qwen2.5-32B Q4, Llama 3.3 70B Q2</li>
+          </ul>
+        </div>
+        <div class="hw-tier hw-tier--verified">
+          <span class="hw-tier-label">Verified</span>
+          <h4>Apple M4 Pro · 48 GB</h4>
+          <ul>
+            <li>Qwen2.5-32B-Instruct Q4_K_M</li>
+            <li>~22 tokens/sec generation</li>
+            <li>All features fully tested</li>
+          </ul>
+        </div>
+      </div>
+      <p style="font-size:.85rem; color:var(--muted);">
+        Phil automatically falls back to the cloud API if the local endpoint is unavailable.
+        Configure both for redundancy — local for daily use, cloud as backup.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ── Section 6: Tech Stack ────────────────────────────────── -->
+<section class="section section--dark" id="tech">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="label">How It's Built</p>
+      <h2>Open standards.<br>No lock-in.</h2>
+    </div>
+    <div class="stack-cols reveal">
+      <div class="stack-col">
+        <span class="stack-label">Backend</span>
+        <div class="badges">
+          <span class="badge">FastAPI</span>
+          <span class="badge">Python 3.12</span>
+          <span class="badge">Anthropic Claude API</span>
+          <span class="badge">ChromaDB</span>
+          <span class="badge">SQLite</span>
+          <span class="badge">RDFlib</span>
+          <span class="badge">pdfplumber</span>
+          <span class="badge">exchangelib</span>
+        </div>
+      </div>
+      <div class="stack-col">
+        <span class="stack-label">Frontend</span>
+        <div class="badges">
+          <span class="badge">React 18</span>
+          <span class="badge">TypeScript</span>
+          <span class="badge">Vite</span>
+          <span class="badge">CSS Modules</span>
+        </div>
+        <span class="stack-label" style="margin-top:1.5rem;">Integrations</span>
+        <div class="badges">
+          <span class="badge">Google Workspace</span>
+          <span class="badge">DuckDuckGo Search</span>
+          <span class="badge">PyHafas (DB)</span>
+          <span class="badge">LM Studio</span>
+        </div>
+      </div>
+    </div>
+    <p class="reveal" style="margin-top:2.5rem;">
+      Every LLM prompt in Phil follows the <strong>CO-STAR framework</strong>
+      (Context · Objective · Style · Tone · Audience · Response format).
+      <a href="prompts/" style="color:var(--accent)">See all prompts →</a>
+    </p>
+  </div>
+</section>
+
+<!-- ── Section 7: Get Started ──────────────────────────────── -->
+<section class="section" id="start">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="label">For Students</p>
+      <h2>Rebuild Phil<br>yourself.</h2>
+      <p class="section-lead">
+        Python 3.11+ and Node 20+, or Docker Compose for a one-command start.
+        An Anthropic API key and a Google Workspace account are required either way.
+      </p>
+    </div>
+
+    <div class="de-note reveal" style="margin-bottom:2.5rem;">
+      <strong>DE:</strong> Python 3.11+, Node 20+ und ein Anthropic API-Key — oder alternativ Docker Compose
+      für einen Ein-Befehl-Start. Auch ein Google Workspace Konto wird benötigt.
+    </div>
+
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Clone &amp; install</h3>
+          <p>Get the code and install Python and JavaScript dependencies.</p>
+          <pre>git clone https://github.com/swrobuts/phil-knowledge-navigator
+pip install -r backend/requirements.txt
+cd frontend &amp;&amp; npm install</pre>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Configure <code>.env</code></h3>
+          <p>Copy the example file and add your API key. Only <code>ANTHROPIC_API_KEY</code> is required to start.</p>
+          <pre>cp backend/.env.example backend/.env
+# Add ANTHROPIC_API_KEY=sk-ant-...</pre>
+          <div class="de-note" style="margin-top:.75rem;">
+            <strong>DE:</strong> Die <code>.env.example</code> erklärt jeden Parameter. Für den Start reicht der Anthropic API-Key.
+          </div>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Run Phil locally</h3>
+          <p>Start backend and frontend in two terminals.</p>
+          <pre># Terminal 1 — Backend
+uvicorn backend.main:app --reload
+
+# Terminal 2 — Frontend
+cd frontend &amp;&amp; npm run dev
+
+# Open → http://localhost:5173</pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="step reveal">
+      <div class="step-num" style="background:var(--surface-2); color:var(--text-muted); border:1px solid var(--border);">OR</div>
+      <div class="step-body">
+        <h3>Run with Docker Compose</h3>
+        <p>Prefer containers? One command starts backend, frontend and Traefik together.</p>
+        <pre>cp backend/.env.example backend/.env
+# Add your API key and Google credentials
+docker compose up --build</pre>
+        <div class="de-note" style="margin-top:.75rem;">
+          <strong>DE:</strong> Docker Compose startet alle Dienste gebündelt. Ideal für reproduzierbare Umgebungen
+          und den Einsatz auf eigenen Servern oder in der Cloud.
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-row reveal">
+      <a href="setup/" class="btn btn-primary">Full Setup Guide →</a>
+      <a href="https://github.com/swrobuts/phil-knowledge-navigator" class="btn btn-outline" target="_blank">View on GitHub →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ───────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="setup/">Documentation</a>
+      <a href="story/">The Story</a>
+      <a href="prompts/">CO-STAR Prompts</a>
+      <a href="https://github.com/swrobuts/phil-knowledge-navigator" target="_blank">GitHub</a>
+    </div>
+    <p>
+      Phil is a student project at <strong>THWS</strong> in the course <em>Datenbasierte Fallstudien</em>.
+      Not affiliated with Apple Inc. · MIT Licence
+    </p>
+    <p style="margin-top:.5rem; font-size:.75rem; opacity:.6;">Built with Claude Code by Anthropic.</p>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+// Nav state on scroll
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+}, { passive: true });
+
+// Stats counter animation
+document.querySelectorAll('[data-count]').forEach(el => {
+  const target = parseInt(el.dataset.count, 10);
+  const cObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      cObs.unobserve(el);
+      const dur = 1600, t0 = performance.now();
+      (function step(now) {
+        const p = Math.min((now - t0) / dur, 1);
+        const ease = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(ease * target);
+        if (p < 1) requestAnimationFrame(step);
+        else el.textContent = target;
+      })(t0);
+    });
+  }, { threshold: 0.5 });
+  cObs.observe(el);
+});
+
+// Scrollytelling — timeline year watermark
+const yearBg = document.getElementById('lineageYearBg');
+if (yearBg) {
+  const yearItems = document.querySelectorAll('.timeline-v-item[data-year]');
+  const yObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) yearBg.textContent = entry.target.dataset.year;
+    });
+  }, { threshold: 0.5, rootMargin: '-10% 0px -10% 0px' });
+  yearItems.forEach(el => yObs.observe(el));
+}
+
+// Animated typing demo in hero
+const demoMsgs = [
+  "Soll ich die VIP-Mail von Prof. Schmidt zusammenfassen?",
+  "Die Fakultätssitzung hat drei verwandte Mails aus letzter Woche.",
+  "Ich merke mir: Klausurtermin 15. März."
+];
+let demoIdx = 0;
+const demoBody = document.getElementById('demoBody');
+if (demoBody) {
+  setInterval(() => {
+    const typing = demoBody.querySelector('.phil-demo-typing');
+    const msg = document.createElement('div');
+    msg.className = 'phil-msg phil-msg--system reveal';
+    msg.innerHTML = '<span class="phil-msg-label">Phil</span><p>' + demoMsgs[demoIdx % demoMsgs.length] + '</p>';
+    demoBody.insertBefore(msg, typing);
+    setTimeout(() => msg.classList.add('visible'), 50);
+    demoBody.scrollTop = demoBody.scrollHeight;
+    demoIdx++;
+    const all = demoBody.querySelectorAll('.phil-msg');
+    if (all.length > 5) all[0].remove();
+  }, 4000);
+}
+
+// Local file:// notice
+if (location.protocol === 'file:') {
+  const bar = document.createElement('div');
+  bar.style.cssText = 'position:fixed;bottom:0;left:0;right:0;background:#1a1a1a;border-top:1px solid #333;padding:.65rem 1.5rem;font-size:.78rem;color:#999;z-index:999;display:flex;justify-content:space-between;align-items:center;';
+  bar.innerHTML = '<span>Doc links require the deployed site or <code style="color:#f0a500">mkdocs serve</code> — <a href="https://swrobuts.github.io/phil-website/" style="color:#f0a500">swrobuts.github.io/phil-website</a></span><button onclick="this.parentNode.remove()" style="background:none;border:none;color:#666;cursor:pointer;font-size:1rem;">&#x2715;</button>';
+  document.body.appendChild(bar);
+}
+</script>
+</body>
+</html>
