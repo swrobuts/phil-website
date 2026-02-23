@@ -14,7 +14,7 @@
 
 <!-- ── Navigation ──────────────────────────────────────────── -->
 <nav id="nav">
-  <a href="#" class="nav-logo">Phil ✦</a>
+  <a href="#" class="nav-logo">Phil</a>
   <ul class="nav-links">
     <li><a href="#lineage">Lineage</a></li>
     <li><a href="#vision">1987</a></li>
@@ -29,7 +29,7 @@
 <section class="hero" id="hero">
   <div class="hero-left">
     <span class="hero-pre">Open Student Project · THWS · 2026</span>
-    <h1>Standing on the<br><span class="gradient-text">Shoulders<br>of Giants</span></h1>
+    <h1>Standing on the<br>Shoulders<br>of Giants</h1>
     <p class="hero-body">
       Apple imagined a personal knowledge assistant in 1987 and named it <strong>Phil</strong>.
       Decades of visionary thinking made it possible.
@@ -72,13 +72,13 @@
 
 <!-- ── Stats bar ──────────────────────────────────────────── -->
 <div class="stats-bar">
-  <div class="stat-item"><strong>14</strong> <span>visionary pioneers</span></div>
+  <div class="stat-item"><strong data-count="14">14</strong> <span>visionary pioneers</span></div>
   <div class="stat-sep">·</div>
-  <div class="stat-item"><strong>91</strong> <span>years of ideas</span></div>
+  <div class="stat-item"><strong data-count="91">91</strong> <span>years of ideas</span></div>
   <div class="stat-sep">·</div>
-  <div class="stat-item"><strong>8</strong> <span>Apple use cases</span></div>
+  <div class="stat-item"><strong data-count="8">8</strong> <span>Apple use cases</span></div>
   <div class="stat-sep">·</div>
-  <div class="stat-item"><strong>9</strong> <span>features rebuilt</span></div>
+  <div class="stat-item"><strong data-count="9">9</strong> <span>features rebuilt</span></div>
 </div>
 
 <!-- ── Section 1: The Lineage ──────────────────────────────── -->
@@ -93,21 +93,24 @@
       </p>
     </div>
 
-    <div class="timeline-v">
-      <div class="timeline-v-item reveal"><div class="timeline-v-year">1935</div><h4>Mundaneum · Paul Otlet</h4><p>A global knowledge network on 16 million index cards — an analogue internet.</p></div>
-      <div class="timeline-v-item reveal"><div class="timeline-v-year">1937</div><h4>World Brain · H.G. Wells</h4><p>A living, continuously updated world encyclopaedia accessible to all.</p></div>
-      <div class="timeline-v-item reveal"><div class="timeline-v-year">1945</div><h4>Memex · Vannevar Bush</h4><p>A desk that stores and links documents associatively — conceptual hypertext, 1945.</p></div>
-      <div class="timeline-v-item reveal"><div class="timeline-v-year">1950</div><h4>Turing Test · Alan Turing</h4><p>Can machines think? The measure for artificial intelligence to this day.</p></div>
-      <div class="timeline-v-item reveal"><div class="timeline-v-year">1955</div><h4>Artificial Intelligence · John McCarthy</h4><p>Coined the term at Dartmouth. Set the research agenda for everything that followed.</p></div>
-      <div class="timeline-v-item reveal"><div class="timeline-v-year">1960</div><h4>Man–Computer Symbiosis · J.C.R. Licklider</h4><p>Interactive cooperation between human and machine — augmentation, not automation.</p></div>
-      <div class="timeline-v-item reveal"><div class="timeline-v-year">1963</div><h4>Sketchpad · Ivan Sutherland</h4><p>First interactive graphics system. Direct manipulation decades before the mouse.</p></div>
-      <div class="timeline-v-item reveal"><div class="timeline-v-year">1966</div><h4>ELIZA · Joseph Weizenbaum</h4><p>First chatbot — and a warning about how readily people attribute understanding to machines.</p></div>
-      <div class="timeline-v-item reveal"><div class="timeline-v-year">1968</div><h4>Mother of All Demos · Douglas Engelbart</h4><p>Mouse, windows, hypertext, video conferencing — demonstrated live, all at once.</p></div>
-      <div class="timeline-v-item reveal"><div class="timeline-v-year">1972</div><h4>Dynabook · Alan Kay</h4><p>A portable personal computer for children — the iPad, 38 years early.</p></div>
-      <div class="timeline-v-item reveal"><div class="timeline-v-year">1974</div><h4>Xanadu · Ted Nelson</h4><p>Invented "hypertext". Designed a global non-hierarchical document network.</p></div>
-      <div class="timeline-v-item reveal"><div class="timeline-v-year">1986</div><h4>Society of Mind · Marvin Minsky</h4><p>Intelligence as emergent from many simple agents — the architecture of today's LLMs.</p></div>
-      <div class="timeline-v-item timeline-v-item--highlight reveal"><div class="timeline-v-year">1987</div><h4>Knowledge Navigator · John Sculley / Apple</h4><p>United fifty years of visionary thinking into a 9-minute concept video. Named the assistant <strong>Phil</strong>.</p></div>
-      <div class="timeline-v-item timeline-v-item--highlight timeline-v-item--now reveal"><div class="timeline-v-year">2026</div><h4>Phil · This project</h4><p>Real code. Real AI. Same name.</p></div>
+    <div class="lineage-wrap">
+      <div class="lineage-year-bg" id="lineageYearBg">1935</div>
+      <div class="timeline-v">
+        <div class="timeline-v-item reveal" data-year="1935"><div class="timeline-v-year">1935</div><h4>Mundaneum · Paul Otlet</h4><p>A global knowledge network on 16 million index cards — an analogue internet.</p></div>
+        <div class="timeline-v-item reveal" data-year="1937"><div class="timeline-v-year">1937</div><h4>World Brain · H.G. Wells</h4><p>A living, continuously updated world encyclopaedia accessible to all.</p></div>
+        <div class="timeline-v-item reveal" data-year="1945"><div class="timeline-v-year">1945</div><h4>Memex · Vannevar Bush</h4><p>A desk that stores and links documents associatively — conceptual hypertext, 1945.</p></div>
+        <div class="timeline-v-item reveal" data-year="1950"><div class="timeline-v-year">1950</div><h4>Turing Test · Alan Turing</h4><p>Can machines think? The measure for artificial intelligence to this day.</p></div>
+        <div class="timeline-v-item reveal" data-year="1955"><div class="timeline-v-year">1955</div><h4>Artificial Intelligence · John McCarthy</h4><p>Coined the term at Dartmouth. Set the research agenda for everything that followed.</p></div>
+        <div class="timeline-v-item reveal" data-year="1960"><div class="timeline-v-year">1960</div><h4>Man–Computer Symbiosis · J.C.R. Licklider</h4><p>Interactive cooperation between human and machine — augmentation, not automation.</p></div>
+        <div class="timeline-v-item reveal" data-year="1963"><div class="timeline-v-year">1963</div><h4>Sketchpad · Ivan Sutherland</h4><p>First interactive graphics system. Direct manipulation decades before the mouse.</p></div>
+        <div class="timeline-v-item reveal" data-year="1966"><div class="timeline-v-year">1966</div><h4>ELIZA · Joseph Weizenbaum</h4><p>First chatbot — and a warning about how readily people attribute understanding to machines.</p></div>
+        <div class="timeline-v-item reveal" data-year="1968"><div class="timeline-v-year">1968</div><h4>Mother of All Demos · Douglas Engelbart</h4><p>Mouse, windows, hypertext, video conferencing — demonstrated live, all at once.</p></div>
+        <div class="timeline-v-item reveal" data-year="1972"><div class="timeline-v-year">1972</div><h4>Dynabook · Alan Kay</h4><p>A portable personal computer for children — the iPad, 38 years early.</p></div>
+        <div class="timeline-v-item reveal" data-year="1974"><div class="timeline-v-year">1974</div><h4>Xanadu · Ted Nelson</h4><p>Invented "hypertext". Designed a global non-hierarchical document network.</p></div>
+        <div class="timeline-v-item reveal" data-year="1986"><div class="timeline-v-year">1986</div><h4>Society of Mind · Marvin Minsky</h4><p>Intelligence as emergent from many simple agents — the architecture of today's LLMs.</p></div>
+        <div class="timeline-v-item timeline-v-item--highlight reveal" data-year="1987"><div class="timeline-v-year">1987</div><h4>Knowledge Navigator · John Sculley / Apple</h4><p>United fifty years of visionary thinking into a 9-minute concept video. Named the assistant <strong>Phil</strong>.</p></div>
+        <div class="timeline-v-item timeline-v-item--highlight timeline-v-item--now reveal" data-year="2026"><div class="timeline-v-year">2026</div><h4>Phil · This project</h4><p>Real code. Real AI. Same name.</p></div>
+      </div>
     </div>
 
     <div class="quote-block reveal">
@@ -197,7 +200,12 @@
       </div>
     </div>
 
-    <p class="reveal" style="margin:3rem 0 1rem; font-weight:600; color:var(--text);">What had to be invented before Phil could exist</p>
+    <div class="year-gap reveal">
+      <span class="year-gap-num year-gap-from">1987</span>
+      <span class="year-gap-arrow">→</span>
+      <span class="year-gap-num year-gap-to">2026</span>
+    </div>
+    <p class="reveal" style="margin:0 0 1rem; font-weight:600; color:var(--text);">What had to be invented before Phil could exist</p>
     <div class="tech-timeline reveal">
       <div class="tech-year"><span>1990</span>Speech recognition</div>
       <div class="tech-arrow">→</div>
@@ -364,14 +372,37 @@
     </div>
 
     <div class="reveal">
-      <p class="label" style="margin-bottom:.75rem;">Tested Hardware</p>
-      <div class="badges">
-        <span class="badge">Apple M3 Pro · 18 GB unified</span>
-        <span class="badge">Apple M2 Ultra · 192 GB unified</span>
-        <span class="badge">NVIDIA RTX 4090 · 24 GB VRAM</span>
-        <span class="badge">NVIDIA RTX 3090 · 24 GB VRAM</span>
+      <p class="label" style="margin-bottom:1rem;">Hardware Requirements for Local LLM</p>
+      <div class="hw-tiers">
+        <div class="hw-tier">
+          <span class="hw-tier-label">Minimum — 7B / 14B models</span>
+          <h4>16 GB unified / VRAM</h4>
+          <ul>
+            <li>Apple M1 Pro / M2 / M3 · 16 GB</li>
+            <li>NVIDIA RTX 3080 · 10 GB</li>
+            <li>Runs Qwen2.5-7B, Llama-3.2-11B</li>
+          </ul>
+        </div>
+        <div class="hw-tier">
+          <span class="hw-tier-label">Recommended — 32B models</span>
+          <h4>24 GB unified / VRAM</h4>
+          <ul>
+            <li>Apple M3 Pro 36 GB / M4 Pro 24 GB+</li>
+            <li>NVIDIA RTX 3090 / 4090 · 24 GB</li>
+            <li>Runs Qwen2.5-32B Q4, Llama 3.3 70B Q2</li>
+          </ul>
+        </div>
+        <div class="hw-tier hw-tier--verified">
+          <span class="hw-tier-label">Verified</span>
+          <h4>Apple M4 Pro · 48 GB</h4>
+          <ul>
+            <li>Qwen2.5-32B-Instruct Q4_K_M</li>
+            <li>~22 tokens/sec generation</li>
+            <li>All features fully tested</li>
+          </ul>
+        </div>
       </div>
-      <p style="margin-top:1rem; font-size:.85rem;">
+      <p style="font-size:.85rem; color:var(--muted);">
         Phil automatically falls back to the cloud API if the local endpoint is unavailable.
         Configure both for redundancy — local for daily use, cloud as backup.
       </p>
@@ -522,20 +553,52 @@ docker compose up --build</pre>
 
 <script>
 // Scroll reveal
-const observer = new IntersectionObserver((entries) => {
+const revealObs = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
+      revealObs.unobserve(entry.target);
     }
   });
 }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
 // Nav state on scroll
 window.addEventListener('scroll', () => {
   document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
 }, { passive: true });
+
+// Stats counter animation
+document.querySelectorAll('[data-count]').forEach(el => {
+  const target = parseInt(el.dataset.count, 10);
+  const cObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      cObs.unobserve(el);
+      const dur = 1600, t0 = performance.now();
+      (function step(now) {
+        const p = Math.min((now - t0) / dur, 1);
+        const ease = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(ease * target);
+        if (p < 1) requestAnimationFrame(step);
+        else el.textContent = target;
+      })(t0);
+    });
+  }, { threshold: 0.5 });
+  cObs.observe(el);
+});
+
+// Scrollytelling — timeline year watermark
+const yearBg = document.getElementById('lineageYearBg');
+if (yearBg) {
+  const yearItems = document.querySelectorAll('.timeline-v-item[data-year]');
+  const yObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) yearBg.textContent = entry.target.dataset.year;
+    });
+  }, { threshold: 0.5, rootMargin: '-10% 0px -10% 0px' });
+  yearItems.forEach(el => yObs.observe(el));
+}
 
 // Animated typing demo in hero
 const demoMsgs = [
@@ -558,6 +621,14 @@ if (demoBody) {
     const all = demoBody.querySelectorAll('.phil-msg');
     if (all.length > 5) all[0].remove();
   }, 4000);
+}
+
+// Local file:// notice
+if (location.protocol === 'file:') {
+  const bar = document.createElement('div');
+  bar.style.cssText = 'position:fixed;bottom:0;left:0;right:0;background:#1a1a1a;border-top:1px solid #333;padding:.65rem 1.5rem;font-size:.78rem;color:#999;z-index:999;display:flex;justify-content:space-between;align-items:center;';
+  bar.innerHTML = '<span>Doc links require the deployed site or <code style="color:#f0a500">mkdocs serve</code> — <a href="https://swrobuts.github.io/phil-website/" style="color:#f0a500">swrobuts.github.io/phil-website</a></span><button onclick="this.parentNode.remove()" style="background:none;border:none;color:#666;cursor:pointer;font-size:1rem;">&#x2715;</button>';
+  document.body.appendChild(bar);
 }
 </script>
 </body>
