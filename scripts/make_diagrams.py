@@ -293,11 +293,11 @@ def make_hybrid_llm():
     els += e
 
     # Decision
-    e, _ = diamond(265, 170, 270, 100, 'LM Studio\nAvailable?', stroke=C['accent'], fs=14)
+    e, _ = diamond(265, 170, 270, 100, 'Local LLM\nAvailable?', stroke=C['accent'], fs=14)
     els += e
 
     # Local branch
-    e, _ = rect(60, 345, 200, 60, 'LM Studio\n(localhost:1234)', stroke=C['green'], fs=14)
+    e, _ = rect(60, 345, 200, 60, 'Local LLM\n(localhost:1234/v1)', stroke=C['green'], fs=14)
     els += e
     e, _ = rect(60, 445, 200, 50, 'Zero data\ntransmitted', stroke=C['green'], fill='#0a1f0d', fs=12)
     els += e
@@ -591,6 +591,66 @@ def make_ui_chat():
 
 
 # ══════════════════════════════════════════════════════════════════════════════
+# 7.  INTELLECTUAL LINEAGE TIMELINE
+# ══════════════════════════════════════════════════════════════════════════════
+def make_timeline():
+    els = []
+
+    els += flat(txt(280, 15, 'Intellectual Lineage — The Path to Phil', fs=22, color=C['text']))
+
+    # Horizontal spine
+    els += flat(arr(60, 120, 1120, 120, color=C['border']))
+
+    MILESTONES = [
+        (1935, 'Mundaneum\nOtlet', C['muted'], 'below'),
+        (1945, 'Memex\nVannevar Bush', C['blue'], 'above'),
+        (1950, 'Turing Test\nAlan Turing', C['muted'], 'below'),
+        (1960, 'Man–Computer\nSymbiosis · Licklider', C['blue'], 'above'),
+        (1963, 'Sketchpad\nSutherland', C['muted'], 'below'),
+        (1968, 'Mother of\nAll Demos · Engelbart', C['blue'], 'above'),
+        (1972, 'Dynabook\nAlan Kay', C['muted'], 'below'),
+        (1987, 'Knowledge Navigator\nApple · Phil', C['accent'], 'above'),
+        (2022, 'ChatGPT\nOpenAI', C['green'], 'below'),
+        (2026, 'Phil\nThis project', C['accent'], 'above'),
+    ]
+
+    year_min, year_max = 1930, 2030
+    total_span = year_max - year_min
+    x_left, x_right = 60, 1120
+    x_range = x_right - x_left
+
+    for year, label, color, side in MILESTONES:
+        x = int(x_left + (year - year_min) / total_span * x_range)
+
+        # Node dot
+        dot_id = uid()
+        dot = {**_b(), 'id': dot_id, 'type': 'ellipse',
+               'x': x - 5, 'y': 115, 'width': 10, 'height': 10,
+               'strokeColor': color, 'backgroundColor': color,
+               'fillStyle': 'solid', 'roughness': 0, 'boundElements': []}
+        els.append(dot)
+
+        # Vertical stem
+        if side == 'above':
+            els += flat(arr(x, 115, x, 68, color=color))
+        else:
+            els += flat(arr(x, 125, x, 162, color=color))
+
+        # Year label
+        yr_y = 58 if side == 'above' else 162
+        els += flat(txt(x - 15, yr_y, str(year), fs=11, color=color, align='center'))
+
+        # Text label
+        lbl_y = 35 if side == 'above' else 178
+        els += flat(txt(x - 50, lbl_y, label, fs=10, color=C['text'] if color == C['accent'] else C['muted'], align='center'))
+
+    # "1935 – 2026" caption
+    els += flat(txt(540, 230, '91 years of ideas. One project.', fs=14, color=C['muted'], align='center'))
+
+    save_diagram('timeline', els)
+
+
+# ══════════════════════════════════════════════════════════════════════════════
 # MAIN
 # ══════════════════════════════════════════════════════════════════════════════
 if __name__ == '__main__':
@@ -602,4 +662,5 @@ if __name__ == '__main__':
     make_mail_triage()
     make_ui_dashboard()
     make_ui_chat()
-    print('\nDone! 6 diagrams generated.')
+    make_timeline()
+    print('\nDone! 7 diagrams generated.')
