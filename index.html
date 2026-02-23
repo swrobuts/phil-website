@@ -245,7 +245,7 @@
         <span class="feature-row-num">01</span>
         <div class="feature-row-body">
           <strong>Mail Triage</strong>
-          <p>Phil reads your inbox and categorises every message: VIP / Action Required / FYI / Noise. Each mail gets a 2-sentence summary and a concrete action recommendation. Powered by Claude.</p>
+          <p>Phil reads your inbox and categorises every message: VIP / Action Required / FYI / Noise. Each mail gets a 2-sentence summary and a concrete action recommendation. Powered by LM Studio, Claude, or both — you choose.</p>
         </div>
         <a href="features/mail-triage/" class="feature-row-link">Learn more →</a>
       </div>
@@ -409,9 +409,9 @@
       <p class="label">Hybrid AI</p>
       <h2>Phil thinks locally —<br>or in the cloud.</h2>
       <p class="section-lead">
-        By default, Phil uses Anthropic's Claude API for the highest quality results.
-        But it can also run entirely on local hardware — no data leaves your machine,
-        no API costs, full privacy.
+        Phil works with whatever LLM you have available — a local model in LM Studio,
+        Anthropic's Claude API, or both at once. The <code>LLMClient</code> picks
+        the best option automatically. You stay in control.
       </p>
     </div>
 
@@ -419,7 +419,7 @@
       <div class="hybrid-mode">
         <div class="hybrid-mode-badge">Cloud</div>
         <h3>Anthropic Claude</h3>
-        <p>Default mode. Highest reasoning quality, instant setup. Requires an Anthropic API key.</p>
+        <p>Highest reasoning quality, instant setup. Requires an Anthropic API key. Best for complex summaries and mail triage.</p>
         <div class="hybrid-mode-code">
           <code>ANTHROPIC_API_KEY=sk-ant-...</code>
         </div>
