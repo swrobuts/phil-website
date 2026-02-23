@@ -17,10 +17,11 @@
   <a href="#" class="nav-logo">Phil</a>
   <ul class="nav-links">
     <li><a href="#lineage">Lineage</a></li>
-    <li><a href="#vision">1987</a></li>
     <li><a href="#phil">Features</a></li>
-    <li><a href="#hybrid">Hybrid AI</a></li>
-    <li><a href="#start">Get Started</a></li>
+    <li><a href="#compare">1987 vs 2026</a></li>
+    <li><a href="#reflect">Ethics</a></li>
+    <li><a href="#finale">Fazit</a></li>
+    <li><a href="#start">Start</a></li>
     <li><a href="setup/" class="nav-cta">Docs →</a></li>
   </ul>
 </nav>
@@ -322,6 +323,85 @@
   </div>
 </section>
 
+<!-- ── Section 5: Apple vs Phil Comparison ─────────────────── -->
+<section class="section" id="compare">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="label">1987 vs 2026 — Honest Comparison</p>
+      <h2>Eight promises.<br>Six delivered.</h2>
+      <p class="section-lead">
+        Apple's concept video demonstrated eight use cases. Here is what Phil 2026 actually implements,
+        what today's commodity tools handle, and where genuine gaps remain.
+      </p>
+    </div>
+
+    <div class="compare-table reveal">
+      <div class="ct-row ct-row--header">
+        <span></span>
+        <span>Apple 1987 (concept video)</span>
+        <span>Phil 2026 (running code)</span>
+        <span>Status</span>
+      </div>
+
+      <div class="ct-row">
+        <span class="ct-uc">UC 01</span>
+        <div class="ct-apple">A bow-tied agent that understands natural language, remembers context across a session, and proactively volunteers information.</div>
+        <div class="ct-phil"><strong>Conversational AI Agent</strong><p>FastAPI + Claude Sonnet or local Qwen2.5-32B via LM Studio. Streaming responses via Server-Sent Events. Stored memory facts persist across sessions in SQLite + ChromaDB.</p></div>
+        <span class="ct-status ct-status--built">Built</span>
+      </div>
+
+      <div class="ct-row">
+        <span class="ct-uc">UC 02</span>
+        <div class="ct-apple">Automatic scheduling, meeting reminders, and agenda briefings delivered without being asked.</div>
+        <div class="ct-phil"><strong>Calendar Management</strong><p>Natural-language queries over the full Google Calendar year. LLM extracts keywords, matches events semantically. "Was gibt es nächste Woche?" returns a structured agenda.</p></div>
+        <span class="ct-status ct-status--built">Built</span>
+      </div>
+
+      <div class="ct-row">
+        <span class="ct-uc">UC 03</span>
+        <div class="ct-apple">Embedded video call with a colleague for real-time collaborative data analysis — directly in the interface.</div>
+        <div class="ct-phil"><strong>Video Conferencing</strong><p>Not implemented. Zoom, Teams, and Meet are commodity in 2026. Phil prepares the meeting; the call happens elsewhere.</p></div>
+        <span class="ct-status ct-status--commodity">Commodity</span>
+      </div>
+
+      <div class="ct-row">
+        <span class="ct-uc">UC 04</span>
+        <div class="ct-apple">Intelligent search across scientific databases, external knowledge repositories, and the user's own files.</div>
+        <div class="ct-phil"><strong>Knowledge Research</strong><p>RAG over the personal mailbox (ChromaDB, 1536-dim vectors). Live web search via DuckDuckGo. RDF knowledge graph for entity relationships (Person, Project, Event).</p></div>
+        <span class="ct-status ct-status--built">Built</span>
+      </div>
+
+      <div class="ct-row">
+        <span class="ct-uc">UC 05</span>
+        <div class="ct-apple">Dynamic, interactive charts and geographic simulations generated on demand from live data.</div>
+        <div class="ct-phil"><strong>Data Visualisation</strong><p>Dashboard tiles show mail category trends and Pareto distributions. WorldHappiness data story demonstrates on-demand charting. Full simulation not implemented.</p></div>
+        <span class="ct-status ct-status--partial">Partial</span>
+      </div>
+
+      <div class="ct-row">
+        <span class="ct-uc">UC 06</span>
+        <div class="ct-apple">Automatic briefing: summarise incoming documents, messages, and research papers into a daily digest.</div>
+        <div class="ct-phil"><strong>Document Summarisation</strong><p>Mail triage produces a 2-sentence summary + action recommendation per message. Meeting prep briefings combine calendar context, related emails, and participant background.</p></div>
+        <span class="ct-status ct-status--built">Built</span>
+      </div>
+
+      <div class="ct-row">
+        <span class="ct-uc">UC 07</span>
+        <div class="ct-apple">Complex scenario modelling and simulation: what happens if deforestation continues at this rate?</div>
+        <div class="ct-phil"><strong>Simulation</strong><p>Not in Phil — domain-specific simulation tools (climate models, agent-based systems) require specialist infrastructure far beyond a personal assistant.</p></div>
+        <span class="ct-status ct-status--commodity">Specialist tools</span>
+      </div>
+
+      <div class="ct-row">
+        <span class="ct-uc">UC 08</span>
+        <div class="ct-apple">Touch, voice, and gesture — seamless, multimodal delegation of tasks without mode-switching.</div>
+        <div class="ct-phil"><strong>Multimodal Interaction</strong><p>Browser-native text-to-speech <strong>implemented</strong> — Phil reads out briefings and responses. Touch-ready React UI. Voice input not yet implemented.</p></div>
+        <span class="ct-status ct-status--partial">Speech out ✓</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── Section 5: Hybrid AI ────────────────────────────────── -->
 <section class="section" id="hybrid">
   <div class="container">
@@ -410,6 +490,56 @@
   </div>
 </section>
 
+<!-- ── Section: Technical Deep Dive ────────────────────────── -->
+<section class="section section--dark" id="tech-deep">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="label">Under the Hood</p>
+      <h2>Four technologies<br>that make Phil work.</h2>
+      <p class="section-lead">
+        Phil is not a wrapper around a chat API. It combines four distinct techniques —
+        each grounded in decades of computer science research.
+      </p>
+    </div>
+
+    <div class="tech-deep">
+
+      <div class="tech-card reveal">
+        <span class="tech-card-label">Retrieval-Augmented Generation</span>
+        <h3>RAG — Answer from your data, not from hallucination</h3>
+        <p>Before generating any response, Phil retrieves the most relevant context from your actual mailbox. Every email is split into chunks, embedded as a 1536-dimensional vector using an embedding model, and stored in <code>ChromaDB</code>. At query time, the question is embedded too — <strong>cosine similarity</strong> finds the semantically closest chunks.</p>
+        <p>Only the retrieved chunks enter the LLM's context window. This means Phil's answers are grounded in your real data, not invented from training statistics. It also means the model needs no fine-tuning — retrieval replaces memorisation.</p>
+        <p>RAG solves the two hardest problems of LLM deployment: <strong>hallucination</strong> (the model invents facts it doesn't know) and <strong>staleness</strong> (training data has a cutoff date; your inbox does not).</p>
+      </div>
+
+      <div class="tech-card reveal">
+        <span class="tech-card-label">RDF Knowledge Graph + OWL Ontology</span>
+        <h3>Graph — What vector search cannot see</h3>
+        <p>Vector similarity finds documents that <em>feel</em> related. A knowledge graph finds documents that <em>are</em> structurally connected. Phil maintains an RDF graph of entities extracted from emails: <code>Person</code>, <code>Organisation</code>, <code>Project</code>, <code>Event</code>.</p>
+        <p>Relationships become directed edges: <em>"Prof. Müller supervises Hausarbeit"</em>, <em>"Hausarbeit hasDeadline 15-März"</em>. The OWL ontology defines class hierarchies and inference rules — e.g., anyone who emails about a project is automatically classified as a project participant.</p>
+        <p>SPARQL queries traverse these relationships: <em>who has written about topic X in the last 30 days?</em> Graph reasoning and vector search are complementary — Phil runs both and merges the results.</p>
+      </div>
+
+      <div class="tech-card reveal">
+        <span class="tech-card-label">CO-STAR Prompt Engineering</span>
+        <h3>Structured prompts — Consistency over chance</h3>
+        <p>Every LLM call in Phil is structured using the <strong>CO-STAR framework</strong>, developed by Sheila Teo (GovTech Singapore, winner of Singapore's first GPT-4 prompt competition, 2023):</p>
+        <p><code>Context</code> — background and constraints &nbsp;·&nbsp; <code>Objective</code> — exact task &nbsp;·&nbsp; <code>Style</code> — how to write &nbsp;·&nbsp; <code>Tone</code> — register &nbsp;·&nbsp; <code>Audience</code> — who reads this &nbsp;·&nbsp; <code>Response</code> — output format</p>
+        <p>Structured prompting reduces hallucination, makes prompts auditable, and ensures consistent JSON output — critical when the response feeds a dashboard tile or a mail category badge. Every Phil prompt is documented in the <a href="prompts/" style="color:var(--accent)">Prompts page →</a></p>
+      </div>
+
+      <div class="tech-card reveal">
+        <span class="tech-card-label">Hybrid LLM Architecture</span>
+        <h3>Cloud or local — Phil decides</h3>
+        <p>Phil's <code>LLMClient</code> class wraps both the Anthropic API and LM Studio's local OpenAI-compatible endpoint (<code>localhost:1234/v1</code>). On each request, it checks whether the local server responds within a timeout. If yes — local model, zero latency, zero cost, zero data transmission. If no — transparent fallback to the cloud.</p>
+        <p>This enables three real deployment scenarios: <strong>offline development</strong> (local model only, no internet), <strong>privacy-critical use</strong> (hospital, HR, legal — no data leaves the machine), and <strong>production with fallback</strong> (local for speed, cloud for reliability).</p>
+        <p>LM Studio runs as a desktop application and serves any GGUF-quantised model as a REST API. <strong>Qwen2.5-32B-Instruct at Q4_K_M quantisation</strong> fits in 22 GB of unified memory and produces approximately 22 tokens per second on Apple M4 Pro — sufficient for real-time chat.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ── Section 6: Tech Stack ────────────────────────────────── -->
 <section class="section section--dark" id="tech">
   <div class="container">
@@ -452,6 +582,61 @@
       Every LLM prompt in Phil follows the <strong>CO-STAR framework</strong>
       (Context · Objective · Style · Tone · Audience · Response format).
       <a href="prompts/" style="color:var(--accent)">See all prompts →</a>
+    </p>
+  </div>
+</section>
+
+<!-- ── Section: Ethics & Legal ──────────────────────────────── -->
+<section class="section section--dark" id="reflect">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="label">Ethics &amp; Law</p>
+      <h2>With great retrieval<br>comes responsibility.</h2>
+      <p class="section-lead">
+        A system that reads your email, knows your calendar, and remembers facts about you is powerful.
+        It deserves honest reflection — about where it runs, what it stores, and what it means.
+      </p>
+    </div>
+
+    <div class="ethics-cols">
+      <div class="ethics-item reveal">
+        <h3>DSGVO &amp; Privacy by Design</h3>
+        <ul>
+          <li>Email content is personal data under DSGVO Art. 4 — processing requires a legal basis</li>
+          <li>Local LLM mode: no data processed on third-party servers → satisfies Art. 25 (Privacy by Design)</li>
+          <li>Cloud mode requires a Data Processing Agreement (DPA) with Anthropic — not included by default</li>
+          <li>All stored memory facts are visible, editable, and deletable by the user (right to erasure, Art. 17)</li>
+          <li>Phil does not send emails autonomously — every action requires explicit user confirmation</li>
+        </ul>
+      </div>
+
+      <div class="ethics-item reveal">
+        <h3>EU AI Act (in force August 2024)</h3>
+        <ul>
+          <li>LLM personal assistants = <strong>Limited Risk</strong> under the EU AI Act — not high-risk</li>
+          <li>Art. 50: Transparency obligation — users must know they interact with an AI system</li>
+          <li>Phil's UI clearly labels all AI-generated responses and summaries</li>
+          <li>If the system performs user profiling (predictive modelling of behaviour), classification shifts to High-Risk with full conformity requirements</li>
+          <li>Full compliance deadline for most provisions: August 2026 — this project is ahead of schedule</li>
+        </ul>
+      </div>
+
+      <div class="ethics-item reveal">
+        <h3>Societal &amp; Career Impact</h3>
+        <ul>
+          <li>Knowledge retrieval is becoming instant and free — the advantage shifts from access to judgment</li>
+          <li>Augmentation, not replacement: Licklider's 1960 vision of Man-Computer Symbiosis, finally realised</li>
+          <li>New skills required: prompt engineering, critical evaluation of AI output, system architecture literacy</li>
+          <li>The productivity gains are real — and unevenly distributed. Who gets access to these tools matters</li>
+          <li>Building Phil is more valuable than using it: you understand the black box by constructing it</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="ethics-note reveal">
+      <strong>Academic integrity note:</strong> Phil is a tool for information management, not for generating academic work.
+      The ability to build such systems is a technical skill. The ability to evaluate them critically —
+      to ask who controls them, what biases they carry, and what they optimise for — is more valuable still.
     </p>
   </div>
 </section>
@@ -530,6 +715,73 @@ docker compose up --build</pre>
     <div class="cta-row reveal">
       <a href="setup/" class="btn btn-primary">Full Setup Guide →</a>
       <a href="https://github.com/swrobuts/phil-knowledge-navigator" class="btn btn-outline" target="_blank">View on GitHub →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Finale ────────────────────────────────────────────────── -->
+<section class="section section-finale" id="finale">
+  <div class="container">
+    <div class="finale-inner">
+      <p class="label reveal">Fazit</p>
+      <h2 class="reveal">The gap has closed.<br>Now it's your turn.</h2>
+
+      <p class="finale-lead reveal">
+        In 1987, Apple made a 9-minute film about what computing could become.
+        The assistant was called Phil. They couldn't build it — not because they lacked imagination,
+        but because the technology didn't exist yet.
+      </p>
+      <p class="finale-lead reveal">
+        In 2026, a student project at THWS built Phil with open-source models,
+        a free API account, and a semester's worth of curiosity.
+        It reads email. It prepares meetings. It remembers. It speaks.
+        It runs entirely locally — with zero data leaving your machine.
+      </p>
+      <p class="finale-lead reveal">
+        What took Apple a billion-dollar research budget and a concept video in 1987
+        now takes a few weeks and an internet connection.
+        <strong>That should change how you think about what you are capable of building.</strong>
+      </p>
+
+      <blockquote class="finale-quote reveal">
+        "Stay hungry. Stay foolish."
+      </blockquote>
+      <span class="finale-cite reveal">
+        — Steve Jobs, Stanford Commencement Address, 2005 ·
+        quoting Stewart Brand's <em>Whole Earth Catalog</em>, 1974
+      </span>
+
+      <p class="finale-lead reveal" style="margin-bottom:2.5rem;">
+        Jobs wasn't describing a technology. He was describing an attitude —
+        an openness to attempting things that seem premature,
+        a willingness to be wrong publicly and learn visibly.
+        Fork this code. Break it. Improve it. Put it to work on problems that matter to you.
+        That is the point of building it.
+      </p>
+
+      <ul class="reflection-list reveal">
+        <li>
+          <span class="reflection-n">01</span>
+          <span>What does it mean when a student project can replicate a 1987 research vision in a semester?
+          What does that imply for the pace of change — and for careers that depend on specialised knowledge?</span>
+        </li>
+        <li>
+          <span class="reflection-n">02</span>
+          <span>Who controls the AI that assists you? Where does your data go?
+          The difference between a cloud assistant and a local one is not just technical — it is political.</span>
+        </li>
+        <li>
+          <span class="reflection-n">03</span>
+          <span>Is an AI that reads your email, prepares your meetings, and remembers your preferences
+          a tool or a colleague? Does the answer change anything about how you should evaluate it?</span>
+        </li>
+      </ul>
+
+      <div class="finale-cta reveal">
+        <a href="https://github.com/swrobuts/phil-knowledge-navigator" class="btn btn-primary btn-lg" target="_blank">Fork on GitHub</a>
+        <a href="story/" class="btn btn-outline btn-lg">Read the Full Story</a>
+        <a href="setup/" class="btn btn-ghost btn-lg">Build It Yourself →</a>
+      </div>
     </div>
   </div>
 </section>

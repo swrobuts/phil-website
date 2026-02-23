@@ -187,7 +187,7 @@ p  { color: var(--muted); }
   position: sticky; top: 5rem;
   font-size: clamp(6rem, 14vw, 11rem);
   font-weight: 900; letter-spacing: -.04em;
-  color: rgba(240,246,252,.04);
+  color: rgba(240,246,252,.09);
   pointer-events: none; user-select: none;
   text-align: right; float: right;
   line-height: 1; margin-bottom: -1em;
@@ -468,6 +468,113 @@ footer {
 footer p { font-size: .8rem; color: var(--muted); margin: 0 auto; }
 footer strong { color: var(--text); }
 
+/* ── Compare table ──────────────────────────────────────────── */
+.compare-table { border-top: 1px solid var(--border); margin: 2rem 0; }
+.ct-row {
+  display: grid; grid-template-columns: 3rem 1fr 1fr 7rem;
+  gap: 1.5rem; padding: 1.25rem .5rem;
+  border-bottom: 1px solid var(--border); align-items: start;
+  transition: background .2s;
+}
+.ct-row--header { padding-bottom: .75rem; }
+.ct-row--header span { font-size: .63rem; text-transform: uppercase; letter-spacing: .1em; color: rgba(240,246,252,.3); font-weight: 700; }
+.ct-row:not(.ct-row--header):hover { background: rgba(255,255,255,.02); }
+.ct-uc { font-family: var(--font-mono); font-size: .65rem; color: var(--muted); opacity: .5; padding-top: .15rem; }
+.ct-apple { font-size: .82rem; color: var(--muted); line-height: 1.55; }
+.ct-phil strong { display: block; font-size: .85rem; color: var(--text); margin-bottom: .25rem; }
+.ct-phil p { font-size: .78rem; margin: 0; line-height: 1.55; }
+.ct-status {
+  display: inline-flex; align-items: center; gap: .35rem;
+  font-size: .72rem; font-weight: 700; letter-spacing: .04em; padding-top: .1rem;
+}
+.ct-status::before { content: ''; width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.ct-status--built { color: #3fb950; }
+.ct-status--built::before { background: #3fb950; }
+.ct-status--partial { color: var(--accent); }
+.ct-status--partial::before { background: var(--accent); }
+.ct-status--commodity { color: var(--muted); }
+.ct-status--commodity::before { background: var(--muted); opacity: .4; }
+
+/* ── Technical deep-dive cards ───────────────────────────────── */
+.tech-deep { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2rem 0; }
+.tech-card {
+  background: var(--surface-2); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 2rem;
+}
+.tech-card-label {
+  font-size: .62rem; text-transform: uppercase; letter-spacing: .12em;
+  color: rgba(240,246,252,.3); font-weight: 700; margin-bottom: .6rem; display: block;
+}
+.tech-card h3 { font-size: 1.05rem; margin-bottom: .75rem; color: var(--text); }
+.tech-card p { font-size: .82rem; line-height: 1.7; margin-bottom: .75rem; }
+.tech-card p:last-child { margin-bottom: 0; }
+.tech-card code {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 4px; padding: .15rem .4rem;
+  font-family: var(--font-mono); font-size: .75em; color: var(--text);
+}
+
+/* ── LM Studio setup strip ───────────────────────────────────── */
+.lm-steps { list-style: none; margin: 1rem 0 0; border-top: 1px solid var(--border); }
+.lm-steps li {
+  display: flex; gap: 1rem; padding: .75rem 0;
+  border-bottom: 1px solid var(--border); font-size: .82rem; color: var(--muted);
+  align-items: flex-start;
+}
+.lm-steps li:last-child { border-bottom: none; }
+.lm-step-n {
+  flex-shrink: 0; width: 1.4rem; height: 1.4rem; border-radius: 50%;
+  background: var(--surface); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: .65rem; font-weight: 700; font-family: var(--font-mono); color: var(--muted);
+  margin-top: .05rem;
+}
+
+/* ── Ethics & Legal ──────────────────────────────────────────── */
+.ethics-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 2rem 0 3rem; }
+.ethics-item {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1.75rem;
+}
+.ethics-item h3 { font-size: .95rem; color: var(--text); margin-bottom: .75rem; }
+.ethics-item ul { list-style: none; }
+.ethics-item ul li {
+  font-size: .8rem; color: var(--muted); padding: .4rem 0;
+  border-bottom: 1px solid var(--border); line-height: 1.5;
+}
+.ethics-item ul li:last-child { border-bottom: none; }
+.ethics-note {
+  font-size: .8rem; color: var(--muted); line-height: 1.7;
+  max-width: 65ch; margin: 0 auto;
+}
+
+/* ── Finale / CTA ────────────────────────────────────────────── */
+.section-finale { padding: 8rem 0 7rem; }
+.finale-inner { max-width: 780px; margin: 0 auto; text-align: center; }
+.finale-lead {
+  font-size: 1.1rem; color: var(--muted); line-height: 1.85;
+  max-width: 65ch; margin: 0 auto 2.5rem;
+}
+.finale-quote {
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 300; font-style: italic;
+  color: var(--text); line-height: 1.5; margin: 3rem 0 .75rem;
+}
+.finale-cite {
+  font-size: .78rem; color: var(--muted); font-style: normal; display: block; margin-bottom: 3.5rem;
+}
+.reflection-list { text-align: left; list-style: none; max-width: 620px; margin: 2.5rem auto 3rem; }
+.reflection-list li {
+  display: flex; gap: 1rem; padding: 1rem 0;
+  border-bottom: 1px solid var(--border); font-size: .88rem; color: var(--muted); line-height: 1.6;
+}
+.reflection-list li:last-child { border-bottom: none; }
+.reflection-n {
+  flex-shrink: 0; color: rgba(240,246,252,.25);
+  font-family: var(--font-mono); font-size: .7rem; font-weight: 700; padding-top: .2rem;
+}
+.finale-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem; }
+.btn-lg { padding: .9rem 2.5rem; font-size: 1rem; }
+
 /* ── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 7rem; gap: 3rem; }
@@ -480,6 +587,10 @@ footer strong { color: var(--text); }
   .feature-row-link { display: none; }
   .stack-cols { grid-template-columns: 1fr; gap: 2rem; }
   .newton-grid { grid-template-columns: 1fr; }
+  .ct-row { grid-template-columns: 2.5rem 1fr; }
+  .ct-apple, .ct-status { display: none; }
+  .tech-deep { grid-template-columns: 1fr; }
+  .ethics-cols { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
   .nav-links { display: none; }
