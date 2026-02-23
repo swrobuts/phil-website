@@ -22,7 +22,7 @@
 
 | Library | Version | Purpose |
 |---------|---------|---------|
-| React | 18 | UI component framework |
+| React | ≥18 | UI component framework |
 | TypeScript | — | Type-safe JavaScript |
 | Vite | — | Build tool + dev server |
 | CSS Modules | — | Scoped component styles |
