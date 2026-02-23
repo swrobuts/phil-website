@@ -25,6 +25,7 @@
     <li><a href="#start">Start</a></li>
     <li><a href="setup/" class="nav-cta">Docs →</a></li>
   </ul>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">☀</button>
 </nav>
 
 <!-- ── Hero ────────────────────────────────────────────────── -->
@@ -351,6 +352,177 @@
         <li><span class="ss-check">✓</span> Runs 100% locally with LM Studio — your data stays yours</li>
       </ul>
       <a href="features/" class="ss-cta">Explore all features →</a>
+    </div>
+  </div>
+
+  <div class="showcase-divider"></div>
+
+  <!-- Split: Sentiment Analysis -->
+  <div class="showcase-split" id="showcase-sentiment">
+    <div class="ss-text reveal-left">
+      <span class="ss-label">Feature · Sentiment Analysis</span>
+      <h2>How is your inbox<br>feeling today?</h2>
+      <p class="ss-body">Phil analyses the emotional tone of every incoming message — positive, neutral or negative — and tracks sentiment trends over days and weeks. Spot communication friction before it becomes a problem.</p>
+      <ul class="ss-bullets stagger">
+        <li class="reveal-up"><span class="ss-check">✓</span> Per-mail sentiment score with keyword highlighting</li>
+        <li class="reveal-up"><span class="ss-check">✓</span> 30-day trend sparkline — mood at a glance</li>
+        <li class="reveal-up"><span class="ss-check">✓</span> Aggregated by sender, thread, or topic</li>
+        <li class="reveal-up"><span class="ss-check">✓</span> Flags sudden tone shifts as early-warning signals</li>
+      </ul>
+      <a href="features/" class="ss-cta">Explore all features →</a>
+    </div>
+    <div class="ss-visual reveal-right">
+      <div class="pm-wrap">
+        <div class="pm-browser">
+          <div class="pm-chrome">
+            <div class="pm-dots"><span class="dot-r"></span><span class="dot-a"></span><span class="dot-g"></span></div>
+            <div class="pm-url">localhost:5173 — Phil · Sentiment</div>
+          </div>
+          <div class="pm-app">
+            <nav class="pm-side">
+              <div class="pm-logo">Phil</div>
+              <div class="pm-nav">Inbox <span class="pm-badge">12</span></div>
+              <div class="pm-nav">Dashboard</div>
+              <div class="pm-nav">Kalender</div>
+              <div class="pm-nav">Aufgaben</div>
+              <div class="pm-nav pm-on">Analytik</div>
+            </nav>
+            <div class="pm-main">
+              <div class="pm-topbar">
+                <span class="pm-title">Sentiment-Analyse — Februar 2026</span>
+                <span class="pm-search">⌕</span>
+              </div>
+              <div class="pm-sentiment">
+                <div class="pm-lbl" style="margin-bottom:10px">Gesamtstimmung — letzte 30 Tage</div>
+                <div class="pm-sent-row">
+                  <span class="pm-sent-label" style="color:#3fb950">Positiv</span>
+                  <div class="pm-sent-bar"><div class="pm-sent-fill" style="width:64%;background:#3fb950"></div></div>
+                  <span class="pm-sent-pct">64 %</span>
+                </div>
+                <div class="pm-sent-row">
+                  <span class="pm-sent-label" style="color:#58a6ff">Neutral</span>
+                  <div class="pm-sent-bar"><div class="pm-sent-fill" style="width:23%;background:#58a6ff"></div></div>
+                  <span class="pm-sent-pct">23 %</span>
+                </div>
+                <div class="pm-sent-row">
+                  <span class="pm-sent-label" style="color:#f85149">Negativ</span>
+                  <div class="pm-sent-bar"><div class="pm-sent-fill" style="width:13%;background:#f85149"></div></div>
+                  <span class="pm-sent-pct">13 %</span>
+                </div>
+                <div class="pm-lbl" style="margin:10px 0 5px">Häufige Keywords</div>
+                <div class="pm-sent-words">
+                  <span class="pm-sent-word" style="color:#f85149;border-color:rgba(248,81,73,.4)">dringend</span>
+                  <span class="pm-sent-word" style="color:#f0a500;border-color:rgba(240,165,0,.4)">Deadline</span>
+                  <span class="pm-sent-word" style="color:#3fb950;border-color:rgba(63,185,80,.4)">Danke</span>
+                  <span class="pm-sent-word" style="color:#3fb950;border-color:rgba(63,185,80,.4)">großartig</span>
+                  <span class="pm-sent-word" style="color:#586069;border-color:#21262d">Rückfrage</span>
+                  <span class="pm-sent-word" style="color:#f85149;border-color:rgba(248,81,73,.4)">Verzögerung</span>
+                </div>
+                <div class="pm-sent-sparkline">
+                  <div class="pm-lbl" style="margin-bottom:5px">Stimmungsverlauf — 14 Tage</div>
+                  <div class="pm-spark-bars">
+                    <div class="pm-spark-bar" style="height:60%;background:#3fb950"></div>
+                    <div class="pm-spark-bar" style="height:45%;background:#58a6ff"></div>
+                    <div class="pm-spark-bar" style="height:75%;background:#3fb950"></div>
+                    <div class="pm-spark-bar" style="height:30%;background:#f85149"></div>
+                    <div class="pm-spark-bar" style="height:55%;background:#3fb950"></div>
+                    <div class="pm-spark-bar" style="height:70%;background:#3fb950"></div>
+                    <div class="pm-spark-bar" style="height:40%;background:#58a6ff"></div>
+                    <div class="pm-spark-bar" style="height:80%;background:#3fb950"></div>
+                    <div class="pm-spark-bar" style="height:25%;background:#f85149"></div>
+                    <div class="pm-spark-bar" style="height:65%;background:#3fb950"></div>
+                    <div class="pm-spark-bar" style="height:50%;background:#58a6ff"></div>
+                    <div class="pm-spark-bar" style="height:85%;background:#3fb950"></div>
+                    <div class="pm-spark-bar" style="height:60%;background:#3fb950"></div>
+                    <div class="pm-spark-bar" style="height:72%;background:#3fb950"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pm-glow"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="showcase-divider"></div>
+
+  <!-- Split reversed: Knowledge Graph + Work Preparation -->
+  <div class="showcase-split rev" id="showcase-kg">
+    <div class="ss-visual reveal-left">
+      <div class="pm-wrap">
+        <div class="pm-browser">
+          <div class="pm-chrome">
+            <div class="pm-dots"><span class="dot-r"></span><span class="dot-a"></span><span class="dot-g"></span></div>
+            <div class="pm-url">localhost:5173 — Phil · Wissensgraph</div>
+          </div>
+          <div class="pm-app">
+            <nav class="pm-side">
+              <div class="pm-logo">Phil</div>
+              <div class="pm-nav">Inbox <span class="pm-badge">12</span></div>
+              <div class="pm-nav">Dashboard</div>
+              <div class="pm-nav pm-on">Wissensgraph</div>
+              <div class="pm-nav">Kalender</div>
+              <div class="pm-nav">Chat</div>
+            </nav>
+            <div class="pm-graph-area">
+              <div class="pm-topbar">
+                <span class="pm-title">Knowledge Graph — Meine Verbindungen</span>
+              </div>
+              <div class="pm-graph-canvas">
+                <svg class="kg-svg" viewBox="0 0 380 265" preserveAspectRatio="xMidYMid meet">
+                  <!-- Edges -->
+                  <line class="kg-edge kg-edge--active" x1="190" y1="42" x2="80"  y2="115"/>
+                  <line class="kg-edge kg-edge--active" x1="190" y1="42" x2="300" y2="115"/>
+                  <line class="kg-edge"                 x1="80"  y1="115" x2="80"  y2="195"/>
+                  <line class="kg-edge"                 x1="300" y1="115" x2="300" y2="195"/>
+                  <line class="kg-edge"                 x1="80"  y1="115" x2="190" y2="195"/>
+                  <line class="kg-edge"                 x1="300" y1="115" x2="190" y2="195"/>
+                  <line class="kg-edge"                 x1="80"  y1="195" x2="300" y2="195"/>
+                  <!-- Edge labels -->
+                  <text x="118" y="72"  font-size="8" fill="rgba(240,246,252,.35)" text-anchor="middle" font-family="monospace">hatMail</text>
+                  <text x="262" y="72"  font-size="8" fill="rgba(240,246,252,.35)" text-anchor="middle" font-family="monospace">hatMail</text>
+                  <text x="64"  y="162" font-size="8" fill="rgba(240,246,252,.35)" text-anchor="middle" font-family="monospace">hatTermin</text>
+                  <text x="316" y="162" font-size="8" fill="rgba(240,246,252,.35)" text-anchor="middle" font-family="monospace">hatDokument</text>
+                  <text x="190" y="158" font-size="8" fill="rgba(240,165,0,.55)"   text-anchor="middle" font-family="monospace">arbeitetMit</text>
+                </svg>
+                <div class="kg-nodes">
+                  <div class="kg-node kg-node--self"   style="left:190px;top:42px">Phil</div>
+                  <div class="kg-node kg-node--person" style="left:80px;top:115px">M. Braun</div>
+                  <div class="kg-node kg-node--person" style="left:300px;top:115px">S. König</div>
+                  <div class="kg-node kg-node--event"  style="left:80px;top:195px">Meeting<br>09:00</div>
+                  <div class="kg-node kg-node--doc"    style="left:300px;top:195px">Q1 Report<br>Deadline Fr</div>
+                  <div class="kg-node kg-node--event"  style="left:190px;top:195px">Projekt-<br>Review 14:00</div>
+                </div>
+              </div>
+              <div class="kg-legend">
+                <div class="kg-legend-item"><div class="kg-legend-dot" style="background:#f0a500"></div>Assistent</div>
+                <div class="kg-legend-item"><div class="kg-legend-dot" style="background:#58a6ff"></div>Person</div>
+                <div class="kg-legend-item"><div class="kg-legend-dot" style="background:#3fb950"></div>Termin</div>
+                <div class="kg-legend-item"><div class="kg-legend-dot" style="background:#bc8cff"></div>Dokument</div>
+              </div>
+              <div class="kg-sparql">
+                <span class="pm-lbl" style="display:inline;margin-right:6px">SPARQL</span>
+                <code>SELECT ?p ?t WHERE { ?p hatTermin ?t . ?p arbeitetMit :Braun }</code>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pm-glow"></div>
+      </div>
+    </div>
+    <div class="ss-text reveal-right">
+      <span class="ss-label">Feature · Knowledge Graph + Arbeitsvorbereitung</span>
+      <h2>Who. What. When.<br>All connected.</h2>
+      <p class="ss-body">Phil builds a semantic graph of your world — people, mails, meetings and documents — using OWL/RDF and SPARQL. Ask who you're meeting tomorrow and get briefed on every related email and open task.</p>
+      <ul class="ss-bullets stagger">
+        <li class="reveal-up"><span class="ss-check">✓</span> OWL/RDF ontology — machine-readable relationships</li>
+        <li class="reveal-up"><span class="ss-check">✓</span> SPARQL queries surface connections keyword search misses</li>
+        <li class="reveal-up"><span class="ss-check">✓</span> Meeting prep: Phil briefs you on attendees, mails &amp; docs</li>
+        <li class="reveal-up"><span class="ss-check">✓</span> Runs 100% locally — your graph never leaves your machine</li>
+      </ul>
+      <a href="features/" class="ss-cta">See the architecture →</a>
     </div>
   </div>
 
@@ -1078,82 +1250,76 @@ docker compose up --build</pre>
 </footer>
 
 <script>
-// Scroll reveal
-const revealObs = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObs.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
-
-// Nav state on scroll
-window.addEventListener('scroll', () => {
-  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
-}, { passive: true });
-
-// Stats counter animation
-document.querySelectorAll('[data-count]').forEach(el => {
-  const target = parseInt(el.dataset.count, 10);
-  const cObs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      cObs.unobserve(el);
-      const dur = 1600, t0 = performance.now();
-      (function step(now) {
-        const p = Math.min((now - t0) / dur, 1);
-        const ease = 1 - Math.pow(1 - p, 3);
-        el.textContent = Math.round(ease * target);
-        if (p < 1) requestAnimationFrame(step);
-        else el.textContent = target;
-      })(t0);
-    });
-  }, { threshold: 0.5 });
-  cObs.observe(el);
+// ── Theme toggle ─────────────────────────────────────────────
+const themeToggle = document.getElementById('themeToggle');
+const applyTheme = (t) => {
+  document.documentElement.setAttribute('data-theme', t);
+  themeToggle.textContent = t === 'light' ? '☾' : '☀';
+  localStorage.setItem('phil-theme', t);
+};
+const savedTheme = localStorage.getItem('phil-theme') || 'dark';
+applyTheme(savedTheme);
+themeToggle.addEventListener('click', () => {
+  applyTheme(document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
 });
 
-// Scrollytelling — timeline year watermark
+// ── Scroll reveal (all variants) ─────────────────────────────
+const revealClasses = ['reveal','reveal-up','reveal-left','reveal-right','reveal-scale'];
+const revealEls = document.querySelectorAll(revealClasses.map(c => '.' + c).join(','));
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(el => revealObs.observe(el));
+
+// ── Nav scroll style ─────────────────────────────────────────
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+// ── Counter animation ─────────────────────────────────────────
+const countEls = document.querySelectorAll('[data-count]');
+const countObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target, target = +el.dataset.count, dur = 1400;
+    const start = performance.now();
+    const ease = t => t < .5 ? 2*t*t : -1+(4-2*t)*t;
+    const tick = (now) => {
+      const p = Math.min((now - start) / dur, 1);
+      el.textContent = Math.round(ease(p) * target);
+      if (p < 1) requestAnimationFrame(tick); else el.textContent = target;
+    };
+    requestAnimationFrame(tick);
+    countObs.unobserve(el);
+  });
+}, { threshold: 0.5 });
+countEls.forEach(el => countObs.observe(el));
+
+// ── Scrollytelling year watermark ─────────────────────────────
 const yearBg = document.getElementById('lineageYearBg');
 if (yearBg) {
   const yearItems = document.querySelectorAll('.timeline-v-item[data-year]');
-  const yObs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) yearBg.textContent = entry.target.dataset.year;
+  const yearObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) yearBg.textContent = e.target.dataset.year;
     });
-  }, { threshold: 0.5, rootMargin: '-10% 0px -10% 0px' });
-  yearItems.forEach(el => yObs.observe(el));
+  }, { rootMargin: '-40% 0px -40% 0px' });
+  yearItems.forEach(el => yearObs.observe(el));
 }
 
-// Animated typing demo in hero
-const demoMsgs = [
-  "Soll ich die VIP-Mail von Prof. Schmidt zusammenfassen?",
-  "Die Fakultätssitzung hat drei verwandte Mails aus letzter Woche.",
-  "Ich merke mir: Klausurtermin 15. März."
-];
-let demoIdx = 0;
-const demoBody = document.getElementById('demoBody');
-if (demoBody) {
-  setInterval(() => {
-    const typing = demoBody.querySelector('.phil-demo-typing');
-    const msg = document.createElement('div');
-    msg.className = 'phil-msg phil-msg--system reveal';
-    msg.innerHTML = '<span class="phil-msg-label">Phil</span><p>' + demoMsgs[demoIdx % demoMsgs.length] + '</p>';
-    demoBody.insertBefore(msg, typing);
-    setTimeout(() => msg.classList.add('visible'), 50);
-    demoBody.scrollTop = demoBody.scrollHeight;
-    demoIdx++;
-    const all = demoBody.querySelectorAll('.phil-msg');
-    if (all.length > 5) all[0].remove();
-  }, 4000);
-}
+// ── Stagger children of .stagger containers ───────────────────
+document.querySelectorAll('.stagger').forEach(parent => {
+  [...parent.children].forEach((child, i) => {
+    child.style.transitionDelay = (i * 0.1) + 's';
+  });
+});
 
-// Local file:// notice
+// ── file:// notice ────────────────────────────────────────────
 if (location.protocol === 'file:') {
   const bar = document.createElement('div');
-  bar.style.cssText = 'position:fixed;bottom:0;left:0;right:0;background:#1a1a1a;border-top:1px solid #333;padding:.65rem 1.5rem;font-size:.78rem;color:#999;z-index:999;display:flex;justify-content:space-between;align-items:center;';
-  bar.innerHTML = '<span>Doc links require the deployed site or <code style="color:#f0a500">mkdocs serve</code> — <a href="https://swrobuts.github.io/phil-website/" style="color:#f0a500">swrobuts.github.io/phil-website</a></span><button onclick="this.parentNode.remove()" style="background:none;border:none;color:#666;cursor:pointer;font-size:1rem;">&#x2715;</button>';
+  bar.style.cssText = 'position:fixed;bottom:0;left:0;right:0;padding:.5rem 1.5rem;background:#161b22;border-top:1px solid #21262d;font-size:.75rem;color:#7d8590;z-index:999;text-align:center';
+  bar.textContent = 'Viewing local file — navigation links require a web server. Deploy or run: npx serve .';
   document.body.appendChild(bar);
 }
 </script>
