@@ -19,7 +19,7 @@ the giants on whose shoulders it stood. And on whose shoulders Phil stands too.
 Belgian bibliographer Paul Otlet built the Mundaneum — a global knowledge network
 on 16 million index cards. He envisioned a universal interconnected encyclopedia,
 a "réseau mondial" that anticipates today's internet by 60 years.
-*Source: Dubberly, H. (2024): Making Knowledge Navigator*
+*Dubberly, H. (2024): Making Knowledge Navigator*
 
 ### H.G. Wells · World Brain · 1937
 Wells called for a "Permanent World Encyclopaedia" — a living, continuously updated
@@ -114,6 +114,7 @@ Five key technologies Sculley identified as necessary (which did not yet exist):
 The agent in the video who manages all of this was already named **Phil**.
 
 *Sculley, J., Byrne, J.A. (1987): Odyssey: Pepsi to Apple, Harper & Row, pp. 403–425*
+
 *Dubberly, H. (2024): Making Knowledge Navigator. Retrieved 12.01.2026*
 
 ---
