@@ -130,7 +130,7 @@ p  { color: var(--muted); }
   position: absolute;
   top: 5.5rem;
   left: 2rem;
-  right: -3rem;
+  right: 1rem;
   bottom: 0;
   display: flex;
   flex-direction: column;
@@ -742,6 +742,13 @@ h3 { font-size: clamp(1.2rem, 2.2vw, 1.55rem); }
 .pm-stat { margin-top: 5px; font-size: 9px; color: #586069; }
 .pm-bar { height: 3px; background: #21262d; border-radius: 2px; margin-top: 3px; overflow: hidden; }
 .pm-bar div { height: 100%; border-radius: 2px; }
+/* Hero sentiment mini-rows */
+.pm-sentrow { display: flex; align-items: center; gap: 4px; padding: 2px 0; }
+.pm-sent-emoji { font-size: 9px; flex-shrink: 0; }
+.pm-sent-name  { font-size: 9px; color: #8b949e; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pm-sent-neg   { font-size: 9px; color: #f85149; font-weight: 600; flex-shrink: 0; }
+.pm-sent-neu   { font-size: 9px; color: #586069; flex-shrink: 0; }
+.pm-sent-pos   { font-size: 9px; color: #3fb950; font-weight: 600; flex-shrink: 0; }
 
 /* ── Inbox triage variant ─────── */
 .pm-inbox-header { display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; border-bottom: 1px solid #21262d; background: #0d1117; flex-shrink: 0; }
