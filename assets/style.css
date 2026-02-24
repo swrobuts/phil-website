@@ -624,9 +624,40 @@ footer strong { color: var(--text); }
 .btn-lg { padding: .9rem 2.5rem; font-size: 1rem; }
 
 /* ── Responsive ─────────────────────────────────────────────── */
+
+/* -- ≤1200px: tighten nav so links don't overflow -- */
+@media (max-width: 1200px) {
+  .nav-links { gap: 1.25rem; }
+  .nav-links a { font-size: .78rem; }
+}
+
+/* -- ≤1024px: even out hero columns on smaller desktops -- */
+@media (max-width: 1024px) {
+  .hero { grid-template-columns: 50fr 50fr; }
+  .hero-left { padding-left: 5%; padding-right: 3%; }
+  .hero-right .pm-wrap { left: 1%; }
+}
+
+/* -- ≤900px: stack hero, collapse multi-column sections -- */
 @media (max-width: 900px) {
-  .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 7rem; gap: 3rem; padding-left: 2rem; padding-right: 2rem; }
+  /* Nav: show only Docs → */
+  .nav-links li:not(:last-child) { display: none; }
+
+  /* Hero: single-column, fill viewport */
+  .hero {
+    grid-template-columns: 1fr;
+    height: 100vh;
+    min-height: 600px;
+    gap: 0;
+    padding: 0;
+  }
+  .hero-left {
+    padding: clamp(4.5rem, 10vh, 7rem) 8% 3rem;
+    justify-content: center;
+  }
   .hero-right { display: none; }
+
+  /* Section components */
   .uc-list { grid-template-columns: 1fr; }
   .uc-item:nth-child(odd) { border-right: none; padding-right: 0; }
   .uc-item:nth-child(even) { padding-left: 0; }
@@ -640,15 +671,21 @@ footer strong { color: var(--text); }
   .tech-deep { grid-template-columns: 1fr; }
   .ethics-cols { grid-template-columns: 1fr; }
 }
+
+/* -- ≤640px: mobile -- */
 @media (max-width: 640px) {
   .nav-links { display: none; }
-  h1 { font-size: 2.5rem; }
+  h1 { font-size: clamp(2.4rem, 10vw, 3.5rem); }
   h2 { font-size: 1.8rem; }
+  .hero-left { padding: 5rem 6% 2.5rem; }
+  .hero-body { font-size: 1rem; max-width: none; }
+  .btn-group { margin-top: 1.75rem; }
   .stats-bar { gap: 1rem; }
   .stat-sep { display: none; }
   .timeline-v { padding-left: 3.5rem; }
   .timeline-v::before { left: 1.5rem; }
   .timeline-v-item::before { left: -2.1rem; }
+  .section { padding: 4.5rem 0; }
 }
 
 
