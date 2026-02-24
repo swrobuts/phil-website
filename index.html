@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css?v=9">
+  <link rel="stylesheet" href="assets/style.css?v=10">
 </head>
 <body>
 
@@ -196,58 +196,9 @@
         <div class="pm-browser">
           <div class="pm-chrome">
             <div class="pm-dots"><span class="dot-r"></span><span class="dot-a"></span><span class="dot-g"></span></div>
-            <div class="pm-url">localhost:5173 — Phil · Chat</div>
+            <div class="pm-url">localhost:8000 — PHIL · Mails &amp; Chat</div>
           </div>
-          <div class="pm-app">
-            <nav class="pm-side">
-              <div class="pm-logo">Phil</div>
-              <div class="pm-nav">Inbox <span class="pm-badge">12</span></div>
-              <div class="pm-nav">Dashboard</div>
-              <div class="pm-nav">Kalender</div>
-              <div class="pm-nav">Aufgaben</div>
-              <div class="pm-nav pm-on">Chat</div>
-            </nav>
-            <div class="pm-chat-shell">
-              <div class="pm-chat-main">
-                <div class="pm-chat-header">
-                  <span class="pm-mode">Hybrid</span>
-                  <div class="pm-ctx-chips">
-                    <span class="pm-ctx a">Mail</span>
-                    <span class="pm-ctx b">Kalender</span>
-                    <span class="pm-ctx g">Aufgaben</span>
-                  </div>
-                </div>
-                <div class="pm-messages">
-                  <div class="pm-msg-u">Was waren meine wichtigsten Mails heute?</div>
-                  <div class="pm-msg-p">Du hattest <strong>48 E-Mails</strong>. Die wichtigsten:<br>
-                    <strong>Braun</strong> (Urgent — Meeting morgen, Raum 204, 9 Uhr)<br>
-                    <strong>König</strong> (Important — Q1 Report, Deadline Freitag)
-                  </div>
-                  <div class="pm-msg-meta">Phil · LM Studio · Qwen2.5-32B · 22 tok/s</div>
-                  <div class="pm-tts-chip">♪ Vorlesen</div>
-                </div>
-                <div class="pm-input-row">
-                  <div class="pm-input">Nachricht eingeben…</div>
-                  <button class="pm-send-btn">→</button>
-                </div>
-              </div>
-              <div class="pm-rag">
-                <div class="pm-lbl">RAG-Kontext</div>
-                <div class="pm-rag-card">
-                  <div class="pm-rag-file">mail_braun_2026-02-23.eml</div>
-                  <div class="pm-rag-score a">score: 0.94</div>
-                </div>
-                <div class="pm-rag-card">
-                  <div class="pm-rag-file">tasks_today.json</div>
-                  <div class="pm-rag-score g">score: 0.87</div>
-                </div>
-                <div class="pm-rag-card">
-                  <div class="pm-rag-file">calendar_2026-02-23.ics</div>
-                  <div class="pm-rag-score b">score: 0.81</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <img src="assets/screenshots/chat-rag.png" alt="PHIL Chat &amp; RAG" class="pm-screenshot">
         </div>
         <div class="pm-glow"></div>
       </div>
@@ -287,70 +238,9 @@
         <div class="pm-browser">
           <div class="pm-chrome">
             <div class="pm-dots"><span class="dot-r"></span><span class="dot-a"></span><span class="dot-g"></span></div>
-            <div class="pm-url">localhost:5173 — Phil · Sentiment</div>
+            <div class="pm-url">localhost:8000 — PHIL · Dashboard</div>
           </div>
-          <div class="pm-app">
-            <nav class="pm-side">
-              <div class="pm-logo">Phil</div>
-              <div class="pm-nav">Inbox <span class="pm-badge">12</span></div>
-              <div class="pm-nav">Dashboard</div>
-              <div class="pm-nav">Kalender</div>
-              <div class="pm-nav">Aufgaben</div>
-              <div class="pm-nav pm-on">Analytik</div>
-            </nav>
-            <div class="pm-main">
-              <div class="pm-topbar">
-                <span class="pm-title">Sentiment-Analyse — Februar 2026</span>
-                <span class="pm-search">⌕</span>
-              </div>
-              <div class="pm-sentiment">
-                <div class="pm-lbl" style="margin-bottom:10px">Gesamtstimmung — letzte 30 Tage</div>
-                <div class="pm-sent-row">
-                  <span class="pm-sent-label" style="color:#3fb950">Positiv</span>
-                  <div class="pm-sent-bar"><div class="pm-sent-fill" style="width:64%;background:#3fb950"></div></div>
-                  <span class="pm-sent-pct">64 %</span>
-                </div>
-                <div class="pm-sent-row">
-                  <span class="pm-sent-label" style="color:#58a6ff">Neutral</span>
-                  <div class="pm-sent-bar"><div class="pm-sent-fill" style="width:23%;background:#58a6ff"></div></div>
-                  <span class="pm-sent-pct">23 %</span>
-                </div>
-                <div class="pm-sent-row">
-                  <span class="pm-sent-label" style="color:#f85149">Negativ</span>
-                  <div class="pm-sent-bar"><div class="pm-sent-fill" style="width:13%;background:#f85149"></div></div>
-                  <span class="pm-sent-pct">13 %</span>
-                </div>
-                <div class="pm-lbl" style="margin:10px 0 5px">Häufige Keywords</div>
-                <div class="pm-sent-words">
-                  <span class="pm-sent-word" style="color:#f85149;border-color:rgba(248,81,73,.4)">dringend</span>
-                  <span class="pm-sent-word" style="color:#f0a500;border-color:rgba(240,165,0,.4)">Deadline</span>
-                  <span class="pm-sent-word" style="color:#3fb950;border-color:rgba(63,185,80,.4)">Danke</span>
-                  <span class="pm-sent-word" style="color:#3fb950;border-color:rgba(63,185,80,.4)">großartig</span>
-                  <span class="pm-sent-word" style="color:#586069;border-color:#21262d">Rückfrage</span>
-                  <span class="pm-sent-word" style="color:#f85149;border-color:rgba(248,81,73,.4)">Verzögerung</span>
-                </div>
-                <div class="pm-sent-sparkline">
-                  <div class="pm-lbl" style="margin-bottom:5px">Stimmungsverlauf — 14 Tage</div>
-                  <div class="pm-spark-bars">
-                    <div class="pm-spark-bar" style="height:60%;background:#3fb950"></div>
-                    <div class="pm-spark-bar" style="height:45%;background:#58a6ff"></div>
-                    <div class="pm-spark-bar" style="height:75%;background:#3fb950"></div>
-                    <div class="pm-spark-bar" style="height:30%;background:#f85149"></div>
-                    <div class="pm-spark-bar" style="height:55%;background:#3fb950"></div>
-                    <div class="pm-spark-bar" style="height:70%;background:#3fb950"></div>
-                    <div class="pm-spark-bar" style="height:40%;background:#58a6ff"></div>
-                    <div class="pm-spark-bar" style="height:80%;background:#3fb950"></div>
-                    <div class="pm-spark-bar" style="height:25%;background:#f85149"></div>
-                    <div class="pm-spark-bar" style="height:65%;background:#3fb950"></div>
-                    <div class="pm-spark-bar" style="height:50%;background:#58a6ff"></div>
-                    <div class="pm-spark-bar" style="height:85%;background:#3fb950"></div>
-                    <div class="pm-spark-bar" style="height:60%;background:#3fb950"></div>
-                    <div class="pm-spark-bar" style="height:72%;background:#3fb950"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <img src="assets/screenshots/sentiment.png" alt="PHIL Stimmungsbarometer" class="pm-screenshot">
         </div>
         <div class="pm-glow"></div>
       </div>
@@ -438,59 +328,9 @@
         <div class="pm-browser">
           <div class="pm-chrome">
             <div class="pm-dots"><span class="dot-r"></span><span class="dot-a"></span><span class="dot-g"></span></div>
-            <div class="pm-url">localhost:5173 — Phil · Wissensgraph</div>
+            <div class="pm-url">localhost:8000 — PHIL · Wissensgraph</div>
           </div>
-          <div class="pm-app">
-            <nav class="pm-side">
-              <div class="pm-logo">Phil</div>
-              <div class="pm-nav">Inbox <span class="pm-badge">12</span></div>
-              <div class="pm-nav">Dashboard</div>
-              <div class="pm-nav pm-on">Wissensgraph</div>
-              <div class="pm-nav">Kalender</div>
-              <div class="pm-nav">Chat</div>
-            </nav>
-            <div class="pm-graph-area">
-              <div class="pm-topbar">
-                <span class="pm-title">Knowledge Graph — Meine Verbindungen</span>
-              </div>
-              <div class="pm-graph-canvas">
-                <svg class="kg-svg" viewBox="0 0 380 265" preserveAspectRatio="xMidYMid meet">
-                  <!-- Edges -->
-                  <line class="kg-edge kg-edge--active" x1="190" y1="42" x2="80"  y2="115"/>
-                  <line class="kg-edge kg-edge--active" x1="190" y1="42" x2="300" y2="115"/>
-                  <line class="kg-edge"                 x1="80"  y1="115" x2="80"  y2="195"/>
-                  <line class="kg-edge"                 x1="300" y1="115" x2="300" y2="195"/>
-                  <line class="kg-edge"                 x1="80"  y1="115" x2="190" y2="195"/>
-                  <line class="kg-edge"                 x1="300" y1="115" x2="190" y2="195"/>
-                  <line class="kg-edge"                 x1="80"  y1="195" x2="300" y2="195"/>
-                  <!-- Edge labels -->
-                  <text x="118" y="72"  font-size="8" fill="rgba(240,246,252,.35)" text-anchor="middle" font-family="monospace">hatMail</text>
-                  <text x="262" y="72"  font-size="8" fill="rgba(240,246,252,.35)" text-anchor="middle" font-family="monospace">hatMail</text>
-                  <text x="64"  y="162" font-size="8" fill="rgba(240,246,252,.35)" text-anchor="middle" font-family="monospace">hatTermin</text>
-                  <text x="316" y="162" font-size="8" fill="rgba(240,246,252,.35)" text-anchor="middle" font-family="monospace">hatDokument</text>
-                  <text x="190" y="158" font-size="8" fill="rgba(240,165,0,.55)"   text-anchor="middle" font-family="monospace">arbeitetMit</text>
-                </svg>
-                <div class="kg-nodes">
-                  <div class="kg-node kg-node--self"   style="left:190px;top:42px">Phil</div>
-                  <div class="kg-node kg-node--person" style="left:80px;top:115px">M. Braun</div>
-                  <div class="kg-node kg-node--person" style="left:300px;top:115px">S. König</div>
-                  <div class="kg-node kg-node--event"  style="left:80px;top:195px">Meeting<br>09:00</div>
-                  <div class="kg-node kg-node--doc"    style="left:300px;top:195px">Q1 Report<br>Deadline Fr</div>
-                  <div class="kg-node kg-node--event"  style="left:190px;top:195px">Projekt-<br>Review 14:00</div>
-                </div>
-              </div>
-              <div class="kg-legend">
-                <div class="kg-legend-item"><div class="kg-legend-dot" style="background:#f0a500"></div>Assistent</div>
-                <div class="kg-legend-item"><div class="kg-legend-dot" style="background:#58a6ff"></div>Person</div>
-                <div class="kg-legend-item"><div class="kg-legend-dot" style="background:#3fb950"></div>Termin</div>
-                <div class="kg-legend-item"><div class="kg-legend-dot" style="background:#bc8cff"></div>Dokument</div>
-              </div>
-              <div class="kg-sparql">
-                <span class="pm-lbl" style="display:inline;margin-right:6px">SPARQL</span>
-                <code>SELECT ?p ?t WHERE { ?p hatTermin ?t . ?p arbeitetMit :Braun }</code>
-              </div>
-            </div>
-          </div>
+          <img src="assets/screenshots/knowledge-graph.png" alt="PHIL Wissensgraph" class="pm-screenshot">
         </div>
         <div class="pm-glow"></div>
       </div>
