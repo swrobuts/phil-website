@@ -638,24 +638,40 @@ footer strong { color: var(--text); }
   .hero-right .pm-wrap { left: 1%; }
 }
 
-/* -- ≤900px: stack hero, collapse multi-column sections -- */
+/* -- ≤900px: tablet — mockup fills top, text fills bottom -- */
 @media (max-width: 900px) {
-  /* Nav: show only Docs → */
   .nav-links li:not(:last-child) { display: none; }
 
-  /* Hero: single-column, fill viewport */
+  /* Two-row grid: mockup top 52vh, text bottom 48vh — screen always full */
   .hero {
     grid-template-columns: 1fr;
+    grid-template-rows: 52vh 48vh;
     height: 100vh;
     min-height: 600px;
     gap: 0;
-    padding: 0;
+  }
+  .hero-right {
+    grid-row: 1;
+    display: block;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-right .pm-wrap {
+    top: 3.5rem;   /* clear nav */
+    left: 5%;
+    right: 0;
+    bottom: 0;
+  }
+  .hero-right .pm-browser {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
   }
   .hero-left {
-    padding: clamp(4.5rem, 10vh, 7rem) 8% 3rem;
+    grid-row: 2;
+    padding: 1.75rem 8% clamp(2rem, 5vh, 3.5rem);
     justify-content: center;
   }
-  .hero-right { display: none; }
 
   /* Section components */
   .uc-list { grid-template-columns: 1fr; }
@@ -672,14 +688,25 @@ footer strong { color: var(--text); }
   .ethics-cols { grid-template-columns: 1fr; }
 }
 
-/* -- ≤640px: mobile -- */
+/* -- ≤640px: mobile — no mockup, content spread top-to-bottom -- */
 @media (max-width: 640px) {
   .nav-links { display: none; }
-  h1 { font-size: clamp(2.4rem, 10vw, 3.5rem); }
+  h1 { font-size: clamp(2.8rem, 13vw, 5rem); }
   h2 { font-size: 1.8rem; }
-  .hero-left { padding: 5rem 6% 2.5rem; }
-  .hero-body { font-size: 1rem; max-width: none; }
-  .btn-group { margin-top: 1.75rem; }
+
+  /* Override tablet rows: single full-height row, no mockup */
+  .hero { grid-template-rows: 1fr; }
+  .hero-right { display: none; }
+
+  /* space-between distributes label / h1+body / buttons across full vh */
+  .hero-left {
+    grid-row: 1;
+    justify-content: space-between;
+    padding: 5rem 6% clamp(2.5rem, 6vh, 4rem);
+  }
+  .hero-body { font-size: 1rem; max-width: none; margin-bottom: 0; }
+  .btn-group { margin-top: 0; }
+
   .stats-bar { gap: 1rem; }
   .stat-sep { display: none; }
   .timeline-v { padding-left: 3.5rem; }
