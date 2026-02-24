@@ -625,6 +625,11 @@ footer strong { color: var(--text); }
 
 /* ── Responsive ─────────────────────────────────────────────── */
 
+/* -- ≥1600px: larger headline fills the left column at wide / tall viewports -- */
+@media (min-width: 1600px) {
+  h1 { font-size: clamp(8rem, 8.5vw, 14rem); }
+}
+
 /* -- ≤1200px: tighten nav so links don't overflow -- */
 @media (max-width: 1200px) {
   .nav-links { gap: 1.25rem; }
