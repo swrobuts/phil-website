@@ -32,7 +32,7 @@
 <section class="hero" id="hero">
   <div class="hero-left">
     <span class="hero-pre">Open Student Project · THWS · 2026</span>
-    <h1>Standing on the<br>Shoulders<br>of Giants</h1>
+    <h1>Standing on the<br>Shoulders<br>of <em class="hero-giants">Giants</em></h1>
     <p class="hero-body">
       Apple imagined a personal knowledge assistant in 1987 and named it <strong>Phil</strong>.
       Decades of visionary thinking made it possible.
@@ -134,7 +134,7 @@
           <div class="pm-dots"><span class="dot-r"></span><span class="dot-a"></span><span class="dot-g"></span></div>
           <div class="pm-url">localhost:8000 — Phil · Dashboard &nbsp;·&nbsp; Dark Mode · Exchange verbunden</div>
         </div>
-        <img src="assets/screenshots/dashboard.png" alt="Phil Dashboard" class="pm-screenshot">
+        <img src="assets/screenshots/dashboard.png" alt="Phil Dashboard" class="pm-screenshot theme-img" data-dark="assets/screenshots/dashboard.png" data-light="assets/screenshots/dashboard-light.png">
       </div>
       <div class="pm-glow"></div>
     </div>
@@ -161,7 +161,7 @@
             <div class="pm-dots"><span class="dot-r"></span><span class="dot-a"></span><span class="dot-g"></span></div>
             <div class="pm-url">localhost:8000 — Phil · Mails &nbsp;·&nbsp; Dark Mode</div>
           </div>
-          <img src="assets/screenshots/mail-triage.png" alt="Phil Mail Triage" class="pm-screenshot">
+          <img src="assets/screenshots/mail-triage.png" alt="Phil Mail Triage" class="pm-screenshot theme-img" data-dark="assets/screenshots/mail-triage.png" data-light="assets/screenshots/mail-triage-light.png">
         </div>
         <div class="pm-glow"></div>
       </div>
@@ -1145,6 +1145,11 @@ const applyTheme = (t) => {
   document.documentElement.setAttribute('data-theme', t);
   themeToggle.textContent = t === 'light' ? '☾' : '☀';
   localStorage.setItem('phil-theme', t);
+  // Swap theme-aware screenshots
+  document.querySelectorAll('.theme-img').forEach(img => {
+    const src = t === 'light' ? img.dataset.light : img.dataset.dark;
+    if (src) img.src = src;
+  });
 };
 const savedTheme = localStorage.getItem('phil-theme') || 'dark';
 applyTheme(savedTheme);
