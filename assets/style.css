@@ -94,7 +94,7 @@ p  { color: var(--muted); }
 
 /* ── Hero ───────────────────────────────────────────────────── */
 .hero {
-  height: min(100vh, 920px);
+  height: 100vh;
   min-height: 680px;
   display: grid;
   grid-template-columns: 46fr 54fr;
@@ -131,7 +131,7 @@ p  { color: var(--muted); }
   top: clamp(3rem, 8%, 6rem);
   left: 2%;
   right: 0;
-  bottom: 3%;
+  bottom: 0;
   display: flex;
   flex-direction: column;
 }
@@ -140,6 +140,9 @@ p  { color: var(--muted); }
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 .hero-right .pm-app {
   flex: 1;
