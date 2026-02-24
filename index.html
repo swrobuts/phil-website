@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css?v=8">
+  <link rel="stylesheet" href="assets/style.css?v=9">
 </head>
 <body>
 
@@ -359,6 +359,78 @@
 
   <div class="showcase-divider"></div>
 
+  <!-- Split: DB Travel Planning -->
+  <div class="showcase-split" id="showcase-db">
+    <div class="ss-text reveal-left">
+      <span class="ss-label">DB Travel Planning</span>
+      <h2>Your journey.<br>Phil plans it.</h2>
+      <p class="ss-body">Planning a business trip means switching between calendar, the DB website and email — all manually. Phil queries Deutsche Bahn connections via PyHafas, cross-references your calendar and suggests optimal trains — without leaving the interface.</p>
+      <ul class="ss-bullets stagger">
+        <li class="reveal-up"><span class="ss-check">✓</span> Live DB timetable via PyHafas — real connections, real prices</li>
+        <li class="reveal-up"><span class="ss-check">✓</span> Calendar conflict check — never double-book a travel day</li>
+        <li class="reveal-up"><span class="ss-check">✓</span> Fastest and cheapest alternatives side-by-side</li>
+        <li class="reveal-up"><span class="ss-check">✓</span> Query and plan entirely within Phil — no browser switching</li>
+      </ul>
+      <a href="features/" class="ss-cta">Explore all features →</a>
+    </div>
+    <div class="ss-visual reveal-right">
+      <div class="pm-wrap">
+        <div class="pm-browser">
+          <div class="pm-chrome">
+            <div class="pm-dots"><span class="dot-r"></span><span class="dot-a"></span><span class="dot-g"></span></div>
+            <div class="pm-url">localhost:5173 — Phil · DB Reiseplanung</div>
+          </div>
+          <div class="pm-app">
+            <nav class="pm-side">
+              <div class="pm-logo">Phil</div>
+              <div class="pm-nav">Inbox <span class="pm-badge">12</span></div>
+              <div class="pm-nav">Dashboard</div>
+              <div class="pm-nav pm-on">Reiseplanung</div>
+              <div class="pm-nav">Kalender</div>
+              <div class="pm-nav">Aufgaben</div>
+            </nav>
+            <div class="pm-db-shell">
+              <div class="pm-topbar">
+                <span class="pm-title">Verbindungssuche</span>
+                <span class="pm-search">DB · 25.02.2026</span>
+              </div>
+              <div class="pm-db-query">
+                <div class="pm-db-route">
+                  <span class="pm-db-city">München Hbf</span>
+                  <span class="pm-db-routearrow"> → </span>
+                  <span class="pm-db-city">Frankfurt Hbf</span>
+                </div>
+                <div class="pm-db-hint">Kontext: Meeting 14:00 · Ankunft bis 13:30 gewünscht</div>
+              </div>
+              <div class="pm-db-connections">
+                <div class="pm-db-conn pm-db-conn--best">
+                  <div class="pm-db-badge">✓ Empfohlen — pünktlich vor Meeting</div>
+                  <div class="pm-db-times">06:22 → 09:51</div>
+                  <div class="pm-db-dur">3h 29min · ICE 527 · direkt</div>
+                  <div class="pm-db-price">ab 49 €</div>
+                </div>
+                <div class="pm-db-conn">
+                  <div class="pm-db-times">07:04 → 10:44</div>
+                  <div class="pm-db-dur">3h 40min · ICE 1209 · direkt</div>
+                  <div class="pm-db-price">ab 39 €</div>
+                </div>
+                <div class="pm-db-conn pm-db-conn--conflict">
+                  <div class="pm-db-badge pm-db-badge--warn">⚠ Kalenderkonflikt — Ankunft 12:00, Puffer knapp</div>
+                  <div class="pm-db-times">08:06 → 12:00</div>
+                  <div class="pm-db-dur">3h 54min · ICE 521 · 1× Umstieg</div>
+                  <div class="pm-db-price">ab 35 €</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pm-glow"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="showcase-divider"></div>
+
   <!-- Split reversed: Knowledge Graph + Work Preparation -->
   <div class="showcase-split rev" id="showcase-kg">
     <div class="ss-visual reveal-left">
@@ -697,8 +769,8 @@
     </div>
 
     <div class="screenshots-grid" id="screenshots">
-      <img src="assets/screenshots/dashboard.png" alt="Phil Dashboard — Dark Mode">
-      <img src="assets/screenshots/mail-triage.png" alt="Phil Mail Triage — Dark Mode">
+      <img src="assets/screenshots/dashboard-dark.png" alt="Phil Dashboard — Dark Mode" class="theme-img" data-dark="assets/screenshots/dashboard-dark.png" data-light="assets/screenshots/dashboard-light.png">
+      <img src="assets/screenshots/mail-triage.png" alt="Phil Mail Triage — Dark Mode" class="theme-img" data-dark="assets/screenshots/mail-triage.png" data-light="assets/screenshots/mail-triage-light.png">
       <img src="assets/screenshots/calendar.png" alt="Phil Calendar">
       <img src="assets/screenshots/tasks.png" alt="Phil Tasks">
     </div>
@@ -838,20 +910,21 @@
       <div class="hw-tiers">
         <div class="hw-tier">
           <span class="hw-tier-label">Minimum — 7B / 14B models</span>
-          <h4>16 GB unified / VRAM</h4>
+          <h4>8–16 GB unified / VRAM</h4>
           <ul>
-            <li>Apple M1 Pro / M2 / M3 · 16 GB</li>
-            <li>NVIDIA RTX 3080 · 10 GB</li>
-            <li>Runs Qwen2.5-7B, Llama-3.2-11B</li>
+            <li>Apple M1 / M2 · 8 GB (7B models)</li>
+            <li>Apple M1 Pro / M2 Pro · 16 GB (14B models)</li>
+            <li>NVIDIA RTX 3060 8 GB · RTX 3080 10 GB</li>
+            <li>Runs Qwen2.5-7B Q4_K_M, Llama-3.2-8B</li>
           </ul>
         </div>
         <div class="hw-tier">
           <span class="hw-tier-label">Recommended — 32B models</span>
           <h4>24 GB unified / VRAM</h4>
           <ul>
-            <li>Apple M3 Pro 36 GB / M4 Pro 24 GB+</li>
+            <li>Apple M2 Pro 32 GB / M3 Pro 36 GB / M4 Pro 24 GB</li>
             <li>NVIDIA RTX 3090 / 4090 · 24 GB</li>
-            <li>Runs Qwen2.5-32B Q4, Llama 3.3 70B Q2</li>
+            <li>Runs Qwen2.5-32B Q4_K_M (~19 GB), DeepSeek-R1-32B</li>
           </ul>
         </div>
         <div class="hw-tier hw-tier--verified">
