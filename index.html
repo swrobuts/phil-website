@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Phil – Knowledge Navigator</title>
+  <title>Project Phil – Knowledge Navigator</title>
   <meta name="description" content="A student reimagining of Apple's 1987 Knowledge Navigator. Built with FastAPI, React and Claude AI.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css?v=7">
+  <link rel="stylesheet" href="assets/style.css?v=8">
 </head>
 <body>
 
 <!-- ── Navigation ──────────────────────────────────────────── -->
 <nav id="nav">
-  <a href="#" class="nav-logo">Phil</a>
+  <a href="#" class="nav-logo">Project Phil</a>
   <ul class="nav-links">
-    <li><a href="#showcase">Demo</a></li>
+    <li><a href="#showcase">Impressions</a></li>
     <li><a href="#lineage">Lineage</a></li>
     <li><a href="#phil">Features</a></li>
     <li><a href="#compare">1987 vs 2026</a></li>
@@ -134,7 +134,7 @@
     <div class="stat-sep">·</div>
     <div class="stat-item"><strong data-count="8">8</strong> <span>Apple use cases</span></div>
     <div class="stat-sep">·</div>
-    <div class="stat-item"><strong data-count="9">9</strong> <span>features rebuilt</span></div>
+    <div class="stat-item"><strong data-count="12">12</strong> <span>features rebuilt</span></div>
   </div>
 </section>
 
@@ -163,19 +163,19 @@
 
   <!-- Split: Mail Triage -->
   <div class="showcase-split" id="showcase-mail">
-    <div class="ss-text reveal">
-      <span class="ss-label">Feature 01 · Mail Triage</span>
+    <div class="ss-text reveal-left">
+      <span class="ss-label">Mail Triage</span>
       <h2>48 mails.<br>3 seconds.</h2>
       <p class="ss-body">Phil reads your inbox and assigns every message a priority — Urgent, Important, FYI, Trash. A 2-line action summary. A clear next step. Every morning, automatically.</p>
-      <ul class="ss-bullets">
-        <li><span class="ss-check">✓</span> Powered by a local LLM or Claude — you decide</li>
-        <li><span class="ss-check">✓</span> Works with Exchange EWS and Gmail IMAP</li>
-        <li><span class="ss-check">✓</span> CO-STAR prompts ensure consistent, structured output</li>
-        <li><span class="ss-check">✓</span> Zero training required — works from day one</li>
+      <ul class="ss-bullets stagger">
+        <li class="reveal-up"><span class="ss-check">✓</span> Powered by a local LLM or Claude — you decide</li>
+        <li class="reveal-up"><span class="ss-check">✓</span> Works with Exchange EWS and Gmail IMAP</li>
+        <li class="reveal-up"><span class="ss-check">✓</span> CO-STAR prompts ensure consistent, structured output</li>
+        <li class="reveal-up"><span class="ss-check">✓</span> Zero training required — works from day one</li>
       </ul>
       <a href="features/mail-triage/" class="ss-cta">Deep dive into Mail Triage →</a>
     </div>
-    <div class="ss-visual reveal">
+    <div class="ss-visual reveal-right">
       <div class="pm-wrap">
         <div class="pm-browser">
           <div class="pm-chrome">
@@ -191,7 +191,7 @@
 
   <!-- Split reversed: Chat + RAG -->
   <div class="showcase-split rev" id="showcase-chat">
-    <div class="ss-visual reveal">
+    <div class="ss-visual reveal-left">
       <div class="pm-wrap">
         <div class="pm-browser">
           <div class="pm-chrome">
@@ -252,15 +252,15 @@
         <div class="pm-glow"></div>
       </div>
     </div>
-    <div class="ss-text reveal">
-      <span class="ss-label">Feature 05 · Conversational AI + RAG</span>
+    <div class="ss-text reveal-right">
+      <span class="ss-label">Conversational AI + RAG</span>
       <h2>Ask anything.<br>Phil knows.</h2>
       <p class="ss-body">Phil grounds every answer in your real data — emails, calendar entries, tasks. Ask in plain German or English. Get sourced, hallucination-free responses.</p>
-      <ul class="ss-bullets">
-        <li><span class="ss-check">✓</span> Retrieval-Augmented Generation over your inbox (ChromaDB)</li>
-        <li><span class="ss-check">✓</span> Knowledge graph for semantic links between people &amp; topics</li>
-        <li><span class="ss-check">✓</span> Speech output — hands-free morning briefings via TTS</li>
-        <li><span class="ss-check">✓</span> Runs 100% locally with LM Studio — your data stays yours</li>
+      <ul class="ss-bullets stagger">
+        <li class="reveal-up"><span class="ss-check">✓</span> Retrieval-Augmented Generation over your inbox (ChromaDB)</li>
+        <li class="reveal-up"><span class="ss-check">✓</span> Knowledge graph for semantic links between people &amp; topics</li>
+        <li class="reveal-up"><span class="ss-check">✓</span> Speech output — hands-free morning briefings via TTS</li>
+        <li class="reveal-up"><span class="ss-check">✓</span> Runs 100% locally with LM Studio — your data stays yours</li>
       </ul>
       <a href="features/" class="ss-cta">Explore all features →</a>
     </div>
@@ -424,7 +424,7 @@
       </div>
     </div>
     <div class="ss-text reveal-right">
-      <span class="ss-label">Feature 07 · Knowledge Graph + Meeting Prep</span>
+      <span class="ss-label">Knowledge Graph + Meeting Prep</span>
       <h2>Who. What. When.<br>All connected.</h2>
       <p class="ss-body">Phil builds a semantic graph of your world — people, mails, meetings and documents — using OWL/RDF and SPARQL. Ask who you're meeting tomorrow and get briefed on every related email and open task.</p>
       <ul class="ss-bullets stagger">
@@ -602,7 +602,7 @@
         <span class="feature-row-num">01</span>
         <div class="feature-row-body">
           <strong>Mail Triage</strong>
-          <p>Phil reads your inbox and categorises every message: VIP / Action Required / FYI / Noise. Each mail gets a 2-sentence summary and a concrete action recommendation. Powered by a local LLM or Claude — you decide.</p>
+          <p><em>Problem:</em> An overflowing inbox with no sense of priority wastes hours every day. <em>Solution:</em> Phil reads every message and categorises it — VIP / Action Required / FYI / Noise — with a 2-sentence summary and concrete next step. Local LLM or cloud: your choice.</p>
         </div>
         <a href="features/mail-triage/" class="feature-row-link">Learn more →</a>
       </div>
@@ -610,7 +610,7 @@
         <span class="feature-row-num">02</span>
         <div class="feature-row-body">
           <strong>Dashboard</strong>
-          <p>A daily briefing at a glance: unread mail counts by category, today's calendar events, pending tasks, and analytical tiles showing communication patterns over time.</p>
+          <p><em>Problem:</em> Mail, calendar and tasks live in separate apps — you have to assemble your own picture of the day. <em>Solution:</em> One screen shows unread mail counts by category, today's events, pending tasks, and communication analytics — a genuine daily briefing.</p>
         </div>
         <a href="features/dashboard/" class="feature-row-link">Learn more →</a>
       </div>
@@ -618,7 +618,7 @@
         <span class="feature-row-num">03</span>
         <div class="feature-row-body">
           <strong>Calendar</strong>
-          <p>Natural-language calendar search across a full year of events. Ask "What's next week?" or "When is the faculty meeting?" Phil fetches the context and answers — no hallucinations.</p>
+          <p><em>Problem:</em> Calendar apps answer clicks, not questions. <em>Solution:</em> Ask in plain language — "What's next week?" or "When is the faculty meeting?" Phil fetches context across a full year of events and answers directly, without hallucinating dates or times.</p>
         </div>
         <a href="features/calendar/" class="feature-row-link">Learn more →</a>
       </div>
@@ -626,7 +626,7 @@
         <span class="feature-row-num">04</span>
         <div class="feature-row-body">
           <strong>Meeting Preparation</strong>
-          <p>Given a calendar event, Phil identifies participants, retrieves related emails via semantic search, and drafts a structured briefing: attendees, relevant messages, agenda suggestion.</p>
+          <p><em>Problem:</em> Walking into a meeting cold — not knowing who's attending or what was discussed before. <em>Solution:</em> Phil identifies participants from a calendar event, retrieves related emails via semantic search, and drafts a structured briefing: attendees, relevant messages, agenda suggestion.</p>
         </div>
         <a href="features/meeting-prep/" class="feature-row-link">Learn more →</a>
       </div>
@@ -634,7 +634,7 @@
         <span class="feature-row-num">05</span>
         <div class="feature-row-body">
           <strong>Memory &amp; Learning</strong>
-          <p>Phil remembers facts about you across sessions, stored in SQLite and ChromaDB. Thumbs up/down feedback drives RLHF-style learning. All facts are visible and editable.</p>
+          <p><em>Problem:</em> Every chat session starts from zero — the assistant knows nothing about you. <em>Solution:</em> Phil remembers facts across sessions in SQLite and ChromaDB. Thumbs up/down feedback refines what it retains. All stored facts are visible, editable, and deletable.</p>
         </div>
         <a href="features/memory-learning/" class="feature-row-link">Learn more →</a>
       </div>
@@ -642,7 +642,7 @@
         <span class="feature-row-num">06</span>
         <div class="feature-row-body">
           <strong>Semantic Search</strong>
-          <p>Emails and PDF/DOCX attachments are indexed in a vector store. Phil retrieves semantically similar past correspondence even when keyword search fails.</p>
+          <p><em>Problem:</em> Keyword search fails when you remember meaning but not exact words. <em>Solution:</em> Emails and PDF/DOCX attachments are embedded as vectors in ChromaDB. Phil retrieves semantically similar correspondence even when no keyword matches — finding what you meant, not just what you typed.</p>
         </div>
         <a href="features/rag-search/" class="feature-row-link">Learn more →</a>
       </div>
@@ -650,23 +650,47 @@
         <span class="feature-row-num">07</span>
         <div class="feature-row-body">
           <strong>Knowledge Graph &amp; Ontology</strong>
-          <p>A local OWL/RDF knowledge graph models relationships between people, topics and organisations extracted from emails. RDFlib + SPARQL queries surface semantic connections that vector search cannot find.</p>
+          <p><em>Problem:</em> Vector search finds similar text but misses structural relationships — who supervises whom, which project links to which deadline. <em>Solution:</em> A local OWL/RDF graph models entities and relationships from emails. SPARQL queries surface connections that embeddings alone cannot see.</p>
         </div>
         <a href="features/" class="feature-row-link">Learn more →</a>
       </div>
       <div class="feature-row reveal">
         <span class="feature-row-num">08</span>
         <div class="feature-row-body">
-          <strong>Speech Output</strong>
-          <p>Phil reads out briefings and responses using browser-native text-to-speech. Hands-free morning briefings — useful while getting ready or commuting. No additional API required.</p>
+          <strong>DB Travel Planning</strong>
+          <p><em>Problem:</em> Planning a business trip means switching between calendar, the DB website, and email — all manually. <em>Solution:</em> Phil queries Deutsche Bahn connections via PyHafas, cross-references your calendar for conflicts, and suggests optimal departure times — without leaving the interface.</p>
         </div>
         <a href="features/" class="feature-row-link">Learn more →</a>
       </div>
       <div class="feature-row reveal">
         <span class="feature-row-num">09</span>
         <div class="feature-row-body">
+          <strong>Task Orchestration</strong>
+          <p><em>Problem:</em> Action items hidden inside emails get forgotten — there is no automatic bridge from information to task. <em>Solution:</em> Phil extracts action items from emails and calendar events, creates trackable tasks, and monitors completion — closing the loop from incoming message to resolved action.</p>
+        </div>
+        <a href="features/" class="feature-row-link">Learn more →</a>
+      </div>
+      <div class="feature-row reveal">
+        <span class="feature-row-num">10</span>
+        <div class="feature-row-body">
+          <strong>LinkedIn Connections</strong>
+          <p><em>Problem:</em> Your email contacts and your professional network live in separate silos. <em>Solution:</em> Phil links email correspondents to their LinkedIn profiles, enriching your contact graph with job titles, mutual connections, and professional context — so every conversation has background.</p>
+        </div>
+        <a href="features/" class="feature-row-link">Learn more →</a>
+      </div>
+      <div class="feature-row reveal">
+        <span class="feature-row-num">11</span>
+        <div class="feature-row-body">
+          <strong>Speech Output</strong>
+          <p><em>Problem:</em> Reading briefings at your desk ties you to a screen. <em>Solution:</em> Phil reads out briefings and responses using browser-native text-to-speech. Useful while commuting or getting ready — no additional API, no setup, works offline.</p>
+        </div>
+        <a href="features/" class="feature-row-link">Learn more →</a>
+      </div>
+      <div class="feature-row reveal">
+        <span class="feature-row-num">12</span>
+        <div class="feature-row-body">
           <strong>Exchange &amp; EWS</strong>
-          <p>Phil connects to Microsoft Exchange mailboxes via EWS — not just Gmail. Corporate Exchange Server and Microsoft 365 environments are fully supported via exchangelib, with automatic OAuth or basic auth.</p>
+          <p><em>Problem:</em> Corporate mailboxes are locked behind Microsoft Exchange — most AI tools only support Gmail. <em>Solution:</em> Phil connects to Exchange via EWS using exchangelib, supporting both corporate Exchange Server and Microsoft 365 with automatic OAuth or basic auth.</p>
         </div>
         <a href="features/" class="feature-row-link">Learn more →</a>
       </div>
@@ -675,6 +699,8 @@
     <div class="screenshots-grid" id="screenshots">
       <img src="assets/screenshots/dashboard.png" alt="Phil Dashboard — Dark Mode">
       <img src="assets/screenshots/mail-triage.png" alt="Phil Mail Triage — Dark Mode">
+      <img src="assets/screenshots/calendar.png" alt="Phil Calendar">
+      <img src="assets/screenshots/tasks.png" alt="Phil Tasks">
     </div>
   </div>
 </section>
@@ -909,7 +935,7 @@
         <div class="badges">
           <span class="badge">FastAPI</span>
           <span class="badge">Python 3.12</span>
-          <span class="badge">Anthropic Claude API</span>
+          <span class="badge">Open Weights LLM</span>
           <span class="badge">ChromaDB</span>
           <span class="badge">SQLite</span>
           <span class="badge">RDFlib</span>
@@ -934,7 +960,11 @@
         </div>
       </div>
     </div>
-    <p class="reveal" style="margin-top:2.5rem;">
+    <p class="reveal" style="margin-top:2rem;font-size:var(--text-sm);color:var(--muted);">
+      Phil runs locally with any <strong>OpenAI-compatible API endpoint</strong> — LM Studio, Ollama, or any hosted model.
+      No vendor dependency. Your data stays on your machine.
+    </p>
+    <p class="reveal" style="margin-top:1.25rem;">
       Every LLM prompt in Phil follows the <strong>CO-STAR framework</strong>
       (Context · Objective · Style · Tone · Audience · Response format).
       <a href="prompts/" style="color:var(--accent)">See all prompts →</a>
