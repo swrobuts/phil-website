@@ -96,26 +96,64 @@ p  { color: var(--muted); }
 .hero {
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 38fr 62fr;
-  gap: 4rem;
-  align-items: center;
-  padding: 8rem 5% 6rem;
+  grid-template-columns: 46fr 54fr;
   max-width: none;
+  overflow: hidden;
+  position: relative;
+}
+.hero-left {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 9rem 3rem 7rem 8%;
 }
 .hero-pre {
   font-size: .72rem; text-transform: uppercase; letter-spacing: .1em;
   color: var(--muted); font-weight: 600; margin-bottom: 1.5rem; display: block;
 }
 .hero-left h1 { margin-bottom: 1.25rem; }
-.hero-body { font-size: 1.2rem; color: var(--muted); max-width: 46ch; line-height: 1.8; }
+.hero-body { font-size: 1.2rem; color: var(--muted); max-width: 44ch; line-height: 1.8; }
 .hero-body strong { color: var(--accent); }
-.hero-right { display: flex; justify-content: center; align-items: center; }
 
-/* "Giants" typographic accent */
+/* "Giants" typographic accent — gold, no italic */
 .hero-giants {
-  font-style: italic;
   color: var(--accent);
-  display: inline-block;
+  font-style: normal;
+}
+
+/* Right side: fills viewport height, clips overflow */
+.hero-right {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+/* Hero-specific pm-* overrides — fill the entire right panel */
+.hero-right .pm-wrap {
+  position: absolute;
+  top: 5.5rem;
+  left: 2rem;
+  right: -3rem;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+.hero-right .pm-browser {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.hero-right .pm-app {
+  flex: 1;
+  overflow: hidden;
+}
+.hero-right .pm-main {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+.hero-right .pm-body {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
 }
 
 /* Phil demo window */
