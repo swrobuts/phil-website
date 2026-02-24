@@ -39,12 +39,12 @@ p  { color: var(--muted); }
 .section--dark { background: var(--surface); }
 
 .label {
-  font-size: .68rem; text-transform: uppercase; letter-spacing: .14em;
+  font-size: .78rem; text-transform: uppercase; letter-spacing: .14em;
   color: rgba(240,246,252,.35); font-weight: 700; display: block; margin-bottom: .75rem;
 }
 .section-header { margin-bottom: 3.5rem; }
 .section-header h2 { margin-bottom: 1rem; }
-.section-lead { font-size: 1.05rem; color: var(--muted); max-width: 55ch; }
+.section-lead { font-size: 1.2rem; color: var(--muted); max-width: 55ch; line-height: 1.75; }
 
 /* ── Scroll Reveal ──────────────────────────────────────────── */
 .reveal {
@@ -108,7 +108,7 @@ p  { color: var(--muted); }
   color: var(--muted); font-weight: 600; margin-bottom: 1.5rem; display: block;
 }
 .hero-left h1 { margin-bottom: 1.25rem; }
-.hero-body { font-size: 1.05rem; color: var(--muted); max-width: 46ch; line-height: 1.75; }
+.hero-body { font-size: 1.2rem; color: var(--muted); max-width: 46ch; line-height: 1.8; }
 .hero-body strong { color: var(--accent); }
 .hero-right { display: flex; justify-content: center; }
 
@@ -353,12 +353,13 @@ p  { color: var(--muted); }
 
 /* ── Screenshots ────────────────────────────────────────────── */
 .screenshots-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
-  gap: 1rem; margin-top: 3rem;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1.5rem; margin-top: 3rem;
 }
 .screenshots-grid img {
   border-radius: var(--radius); border: 1px solid var(--border);
   width: 100%; display: block; transition: border-color .2s;
+  box-shadow: 0 8px 32px rgba(0,0,0,.35);
 }
 .screenshots-grid img:hover { border-color: var(--accent); }
 
@@ -643,6 +644,11 @@ h3 { font-size: clamp(1.2rem, 2.2vw, 1.55rem); }
   color: #586069; background: #21262d; padding: 3px 12px; border-radius: 4px;
   white-space: nowrap; overflow: hidden;
 }
+/* Real screenshot inside browser chrome */
+.pm-screenshot {
+  display: block; width: 100%; height: auto;
+  max-height: 540px; object-fit: cover; object-position: top;
+}
 /* App shell */
 .pm-app { display: flex; }
 .pm-side {
@@ -755,18 +761,18 @@ h3 { font-size: clamp(1.2rem, 2.2vw, 1.55rem); }
 .showcase-split.rev .ss-visual { order: -1; }
 .showcase-split + .showcase-split { padding-top: 0; }
 
-.ss-label { font-size: .78rem; text-transform: uppercase; letter-spacing: .13em; color: var(--accent); font-weight: 700; display: block; margin-bottom: 1.25rem; }
+.ss-label { font-size: .88rem; text-transform: uppercase; letter-spacing: .13em; color: var(--accent); font-weight: 700; display: block; margin-bottom: 1.25rem; }
 .ss-text h2 { font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 800; letter-spacing: -.04em; line-height: 1.03; color: var(--text); margin-bottom: 1.25rem; }
-.ss-body { font-size: 1.15rem; line-height: 1.78; color: var(--muted); max-width: 38ch; margin-bottom: 1.75rem; }
+.ss-body { font-size: 1.2rem; line-height: 1.82; color: var(--muted); max-width: 38ch; margin-bottom: 1.75rem; }
 .ss-bullets { list-style: none; margin-bottom: 2.25rem; display: flex; flex-direction: column; gap: .6rem; }
-.ss-bullets li { display: flex; gap: .75rem; font-size: .92rem; color: var(--muted); align-items: flex-start; line-height: 1.5; }
+.ss-bullets li { display: flex; gap: .75rem; font-size: 1rem; color: var(--muted); align-items: flex-start; line-height: 1.55; }
 .ss-check { color: #3fb950; flex-shrink: 0; }
 .ss-cta { font-size: .9rem; font-weight: 600; color: var(--text); border-bottom: 1px solid var(--border); text-decoration: none; padding-bottom: .15rem; transition: color .2s, border-color .2s; }
 .ss-cta:hover { color: var(--accent); border-color: var(--accent); }
 .ss-visual { position: relative; }
 
-/* Screenshots placeholder → now hidden (replaced by mockups) */
-.screenshots-grid { display: none; }
+/* Screenshots grid — real app screenshots */
+.screenshots-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem; }
 
 /* ── Responsive additions ────────────────────────────────────── */
 @media (max-width: 900px) {
@@ -808,8 +814,8 @@ h3 { font-size: clamp(1.2rem, 2.2vw, 1.55rem); }
 /* ── Typography scale-up ────────────────────────────────────── */
 .section-lead  { font-size: 1.3rem; line-height: 1.8; }
 .hero-body     { font-size: 1.25rem; line-height: 1.8; }
-.ss-body       { font-size: 1.22rem; line-height: 1.8; }
-.ss-bullets li { font-size: .98rem; }
+.ss-body       { font-size: 1.25rem; line-height: 1.85; }
+.ss-bullets li { font-size: 1.05rem; }
 .feature-row-body p   { font-size: 1rem; line-height: 1.75; }
 .feature-row-body strong { font-size: 1.08rem; }
 .uc-item strong { font-size: .96rem; }
