@@ -144,6 +144,16 @@ p  { color: var(--muted); }
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
+/* Fade at the bottom — suggests scrollable content, hides empty space */
+.hero-right .pm-browser::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 22%;
+  background: linear-gradient(to bottom, transparent, #0d1117);
+  pointer-events: none;
+  z-index: 2;
+}
 .hero-right .pm-app {
   flex: 1;
   overflow: hidden;
@@ -628,6 +638,13 @@ footer strong { color: var(--text); }
 /* -- ≥1600px: larger headline fills the left column at wide / tall viewports -- */
 @media (min-width: 1600px) {
   h1 { font-size: clamp(8rem, 8.5vw, 14rem); }
+}
+
+/* -- ≥2000px: ultra-wide — cap hero height, reduce font, deeper fade -- */
+@media (min-width: 2000px) {
+  .hero { height: min(100vh, 960px); }
+  h1 { font-size: clamp(7rem, 5vw, 10rem); }
+  .hero-right .pm-browser::after { height: 55%; }
 }
 
 /* -- ≤1200px: tighten nav so links don't overflow -- */
