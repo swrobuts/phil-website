@@ -643,6 +643,11 @@ h3 { font-size: clamp(1.2rem, 2.2vw, 1.55rem); }
   color: #586069; background: #21262d; padding: 3px 12px; border-radius: 4px;
   white-space: nowrap; overflow: hidden;
 }
+/* Real screenshot inside browser chrome */
+.pm-screenshot {
+  display: block; width: 100%; height: auto;
+  max-height: 540px; object-fit: cover; object-position: top;
+}
 /* App shell */
 .pm-app { display: flex; }
 .pm-side {
@@ -765,8 +770,8 @@ h3 { font-size: clamp(1.2rem, 2.2vw, 1.55rem); }
 .ss-cta:hover { color: var(--accent); border-color: var(--accent); }
 .ss-visual { position: relative; }
 
-/* Screenshots placeholder → now hidden (replaced by mockups) */
-.screenshots-grid { display: none; }
+/* Screenshots grid — real app screenshots */
+.screenshots-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 3rem; }
 
 /* ── Responsive additions ────────────────────────────────────── */
 @media (max-width: 900px) {
