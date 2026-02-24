@@ -644,9 +644,8 @@ footer strong { color: var(--text); }
   h1 { font-size: clamp(8rem, 8.5vw, 14rem); }
 }
 
-/* -- ≥2000px: ultra-wide — cap hero height, reduce font, deeper fade -- */
+/* -- ≥2000px: ultra-wide — scale font, deeper fade; hero stays 100vh so stats bar pins to bottom -- */
 @media (min-width: 2000px) {
-  .hero { height: min(100vh, 960px); }
   h1 { font-size: clamp(7rem, 5vw, 10rem); }
   .hero-right .pm-browser::after { height: 55%; }
 }
