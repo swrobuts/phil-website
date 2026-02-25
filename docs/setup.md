@@ -1,131 +1,430 @@
 # Getting Started
 
-Two ways to run Phil: **directly** with Python + Node, or with **Docker Compose**.
+This guide takes you from zero to a running Phil instance. Follow it top to bottom. Every command is shown exactly as you should type it.
 
-## Prerequisites
-
-| Requirement | Version | Notes |
-|-------------|---------|-------|
-| Python | 3.11+ | `python3 --version` |
-| Node.js | 20+ | `node --version` |
-| Anthropic API key | — | [console.anthropic.com](https://console.anthropic.com) |
-| Google Workspace account | — | Gmail + Google Calendar access |
-
-!!! note "DE — Voraussetzungen"
-    Python 3.11+, Node 20+, ein Anthropic API-Key und ein Google Workspace Konto.
-    Die `.env.example` erklärt jeden Parameter.
+**Time to first run: ~20 minutes** (faster if you already have Python and Node installed)
 
 ---
 
-## Step 1: Clone and install
+## What you will need
+
+Before you start, make sure you have access to:
+
+| Requirement | Minimum version | How to check |
+|-------------|----------------|-------------|
+| Python | 3.11 | `python3 --version` |
+| Node.js | 20 | `node --version` |
+| npm | 9 | `npm --version` |
+| Git | any | `git --version` |
+| A text editor | — | VS Code recommended |
+
+Don't have these yet? See the [install helpers](#install-helpers) at the bottom of this page.
+
+---
+
+## Step 1 — Clone the repository
 
 ```bash
 git clone https://github.com/swrobuts/phil-knowledge-navigator.git
 cd phil-knowledge-navigator
+```
 
-# Python dependencies
+If you don't have Git: download the ZIP from the GitHub repository page (green "Code" button → "Download ZIP"), unzip it, and open a terminal in that folder.
+
+---
+
+## Step 2 — Create a Python virtual environment
+
+Always use a virtual environment. This isolates Phil's dependencies from the rest of your system and prevents version conflicts.
+
+```bash
+python3 -m venv .venv
+```
+
+Then **activate** it. The command depends on your operating system:
+
+=== "macOS / Linux"
+
+    ```bash
+    source .venv/bin/activate
+    ```
+
+=== "Windows (Command Prompt)"
+
+    ```cmd
+    .venv\Scripts\activate.bat
+    ```
+
+=== "Windows (PowerShell)"
+
+    ```powershell
+    .venv\Scripts\Activate.ps1
+    ```
+
+Your terminal prompt should now start with `(.venv)`. You'll need to do this every time you open a new terminal.
+
+---
+
+## Step 3 — Install Python dependencies
+
+```bash
 pip install -r backend/requirements.txt
+```
 
-# JavaScript dependencies
+This installs FastAPI, exchangelib, RDFlib, ChromaDB, and all other backend libraries. Expect it to take 1–3 minutes.
+
+If you see `pip: command not found`, try `pip3` instead.
+
+---
+
+## Step 4 — Install JavaScript dependencies
+
+```bash
 cd frontend
 npm install
 cd ..
 ```
 
+This installs React, Vite, TypeScript, and all frontend dependencies. They go into `frontend/node_modules/` and are not uploaded to GitHub.
+
 ---
 
-## Step 2: Configure `.env`
+## Step 5 — Configure your environment file
+
+Copy the example file and open it in your text editor:
 
 ```bash
 cp backend/.env.example backend/.env
 ```
 
-Open `backend/.env` and fill in:
+Now open `backend/.env`. Here is every variable explained:
 
-| Variable | Required | Description |
-|----------|----------|-------------|
-| `ANTHROPIC_API_KEY` | ✅ | Your Claude API key |
-| `OPENAI_API_KEY` | Optional | For OpenAI embeddings (ChromaDB) |
-| `GOG_ACCOUNT` | For mail/calendar | Your Google Workspace email |
-| `GOG_KEYRING_PASSWORD` | For mail/calendar | App password or OAuth token |
-| `LOCAL_LLM_ENDPOINT` | Optional | LM Studio local LLM endpoint |
+### AI / LLM settings
+
+| Variable | Required | What to put here |
+|----------|----------|-----------------|
+| `ANTHROPIC_API_KEY` | ✅ if using cloud | Your Claude API key (starts with `sk-ant-`) |
+| `LOCAL_LLM_ENDPOINT` | Optional | `http://localhost:1234/v1` (LM Studio default) |
 | `LOCAL_LLM_MODEL` | Optional | e.g. `qwen2.5-32b-instruct` |
 
-!!! warning
-    Never commit your `.env` file. It is listed in `.gitignore`.
-    The repo only contains `.env.example` with placeholder values.
+**You need at least one of these.** If you set a local endpoint, Phil will try that first and fall back to Anthropic. If only `ANTHROPIC_API_KEY` is set, all requests go to Claude.
+
+### Mail and calendar settings
+
+| Variable | Required | What to put here |
+|----------|----------|-----------------|
+| `GOG_ACCOUNT` | For mail/calendar | Your full email address |
+| `GOG_KEYRING_PASSWORD` | For mail/calendar | Your app password or EWS password |
+| `EXCHANGE_EWS_URL` | For Exchange | Your Exchange server EWS URL |
+
+See [Step 6](#step-6--connect-your-email) for detailed instructions on different email providers.
+
+!!! warning "Never commit your .env file"
+    The `.env` file contains your secrets. It is listed in `.gitignore` — Git will not track it. If you accidentally commit it, rotate your API keys immediately.
 
 ---
 
-## Step 3: Google Workspace authentication
+## Step 6 — Connect your email
 
-Phil connects to Gmail and Google Calendar via the Exchange Web Services (EWS) protocol.
+Phil supports three mail/calendar backends:
 
-1. Enable "Less Secure Apps" or generate an **App Password** in your Google Account
-2. Set `GOG_ACCOUNT` to your full Google email address
-3. Set `GOG_KEYRING_PASSWORD` to the generated App Password
+=== "Google (Gmail + Google Calendar)"
 
-!!! note "DE"
-    Phil nutzt EWS (Exchange Web Services) für den Zugriff auf Gmail und Google Calendar.
-    Du brauchst ein App-Passwort, das du in den Google-Kontoeinstellungen unter
-    "Sicherheit → App-Passwörter" erstellen kannst.
+    **Option A — App Password (simplest)**
+
+    1. Go to [myaccount.google.com/security](https://myaccount.google.com/security)
+    2. Enable **2-Step Verification** (required for App Passwords)
+    3. Scroll to **App Passwords** → select app: "Mail" → device: "Other (Custom name)" → name it "Phil"
+    4. Google shows you a 16-character password — copy it now (it won't be shown again)
+    5. In `backend/.env`:
+       ```
+       GOG_ACCOUNT=your.name@gmail.com
+       GOG_KEYRING_PASSWORD=abcd efgh ijkl mnop
+       ```
+
+    **Option B — OAuth (more complex, more secure)**
+
+    See the `docs/oauth-setup.md` for the OAuth2 flow. Recommended for production use.
+
+=== "Microsoft Exchange / Microsoft 365"
+
+    Phil uses `exchangelib` to connect to Exchange Web Services (EWS).
+
+    1. Ask your IT department for your **EWS URL** (often `https://mail.yourorg.com/EWS/Exchange.asmx`)
+    2. Use your regular domain password:
+       ```
+       GOG_ACCOUNT=firstname.lastname@yourcompany.com
+       GOG_KEYRING_PASSWORD=your_domain_password
+       EXCHANGE_EWS_URL=https://mail.yourcompany.com/EWS/Exchange.asmx
+       ```
+
+    For **Microsoft 365** (Outlook online), the EWS URL is typically `https://outlook.office365.com/EWS/Exchange.asmx`.
+
+=== "No email account (demo mode)"
+
+    You can run Phil without any mail or calendar connection. The mail and calendar views will be empty, but everything else (chat, tasks, knowledge graph, LLM) works normally.
+
+    Simply leave `GOG_ACCOUNT` and `GOG_KEYRING_PASSWORD` blank in your `.env`. Phil starts up without any mail errors.
 
 ---
 
-## Step 4: Run Phil
+## Step 7 — Get an LLM
+
+Phil supports two LLM modes — cloud and local. You need at least one.
+
+=== "Cloud — Anthropic Claude (easiest)"
+
+    1. Create a free account at [console.anthropic.com](https://console.anthropic.com)
+    2. Go to **API Keys** → **Create Key**
+    3. Copy the key (starts with `sk-ant-`) into `backend/.env`:
+       ```
+       ANTHROPIC_API_KEY=sk-ant-api03-...
+       ```
+
+    **Cost:** Roughly €0.02–0.10 per session for typical daily use. Much less than ChatGPT Plus. You can set a monthly spending limit in the Anthropic console.
+
+=== "Cloud — OpenAI GPT (alternative)"
+
+    Phil is designed for Anthropic Claude but the `LLMClient` class can be adapted for any OpenAI-compatible API. If you prefer OpenAI:
+
+    1. Get your API key at [platform.openai.com](https://platform.openai.com)
+    2. Phil will use the local LLM client interface — set:
+       ```
+       LOCAL_LLM_ENDPOINT=https://api.openai.com/v1
+       LOCAL_LLM_ENDPOINT_KEY=sk-...your-openai-key...
+       LOCAL_LLM_MODEL=gpt-4o-mini
+       ```
+
+    The `LLMClient` in `backend/llm_client.py` uses the OpenAI-compatible endpoint for all local/hybrid calls.
+
+=== "Local — LM Studio (no data leaves your machine)"
+
+    **System requirements:**
+
+    | Model tier | GPU VRAM / Unified memory |
+    |-----------|--------------------------|
+    | 7B Q4_K_M | 6 GB |
+    | 14B Q4_K_M | 10 GB |
+    | 32B Q4_K_M | 22 GB |
+
+    **Setup:**
+
+    1. Download [LM Studio](https://lmstudio.ai) (free, works on Mac/Windows/Linux)
+    2. In LM Studio: **Discover** tab → search for `Qwen2.5-32B-Instruct-Q4_K_M` (or a smaller model if needed)
+    3. Download the model (this takes 10–30 min depending on size)
+    4. In LM Studio: **Local Server** tab → **Start Server** (listens on port 1234 by default)
+    5. In `backend/.env`:
+       ```
+       LOCAL_LLM_ENDPOINT=http://localhost:1234/v1
+       LOCAL_LLM_MODEL=qwen2.5-32b-instruct
+       ```
+
+    Phil checks whether LM Studio responds at startup. If yes: local model. If no: cloud fallback.
+
+---
+
+## Step 8 — Run Phil
+
+Open **two terminals**, both in the repo root, both with the virtual environment activated.
+
+**Terminal 1 — Backend:**
 
 ```bash
-# Terminal 1 — Backend (FastAPI)
 uvicorn backend.main:app --reload --port 8000
+```
 
-# Terminal 2 — Frontend (Vite dev server)
+You should see:
+```
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process ...
+```
+
+**Terminal 2 — Frontend:**
+
+```bash
 cd frontend
 npm run dev
 ```
 
-Open your browser at **[http://localhost:5173](http://localhost:5173)**
+You should see:
+```
+  VITE v5.x.x  ready in 400 ms
+  ➜  Local:   http://localhost:5173/
+```
+
+Open **[http://localhost:5173](http://localhost:5173)** in your browser. Log in with your username and password (set during first run, stored locally).
 
 ---
 
----
+## Docker Compose (alternative to Steps 2–8)
 
-## Docker Compose (Alternative)
+If you have Docker installed, you can skip the Python/Node setup entirely.
 
-Prefer containers? Docker Compose starts backend, frontend, and Traefik in a single command.
-
-**Prerequisites:** Docker Desktop (or Docker Engine + Compose plugin)
+**Install Docker:** [docker.com/get-docker](https://www.docker.com/get-docker) — Docker Desktop works on Mac, Windows, and Linux. It's free for personal use.
 
 ```bash
-# Clone and configure as above (Steps 1–3), then:
+# 1. Clone the repo (same as Step 1)
+git clone https://github.com/swrobuts/phil-knowledge-navigator.git
+cd phil-knowledge-navigator
+
+# 2. Create and fill in your .env (same as Steps 5–6)
+cp backend/.env.example backend/.env
+# (edit backend/.env with your credentials)
+
+# 3. Start everything
 docker compose up --build
 ```
 
-Open **[http://localhost:5173](http://localhost:5173)** — same as the manual setup.
+Open **[http://localhost:5173](http://localhost:5173)**.
 
-!!! note "DE — Docker Compose"
-    `docker compose up --build` startet alle Dienste automatisch.
-    Ideal für reproduzierbare Entwicklungsumgebungen und den Einsatz auf eigenen Servern.
-    Voraussetzung: Docker Desktop oder Docker Engine mit Compose-Plugin.
+**What Docker Compose starts:**
 
-!!! tip "DSGVO-Hinweis"
-    Im lokalen Betrieb (mit oder ohne Docker) verlassen **keine E-Mails, Prompts oder
-    personenbezogenen Daten** das eigene Gerät — insbesondere wenn der lokale LLM-Modus
-    aktiviert ist. Dies erleichtert DSGVO-konformen Betrieb gemäß Art. 25 (Privacy by Design).
+| Service | Port | What it does |
+|---------|------|-------------|
+| `backend` | 8000 | FastAPI Python server |
+| `frontend` | 5173 | Vite/React dev server |
+
+To stop: `Ctrl+C`, then `docker compose down`.
+
+To rebuild after code changes: `docker compose up --build`.
+
+!!! tip "DSGVO / Data privacy"
+    In local mode (with or without Docker), no emails, prompts, or personal data leave your machine. This applies as long as `LOCAL_LLM_ENDPOINT` is set to a local LM Studio instance and `ANTHROPIC_API_KEY` is not used. This design supports GDPR compliance under Art. 25 (privacy by design).
+
+---
+
+## Running the tests
+
+Phil includes a test suite for the backend. Run it from the repo root:
+
+```bash
+pytest backend/tests/ -v
+```
+
+For a single test file:
+
+```bash
+pytest backend/tests/test_llm_client.py -v
+```
+
+If you see `pytest: command not found`, install it first: `pip install pytest`.
+
+Expected output when everything is working:
+
+```
+PASSED backend/tests/test_mail_triage.py::test_categorise_vip_mail
+PASSED backend/tests/test_llm_client.py::test_local_fallback
+...
+N passed in X.Xs
+```
+
+---
+
+## Security considerations
+
+!!! danger "Before sharing or deploying Phil"
+
+    Phil is designed as a **local personal tool**, not a production service. Before running it for other people or exposing it to the internet, be aware of:
+
+**API key exposure**
+
+- Your `.env` file contains API keys and passwords. Never commit it. Never paste it into chat tools.
+- If you suspect a key has been leaked: rotate it immediately in the Anthropic or Google console.
+
+**Email data stays local**
+
+- Phil stores email summaries and embeddings in ChromaDB (at `/tmp/phil_chroma` by default). This folder contains your mail data. Back it up, and delete it when you stop using Phil.
+
+**No authentication hardening for public exposure**
+
+- The default setup has a simple session-based login. It is **not hardened** for exposure to the internet.
+- If you want to run Phil on a server, add a reverse proxy (nginx, Caddy) with HTTPS and access restriction.
+
+**LLM prompt injection**
+
+- Phil passes email content directly to the LLM. A malicious email could attempt prompt injection (trying to make Phil execute unintended commands). Phil does not currently have prompt injection defences. Do not use Phil to triage emails from untrusted sources in security-critical contexts.
+
+**Local LLM vs cloud trade-off**
+
+- Cloud LLMs (Anthropic Claude) transmit your email content to Anthropic's servers. For sensitive data (medical, legal, HR), use the local LLM mode exclusively.
+- Anthropic's data retention policy: [anthropic.com/privacy](https://www.anthropic.com/privacy). By default, API inputs are not used for training.
+
+---
+
+## Known limitations and open risks
+
+| Area | Current state | Risk |
+|------|--------------|------|
+| Mail sync | Pulls only the most recent N emails | Older emails are not indexed |
+| Calendar | Google Calendar only in demo; Exchange required for full functionality | Some users need manual calendar entry |
+| LLM hallucination | RAG reduces but does not eliminate hallucinations | Always verify AI-generated summaries against source emails |
+| Knowledge graph | Built from email content only; no external data sources | Graph may miss entities not mentioned in recent emails |
+| Session security | Local single-user setup; no multi-user isolation | Do not run as a shared service without adding auth |
+| GGUF model size | 32B model requires 22 GB RAM | Smaller machines must use a 7B or 14B model |
 
 ---
 
 ## Troubleshooting
 
-**`ModuleNotFoundError: No module named 'backend'`**
-Run `uvicorn` from the repo root, not from inside `backend/`.
+??? question "`ModuleNotFoundError: No module named 'backend'`"
+    You are running `uvicorn` from inside the `backend/` folder. Run it from the **repo root**:
+    ```bash
+    cd phil-knowledge-navigator  # make sure you're here
+    uvicorn backend.main:app --reload --port 8000
+    ```
 
-**`ChromaDB SIGBUS error`**
-ChromaDB uses memory-mapped files that must not live on OneDrive or network drives.
-Phil stores them at `/tmp/phil_chroma` automatically.
+??? question "`ChromaDB SIGBUS error` or `mmap error`"
+    ChromaDB uses memory-mapped files. These **must not** live on a network drive, OneDrive, Dropbox, or iCloud folder. Phil stores them at `/tmp/phil_chroma` by default — this is intentional. Do not move the database to a synced folder.
 
-**Mail/calendar returns empty**
-Check your `.env` credentials. Run `GET /api/mails` directly to see the raw response.
+??? question "Mail / calendar returns empty"
+    1. Check `backend/.env` — verify `GOG_ACCOUNT` and `GOG_KEYRING_PASSWORD` are correct.
+    2. Test the API directly: open `http://localhost:8000/api/mails` in your browser. You should see JSON.
+    3. For Google: make sure 2-Step Verification is enabled and the App Password is correct (no spaces needed in the password itself).
+    4. For Exchange: verify the EWS URL by opening it in a browser — it should show an XML response.
 
-**LLM returns errors**
-Verify your `ANTHROPIC_API_KEY` is valid and has remaining credits.
-Phil will fall back to cloud automatically if a local LLM is configured but unavailable.
+??? question "`ANTHROPIC_API_KEY` error / 401 Unauthorized"
+    Your key is either missing, incorrect, or has no credits. Check [console.anthropic.com](https://console.anthropic.com) → usage. The key must start with `sk-ant-`.
+
+??? question "LM Studio returns timeout / local LLM not responding"
+    1. Open LM Studio → **Local Server** tab → confirm "Running" is shown.
+    2. Test: `curl http://localhost:1234/v1/models` should return JSON.
+    3. Phil will **automatically fall back** to Anthropic if the local server is unavailable, as long as `ANTHROPIC_API_KEY` is set.
+
+??? question "Frontend shows blank page or cannot reach backend"
+    Confirm both servers are running: backend on port 8000, frontend on port 5173. The frontend proxies API requests to the backend — if the backend is down, the frontend will show network errors in the browser console (F12).
+
+??? question "I don't have a Google account — can I use Phil?"
+    Yes. See [Step 6 — Exchange / Microsoft 365](#step-6--connect-your-email) for the Exchange option. Or run in demo mode (leave mail credentials blank) and use only the chat, tasks, and knowledge features.
+
+---
+
+## Install helpers
+
+=== "macOS"
+
+    ```bash
+    # Install Homebrew (package manager for macOS)
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+    # Then install Python and Node
+    brew install python@3.12 node git
+    ```
+
+=== "Windows"
+
+    1. Python: [python.org/downloads](https://www.python.org/downloads/) → Download Python 3.12 → check "Add Python to PATH" during install
+    2. Node.js: [nodejs.org](https://nodejs.org/) → Download LTS version
+    3. Git: [git-scm.com](https://git-scm.com/download/win)
+
+=== "Linux (Ubuntu / Debian)"
+
+    ```bash
+    sudo apt update
+    sudo apt install python3.12 python3.12-venv python3-pip nodejs npm git
+    ```
+
+=== "Linux (Fedora / RHEL)"
+
+    ```bash
+    sudo dnf install python3.12 nodejs npm git
+    ```
