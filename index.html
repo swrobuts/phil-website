@@ -1027,14 +1027,29 @@
       <p class="label">For Students</p>
       <h2>Rebuild Phil<br>yourself.</h2>
       <p class="section-lead">
-        Python 3.11+ and Node 20+, or Docker Compose for a one-command start.
-        An Anthropic API key and a Google Workspace account are required either way.
+        Three ways to run Phil — pick what fits. The fastest option needs only Docker.
       </p>
     </div>
 
     <div class="de-note reveal" style="margin-bottom:2.5rem;">
-      <strong>DE:</strong> Python 3.11+, Node 20+ und ein Anthropic API-Key — oder alternativ Docker Compose
-      für einen Ein-Befehl-Start. Auch ein Google Workspace Konto wird benötigt.
+      <strong>DE:</strong> Drei Wege zum Start — der schnellste braucht nur Docker. Für alle Wege wird ein Anthropic API-Key benötigt.
+    </div>
+
+    <div class="step reveal">
+      <div class="step-num" style="background:var(--amber);color:#fff;">⚡</div>
+      <div class="step-body">
+        <h3>Docker Hub <span style="font-weight:400;font-size:.85em;color:var(--text-muted)">— kein Python, kein Node, kein Build</span></h3>
+        <p>One command. Phil runs directly from the pre-built public image — no clone, no compile.</p>
+        <pre>docker run -d --name phil -p 8000:8000 \
+  --env-file backend.env \
+  swrobutsdocker/phil:latest
+
+# Open → http://localhost:8000</pre>
+        <div class="de-note" style="margin-top:.75rem;">
+          <strong>DE:</strong> Das fertige Image liegt auf <a href="https://hub.docker.com/r/swrobutsdocker/phil" target="_blank" style="color:var(--amber)">hub.docker.com/r/swrobutsdocker/phil</a>.
+          Nur Docker und eine <code>backend.env</code>-Datei mit dem API-Key werden benötigt.
+        </div>
+      </div>
     </div>
 
     <div class="steps">
@@ -1066,7 +1081,7 @@ cd frontend &amp;&amp; npm install</pre>
           <h3>Run Phil locally</h3>
           <p>Start backend and frontend in two terminals.</p>
           <pre># Terminal 1 — Backend
-uvicorn backend.main:app --reload
+uvicorn backend.main:app --reload --port 8001
 
 # Terminal 2 — Frontend
 cd frontend &amp;&amp; npm run dev
@@ -1079,11 +1094,11 @@ cd frontend &amp;&amp; npm run dev
     <div class="step reveal">
       <div class="step-num" style="background:var(--surface-2); color:var(--text-muted); border:1px solid var(--border);">OR</div>
       <div class="step-body">
-        <h3>Run with Docker Compose</h3>
-        <p>Prefer containers? One command starts backend, frontend and Traefik together.</p>
+        <h3>Build with Docker Compose</h3>
+        <p>Prefer building from source? One command compiles and starts everything.</p>
         <pre>cp backend/.env.example backend/.env
 # Add your API key and Google credentials
-docker compose up --build</pre>
+docker compose -f docker-compose.local.yml up --build</pre>
         <div class="de-note" style="margin-top:.75rem;">
           <strong>DE:</strong> Docker Compose startet alle Dienste gebündelt. Ideal für reproduzierbare Umgebungen
           und den Einsatz auf eigenen Servern oder in der Cloud.
@@ -1093,6 +1108,7 @@ docker compose up --build</pre>
 
     <div class="cta-row reveal">
       <a href="setup/" class="btn btn-primary">Full Setup Guide →</a>
+      <a href="https://hub.docker.com/r/swrobutsdocker/phil" class="btn btn-outline" target="_blank">Docker Hub →</a>
       <a href="https://github.com/swrobuts/phil-knowledge-navigator" class="btn btn-outline" target="_blank">View on GitHub →</a>
     </div>
   </div>
