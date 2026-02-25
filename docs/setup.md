@@ -334,8 +334,6 @@ The Anthropic Claude API is supported as a **technical reference and quality bas
        LOCAL_LLM_MODEL=qwen2.5-32b-instruct
        ```
 
-    Phil checks whether LM Studio responds at startup. If yes: local model is used. If the local server is off: Phil falls back to the cloud API (if configured).
-
     No email content, no prompts, no personal data ever leave your machine.
 
 === "Cloud — Anthropic Claude (Referenz / Demo)"
