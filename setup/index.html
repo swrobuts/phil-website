@@ -1749,7 +1749,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>LLM:</strong> You need at least one of <code>ANTHROPIC_API_KEY</code> or <code>LOCAL_LLM_ENDPOINT</code>. If both are set, Phil tries the local endpoint first and falls back to Anthropic.</p>
+<p><strong>LLM:</strong> Set <code>LOCAL_LLM_ENDPOINT</code> for local mode (recommended) or <code>ANTHROPIC_API_KEY</code> for cloud reference/demo use. Both can be set simultaneously for hybrid use — see the <a href="#hybrid-mode-local--cloud">Hybrid mode</a> section below for caveats.</p>
 <p><strong>OpenAI:</strong> Used for ChromaDB embeddings (semantic search over your emails) and the text-to-speech "read aloud" feature. These features are silently disabled if the key is missing.</p>
 <h3 id="google-calendar-settings">Google Calendar settings</h3>
 <table>
