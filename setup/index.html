@@ -1542,7 +1542,7 @@
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>--name<span class="w"> </span>phil<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">8000</span>:8000<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span>--env-file<span class="w"> </span>backend.env<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span>swrobuts/phil:latest
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span>swrobutsdocker/phil:latest
 </code></pre></div>
 <p>Open <strong><a href="http://localhost:8000">http://localhost:8000</a></strong>. That's it.</p>
 <p><strong>Managing the container:</strong></p>
@@ -1550,16 +1550,16 @@
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>docker<span class="w"> </span>stop<span class="w"> </span>phil<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>docker<span class="w"> </span>rm<span class="w"> </span>phil
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Update to latest version</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>docker<span class="w"> </span>pull<span class="w"> </span>swrobuts/phil:latest
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>docker<span class="w"> </span>pull<span class="w"> </span>swrobutsdocker/phil:latest
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>docker<span class="w"> </span>stop<span class="w"> </span>phil<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>docker<span class="w"> </span>rm<span class="w"> </span>phil
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>phil<span class="w"> </span>-p<span class="w"> </span><span class="m">8000</span>:8000<span class="w"> </span>--env-file<span class="w"> </span>backend.env<span class="w"> </span>swrobuts/phil:latest
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>phil<span class="w"> </span>-p<span class="w"> </span><span class="m">8000</span>:8000<span class="w"> </span>--env-file<span class="w"> </span>backend.env<span class="w"> </span>swrobutsdocker/phil:latest
 <a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
 <a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1"># View logs</span>
 <a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>docker<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>phil
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Image on Docker Hub</p>
-<p><code>swrobuts/phil</code> is a public image — no Docker Hub account needed to pull it.</p>
+<p><code>swrobutsdocker/phil</code> is a public image — no Docker Hub account needed to pull it.</p>
 </div>
 <hr />
 <h2 id="option-b-docker-compose-build-from-source">Option B — Docker Compose (build from source)</h2>
