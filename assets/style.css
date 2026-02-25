@@ -987,6 +987,7 @@ h3 { font-size: clamp(1.2rem, 2.2vw, 1.55rem); }
 .ss-bullets { list-style: none; margin-bottom: 2.25rem; display: flex; flex-direction: column; gap: .6rem; }
 .ss-bullets li { display: flex; gap: .75rem; font-size: 1rem; color: var(--muted); align-items: flex-start; line-height: 1.55; }
 .ss-check { color: #3fb950; flex-shrink: 0; }
+.ss-limit { color: var(--muted); opacity: .5; flex-shrink: 0; }
 .ss-cta { font-size: .9rem; font-weight: 600; color: var(--text); border-bottom: 1px solid var(--border); text-decoration: none; padding-bottom: .15rem; transition: color .2s, border-color .2s; }
 .ss-cta:hover { color: var(--accent); border-color: var(--accent); }
 .ss-visual { position: relative; }

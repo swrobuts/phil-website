@@ -254,12 +254,12 @@
     <div class="ss-text reveal-left">
       <span class="ss-label">DB Travel Planning</span>
       <h2>Your journey.<br>Phil plans it.</h2>
-      <p class="ss-body">Planning a business trip means switching between calendar, the DB website and email — all manually. Phil queries Deutsche Bahn connections via PyHafas, cross-references your calendar and suggests optimal trains — without leaving the interface.</p>
+      <p class="ss-body">Planning a business trip means switching between calendar, the DB website and email — all manually. Phil's Reiseplanung view queries Deutsche Bahn connections via PyHafas, cross-references your calendar, and highlights conflicts — all in one place. Booking and pricing happen on DB's website; Phil handles the decision.</p>
       <ul class="ss-bullets stagger">
-        <li class="reveal-up"><span class="ss-check">✓</span> Live DB timetable via PyHafas — real connections, real prices</li>
-        <li class="reveal-up"><span class="ss-check">✓</span> Calendar conflict check — never double-book a travel day</li>
-        <li class="reveal-up"><span class="ss-check">✓</span> Fastest and cheapest alternatives side-by-side</li>
-        <li class="reveal-up"><span class="ss-check">✓</span> Query and plan entirely within Phil — no browser switching</li>
+        <li class="reveal-up"><span class="ss-check">✓</span> Live DB timetable via PyHafas — real connections, departure times, track info</li>
+        <li class="reveal-up"><span class="ss-check">✓</span> Calendar conflict check — flags trains that cut it too close</li>
+        <li class="reveal-up"><span class="ss-check">✓</span> Optimal departure ranked by your meeting context</li>
+        <li class="reveal-up"><span class="ss-limit">✗</span> No booking or pricing — HAFAS provides schedules only</li>
       </ul>
       <a href="features/" class="ss-cta">Explore all features →</a>
     </div>
@@ -296,19 +296,16 @@
                 <div class="pm-db-conn pm-db-conn--best">
                   <div class="pm-db-badge">✓ Empfohlen — pünktlich vor Meeting</div>
                   <div class="pm-db-times">06:22 → 09:51</div>
-                  <div class="pm-db-dur">3h 29min · ICE 527 · direkt</div>
-                  <div class="pm-db-price">ab 49 €</div>
+                  <div class="pm-db-dur">3h 29min · ICE 527 · direkt · Gleis 12</div>
                 </div>
                 <div class="pm-db-conn">
                   <div class="pm-db-times">07:04 → 10:44</div>
-                  <div class="pm-db-dur">3h 40min · ICE 1209 · direkt</div>
-                  <div class="pm-db-price">ab 39 €</div>
+                  <div class="pm-db-dur">3h 40min · ICE 1209 · direkt · Gleis 8</div>
                 </div>
                 <div class="pm-db-conn pm-db-conn--conflict">
                   <div class="pm-db-badge pm-db-badge--warn">⚠ Kalenderkonflikt — Ankunft 12:00, Puffer knapp</div>
                   <div class="pm-db-times">08:06 → 12:00</div>
-                  <div class="pm-db-dur">3h 54min · ICE 521 · 1× Umstieg</div>
-                  <div class="pm-db-price">ab 35 €</div>
+                  <div class="pm-db-dur">3h 54min · ICE 521 · 1× Umstieg Mannheim</div>
                 </div>
               </div>
             </div>
@@ -625,7 +622,7 @@
         <span class="feature-row-num">08</span>
         <div class="feature-row-body">
           <strong>DB Travel Planning</strong>
-          <p><em>Problem:</em> Planning a business trip means switching between calendar, the DB website, and email — all manually. <em>Solution:</em> Phil queries Deutsche Bahn connections via PyHafas, cross-references your calendar for conflicts, and suggests optimal departure times — without leaving the interface.</p>
+          <p><em>Problem:</em> Planning a business trip means switching between calendar, the DB website, and email — all manually. <em>Solution:</em> Phil's Reiseplanung view queries Deutsche Bahn connections via PyHafas, shows departure times and platform info, and flags calendar conflicts. Booking and pricing remain on DB.de — HAFAS provides schedules only.</p>
         </div>
         <a href="features/" class="feature-row-link">Learn more →</a>
       </div>
