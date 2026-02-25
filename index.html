@@ -756,39 +756,39 @@
       <p class="label">Hybrid AI</p>
       <h2>Phil thinks locally —<br>or in the cloud.</h2>
       <p class="section-lead">
-        Phil works with whatever LLM you have available — a local model in LM Studio,
-        Anthropic's Claude API, or both at once. The <code>LLMClient</code> picks
-        the best option automatically. You stay in control.
+        Phil runs with a local open-source model via LM Studio — no API costs, fully
+        DSGVO-compliant, your data never leaves the machine. You configure the mode
+        once in <code>backend/.env</code>. For benchmarking and demonstrations,
+        Anthropic's Claude API is also supported as a quality reference.
       </p>
     </div>
 
     <div class="hybrid-modes reveal">
-      <div class="hybrid-mode">
-        <div class="hybrid-mode-badge">Cloud</div>
-        <h3>Anthropic Claude</h3>
-        <p>Highest reasoning quality, instant setup. Requires an Anthropic API key. Best for complex summaries and mail triage.</p>
-        <div class="hybrid-mode-code">
-          <code>ANTHROPIC_API_KEY=sk-ant-...</code>
-        </div>
-        <ul class="hybrid-mode-list">
-          <li>Claude Sonnet / Haiku — streaming via SSE</li>
-          <li>Best quality for triage, briefing, memory</li>
-          <li>No local GPU required</li>
-        </ul>
-      </div>
       <div class="hybrid-mode hybrid-mode--local">
-        <div class="hybrid-mode-badge hybrid-mode-badge--local">Local</div>
+        <div class="hybrid-mode-badge hybrid-mode-badge--local">Local ✓ Empfohlen</div>
         <h3>LM Studio + Open-Source LLM</h3>
-        <p>Run a powerful open-source model entirely on your own hardware. Zero API costs, full data sovereignty.</p>
+        <p>Run a powerful open-source model entirely on your own hardware. Zero API costs, full data sovereignty — the right default for professional and university use.</p>
         <div class="hybrid-mode-code">
           <code>LOCAL_LLM_ENDPOINT=http://localhost:1234/v1</code>
           <code>LOCAL_LLM_MODEL=qwen2.5-32b-instruct</code>
         </div>
         <ul class="hybrid-mode-list">
           <li>Qwen2.5-32B · Llama 3.3 70B · Mistral</li>
-          <li>Automatic fallback to cloud if unavailable</li>
           <li>32+ GB unified memory recommended for 32B models</li>
           <li><strong>DSGVO-konform:</strong> Keine Daten verlassen das Gerät</li>
+        </ul>
+      </div>
+      <div class="hybrid-mode">
+        <div class="hybrid-mode-badge">Cloud — Referenz / Demo</div>
+        <h3>Anthropic Claude API</h3>
+        <p>Useful as a quality baseline and for demonstrations where local hardware is unavailable. Requires an Anthropic API key — email content is transmitted to Anthropic's servers.</p>
+        <div class="hybrid-mode-code">
+          <code>ANTHROPIC_API_KEY=sk-ant-...</code>
+        </div>
+        <ul class="hybrid-mode-list">
+          <li>Claude Sonnet / Haiku — streaming via SSE</li>
+          <li>No local GPU required</li>
+          <li>Data leaves your machine — not for sensitive content</li>
         </ul>
       </div>
     </div>
