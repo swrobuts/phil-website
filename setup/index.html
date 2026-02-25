@@ -772,11 +772,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#option-a-docker-hub-fastest" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option A — Docker Hub (fastest)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#option-b-docker-compose-build-from-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option B — Docker Compose (build from source)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#option-c-dev-mode-full-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option C — Dev mode (full setup)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Option C — Dev mode (full setup)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#what-you-will-need" class="md-nav__link">
     <span class="md-ellipsis">
       What you will need
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1158,11 +1191,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#option-a-docker-hub-fastest" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option A — Docker Hub (fastest)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#option-b-docker-compose-build-from-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option B — Docker Compose (build from source)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#option-c-dev-mode-full-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option C — Dev mode (full setup)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Option C — Dev mode (full setup)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#what-you-will-need" class="md-nav__link">
     <span class="md-ellipsis">
       What you will need
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1428,11 +1494,91 @@
 
 
 <h1 id="getting-started">Getting Started</h1>
-<p>This guide takes you from zero to a running Phil instance. Follow it top to bottom. Every command is shown exactly as you should type it.</p>
-<p><strong>Time to first run: ~20 minutes</strong> (faster if you already have Python and Node installed)</p>
+<p>Three ways to run Phil — pick the one that fits:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Prerequisites</th>
+<th>Time</th>
+<th>Best for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Docker Hub</strong></td>
+<td>Docker only</td>
+<td>~2 min</td>
+<td>Quickest start, no dev tools needed</td>
+</tr>
+<tr>
+<td><strong>Docker Compose (build)</strong></td>
+<td>Docker + Git</td>
+<td>~5 min</td>
+<td>Local testing with source code</td>
+</tr>
+<tr>
+<td><strong>Dev mode</strong></td>
+<td>Python 3.12, Node 20, Git</td>
+<td>~20 min</td>
+<td>Development and customisation</td>
+</tr>
+</tbody>
+</table>
 <hr />
-<h2 id="what-you-will-need">What you will need</h2>
-<p>Before you start, make sure you have access to:</p>
+<h2 id="option-a-docker-hub-fastest">Option A — Docker Hub (fastest)</h2>
+<p>No Python, no Node, no Git required. Just Docker and a <code>.env</code> file.</p>
+<p><strong>Step 1 — Install Docker</strong></p>
+<p>Download <a href="https://www.docker.com/get-docker">Docker Desktop</a> (free, works on Mac, Windows, Linux). Start it and confirm <code>docker info</code> runs without errors.</p>
+<p><strong>Step 2 — Create your <code>.env</code> file</strong></p>
+<p>Download the example and fill it in:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>-o<span class="w"> </span>backend.env<span class="w"> </span>https://raw.githubusercontent.com/swrobuts/phil-knowledge-navigator/main/backend/.env.example
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Edit backend.env — fill in at minimum:</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1">#   ANTHROPIC_API_KEY=sk-ant-...</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1">#   GOG_ACCOUNT=you@gmail.com</span>
+</code></pre></div>
+<p><strong>Step 3 — Run</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>--name<span class="w"> </span>phil<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">8000</span>:8000<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span>--env-file<span class="w"> </span>backend.env<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span>swrobuts/phil:latest
+</code></pre></div>
+<p>Open <strong><a href="http://localhost:8000">http://localhost:8000</a></strong>. That's it.</p>
+<p><strong>Managing the container:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Stop</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>docker<span class="w"> </span>stop<span class="w"> </span>phil<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>docker<span class="w"> </span>rm<span class="w"> </span>phil
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Update to latest version</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>docker<span class="w"> </span>pull<span class="w"> </span>swrobuts/phil:latest
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>docker<span class="w"> </span>stop<span class="w"> </span>phil<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>docker<span class="w"> </span>rm<span class="w"> </span>phil
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>phil<span class="w"> </span>-p<span class="w"> </span><span class="m">8000</span>:8000<span class="w"> </span>--env-file<span class="w"> </span>backend.env<span class="w"> </span>swrobuts/phil:latest
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1"># View logs</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>docker<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>phil
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Image on Docker Hub</p>
+<p><code>swrobuts/phil</code> is a public image — no Docker Hub account needed to pull it.</p>
+</div>
+<hr />
+<h2 id="option-b-docker-compose-build-from-source">Option B — Docker Compose (build from source)</h2>
+<p>Use this if you want to run the source code locally without setting up Python and Node manually.</p>
+<p><strong>Prerequisites:</strong> <a href="https://www.docker.com/get-docker">Docker Desktop</a> + Git</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/swrobuts/phil-knowledge-navigator.git
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">cd</span><span class="w"> </span>phil-knowledge-navigator
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>cp<span class="w"> </span>backend/.env.example<span class="w"> </span>backend/.env
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1"># (edit backend/.env)</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.local.yml<span class="w"> </span>up<span class="w"> </span>--build
+</code></pre></div>
+<p>Open <strong><a href="http://localhost:8000">http://localhost:8000</a></strong>.</p>
+<hr />
+<h2 id="option-c-dev-mode-full-setup">Option C — Dev mode (full setup)</h2>
+<p>Use this for active development. Hot-reload for both frontend and backend.</p>
+<p><strong>Time to first run: ~20 minutes</strong> (faster if Python and Node are already installed)</p>
+<h3 id="what-you-will-need">What you will need</h3>
 <table>
 <thead>
 <tr>
@@ -1444,7 +1590,7 @@
 <tbody>
 <tr>
 <td>Python</td>
-<td>3.11</td>
+<td>3.12</td>
 <td><code>python3 --version</code></td>
 </tr>
 <tr>
@@ -1472,28 +1618,28 @@
 <p>Don't have these yet? See the <a href="#install-helpers">install helpers</a> at the bottom of this page.</p>
 <hr />
 <h2 id="step-1-clone-the-repository">Step 1 — Clone the repository</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/swrobuts/phil-knowledge-navigator.git
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>phil-knowledge-navigator
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/swrobuts/phil-knowledge-navigator.git
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">cd</span><span class="w"> </span>phil-knowledge-navigator
 </code></pre></div>
 <p>If you don't have Git: download the ZIP from the GitHub repository page (green "Code" button → "Download ZIP"), unzip it, and open a terminal in that folder.</p>
 <hr />
 <h2 id="step-2-create-a-python-virtual-environment">Step 2 — Create a Python virtual environment</h2>
 <p>Always use a virtual environment. This isolates Phil's dependencies from the rest of your system and prevents version conflicts.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
 </code></pre></div>
 <p>Then <strong>activate</strong> it. The command depends on your operating system:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">macOS / Linux</label><label for="__tabbed_1_2">Windows (Command Prompt)</label><label for="__tabbed_1_3">Windows (PowerShell)</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>.venv\Scripts\activate.bat
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>.venv\Scripts\activate.bat
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">.</span><span class="n">venv</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">Activate</span><span class="p">.</span><span class="n">ps1</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">.</span><span class="n">venv</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">Activate</span><span class="p">.</span><span class="n">ps1</span>
 </code></pre></div>
 </div>
 </div>
@@ -1501,21 +1647,21 @@
 <p>Your terminal prompt should now start with <code>(.venv)</code>. You'll need to do this every time you open a new terminal.</p>
 <hr />
 <h2 id="step-3-install-python-dependencies">Step 3 — Install Python dependencies</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>backend/requirements.txt
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>backend/requirements.txt
 </code></pre></div>
 <p>This installs FastAPI, exchangelib, RDFlib, ChromaDB, and all other backend libraries. Expect it to take 1–3 minutes.</p>
 <p>If you see <code>pip: command not found</code>, try <code>pip3</code> instead.</p>
 <hr />
 <h2 id="step-4-install-javascript-dependencies">Step 4 — Install JavaScript dependencies</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">cd</span><span class="w"> </span>frontend
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>npm<span class="w"> </span>install
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nb">cd</span><span class="w"> </span>..
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">cd</span><span class="w"> </span>frontend
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>npm<span class="w"> </span>install
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="nb">cd</span><span class="w"> </span>..
 </code></pre></div>
 <p>This installs React, Vite, TypeScript, and all frontend dependencies. They go into <code>frontend/node_modules/</code> and are not uploaded to GitHub.</p>
 <hr />
 <h2 id="step-5-configure-your-environment-file">Step 5 — Configure your environment file</h2>
 <p>Copy the example file and open it in your text editor:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>cp<span class="w"> </span>backend/.env.example<span class="w"> </span>backend/.env
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>cp<span class="w"> </span>backend/.env.example<span class="w"> </span>backend/.env
 </code></pre></div>
 <p>Now open <code>backend/.env</code>. Here is every variable explained:</p>
 <h3 id="ai-llm-settings">AI / LLM settings</h3>
@@ -1627,31 +1773,31 @@ See <a href="#step-6--connect-your-email-and-calendar">Step 6</a> for full instr
 <div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS (Homebrew)</label><label for="__tabbed_3_2">Linux / manual install</label><label for="__tabbed_3_3">Verify</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>brew<span class="w"> </span>install<span class="w"> </span>nicholasgasior/tap/gog
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>brew<span class="w"> </span>install<span class="w"> </span>nicholasgasior/tap/gog
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>Download the latest binary from the <a href="https://github.com/nicholasgasior/gog/releases">gog GitHub releases page</a> and place it in <code>~/bin/gog</code> or anywhere in your <code>$PATH</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>chmod<span class="w"> </span>+x<span class="w"> </span>~/bin/gog
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>chmod<span class="w"> </span>+x<span class="w"> </span>~/bin/gog
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>gog<span class="w"> </span>version
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>gog<span class="w"> </span>--help
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>gog<span class="w"> </span>version
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>gog<span class="w"> </span>--help
 </code></pre></div>
 </div>
 </div>
 </div>
 <p><strong>Authenticate gog:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>gog<span class="w"> </span>auth<span class="w"> </span>login
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>gog<span class="w"> </span>auth<span class="w"> </span>login
 </code></pre></div>
 <p>This opens a browser window for Google OAuth. After authorising, gog stores the token in your system keyring.</p>
 <p><strong>Configure Phil:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># In backend/.env:</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nv">GOG_ACCOUNT</span><span class="o">=</span>your.name@gmail.com
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># In backend/.env:</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nv">GOG_ACCOUNT</span><span class="o">=</span>your.name@gmail.com
 </code></pre></div>
 <p><strong>Verify calendar access:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>gog<span class="w"> </span>calendar<span class="w"> </span>events<span class="w"> </span>--account<span class="w"> </span>your.name@gmail.com<span class="w"> </span>--max<span class="w"> </span><span class="m">5</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>gog<span class="w"> </span>calendar<span class="w"> </span>events<span class="w"> </span>--account<span class="w"> </span>your.name@gmail.com<span class="w"> </span>--max<span class="w"> </span><span class="m">5</span>
 </code></pre></div>
 <p>You should see your next 5 events as JSON.</p>
 <div class="admonition warning">
@@ -1673,7 +1819,7 @@ See <a href="#step-6--connect-your-email-and-calendar">Step 6</a> for full instr
 <li>Create a free account at <a href="https://console.anthropic.com">console.anthropic.com</a></li>
 <li>Go to <strong>API Keys</strong> → <strong>Create Key</strong></li>
 <li>Copy the key (starts with <code>sk-ant-</code>) into <code>backend/.env</code>:
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>ANTHROPIC_API_KEY=sk-ant-api03-...
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>ANTHROPIC_API_KEY=sk-ant-api03-...
 </code></pre></div></li>
 </ol>
 <p><strong>Cost:</strong> Roughly €0.02–0.10 per session for typical daily use. Much less than ChatGPT Plus. You can set a monthly spending limit in the Anthropic console.</p>
@@ -1683,9 +1829,9 @@ See <a href="#step-6--connect-your-email-and-calendar">Step 6</a> for full instr
 <ol>
 <li>Get your API key at <a href="https://platform.openai.com">platform.openai.com</a></li>
 <li>Phil will use the local LLM client interface — set:
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>LOCAL_LLM_ENDPOINT=https://api.openai.com/v1
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>LOCAL_LLM_ENDPOINT_KEY=sk-...your-openai-key...
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>LOCAL_LLM_MODEL=gpt-4o-mini
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>LOCAL_LLM_ENDPOINT=https://api.openai.com/v1
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>LOCAL_LLM_ENDPOINT_KEY=sk-...your-openai-key...
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>LOCAL_LLM_MODEL=gpt-4o-mini
 </code></pre></div></li>
 </ol>
 <p>The <code>LLMClient</code> in <code>backend/llm_client.py</code> uses the OpenAI-compatible endpoint for all local/hybrid calls.</p>
@@ -1721,8 +1867,8 @@ See <a href="#step-6--connect-your-email-and-calendar">Step 6</a> for full instr
 <li>Download the model (this takes 10–30 min depending on size)</li>
 <li>In LM Studio: <strong>Local Server</strong> tab → <strong>Start Server</strong> (listens on port 1234 by default)</li>
 <li>In <code>backend/.env</code>:
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>LOCAL_LLM_ENDPOINT=http://localhost:1234/v1
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>LOCAL_LLM_MODEL=qwen2.5-32b-instruct
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>LOCAL_LLM_ENDPOINT=http://localhost:1234/v1
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>LOCAL_LLM_MODEL=qwen2.5-32b-instruct
 </code></pre></div></li>
 </ol>
 <p>Phil checks whether LM Studio responds at startup. If yes: local model. If no: cloud fallback.</p>
@@ -1733,19 +1879,19 @@ See <a href="#step-6--connect-your-email-and-calendar">Step 6</a> for full instr
 <h2 id="step-8-run-phil">Step 8 — Run Phil</h2>
 <p>Open <strong>two terminals</strong>, both in the repo root, both with the virtual environment activated.</p>
 <p><strong>Terminal 1 — Backend:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>uvicorn<span class="w"> </span>backend.main:app<span class="w"> </span>--reload<span class="w"> </span>--port<span class="w"> </span><span class="m">8001</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>uvicorn<span class="w"> </span>backend.main:app<span class="w"> </span>--reload<span class="w"> </span>--port<span class="w"> </span><span class="m">8001</span>
 </code></pre></div>
 <p>You should see:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>INFO:     Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>INFO:     Started reloader process ...
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>INFO:     Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>INFO:     Started reloader process ...
 </code></pre></div></p>
 <p><strong>Terminal 2 — Frontend:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nb">cd</span><span class="w"> </span>frontend
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>npm<span class="w"> </span>run<span class="w"> </span>dev
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nb">cd</span><span class="w"> </span>frontend
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>npm<span class="w"> </span>run<span class="w"> </span>dev
 </code></pre></div>
 <p>You should see:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>  VITE v5.x.x  ready in 400 ms
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>  ➜  Local:   http://localhost:5173/
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>  VITE v5.x.x  ready in 400 ms
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>  ➜  Local:   http://localhost:5173/
 </code></pre></div></p>
 <p>Open <strong><a href="http://localhost:5173">http://localhost:5173</a></strong> in your browser.</p>
 <p>The login screen will ask for your Exchange/IMAP account (THWS, DHBW, Microsoft 365, or generic IMAP). These credentials are held in memory for the session only — they are never written to disk.</p>
@@ -1757,16 +1903,16 @@ See <a href="#step-6--connect-your-email-and-calendar">Step 6</a> for full instr
 <h2 id="docker-compose-alternative-to-steps-28">Docker Compose (alternative to Steps 2–8)</h2>
 <p>If you have Docker installed, you can skip the Python/Node setup entirely.</p>
 <p><strong>Install Docker:</strong> <a href="https://www.docker.com/get-docker">docker.com/get-docker</a> — Docker Desktop works on Mac, Windows, and Linux. It's free for personal use.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="c1"># 1. Clone the repo (same as Step 1)</span>
-<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/swrobuts/phil-knowledge-navigator.git
-<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="nb">cd</span><span class="w"> </span>phil-knowledge-navigator
-<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>
-<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="c1"># 2. Create and fill in your .env (same as Steps 5–6)</span>
-<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>cp<span class="w"> </span>backend/.env.example<span class="w"> </span>backend/.env
-<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="c1"># (edit backend/.env with your credentials)</span>
-<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>
-<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="c1"># 3. Start everything</span>
-<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>--build
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="c1"># 1. Clone the repo (same as Step 1)</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/swrobuts/phil-knowledge-navigator.git
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="nb">cd</span><span class="w"> </span>phil-knowledge-navigator
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="c1"># 2. Create and fill in your .env (same as Steps 5–6)</span>
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>cp<span class="w"> </span>backend/.env.example<span class="w"> </span>backend/.env
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="c1"># (edit backend/.env with your credentials)</span>
+<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>
+<a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a><span class="c1"># 3. Start everything</span>
+<a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>--build
 </code></pre></div>
 <p>Open <strong><a href="http://localhost:8000">http://localhost:8000</a></strong>.</p>
 <p><strong>What Docker builds:</strong></p>
@@ -1796,17 +1942,17 @@ See <a href="#step-6--connect-your-email-and-calendar">Step 6</a> for full instr
 <hr />
 <h2 id="running-the-tests">Running the tests</h2>
 <p>Phil includes a test suite for the backend. Run it from the repo root:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>pytest<span class="w"> </span>backend/tests/<span class="w"> </span>-v
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>pytest<span class="w"> </span>backend/tests/<span class="w"> </span>-v
 </code></pre></div>
 <p>For a single test file:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>pytest<span class="w"> </span>backend/tests/test_llm_client.py<span class="w"> </span>-v
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>pytest<span class="w"> </span>backend/tests/test_llm_client.py<span class="w"> </span>-v
 </code></pre></div>
 <p>If you see <code>pytest: command not found</code>, install it first: <code>pip install pytest</code>.</p>
 <p>Expected output when everything is working:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>PASSED backend/tests/test_mail_triage.py::test_categorise_vip_mail
-<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>PASSED backend/tests/test_llm_client.py::test_local_fallback
-<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>...
-<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>N passed in X.Xs
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>PASSED backend/tests/test_mail_triage.py::test_categorise_vip_mail
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>PASSED backend/tests/test_llm_client.py::test_local_fallback
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>...
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>N passed in X.Xs
 </code></pre></div>
 <hr />
 <h2 id="security-considerations">Security considerations</h2>
@@ -1885,8 +2031,8 @@ See <a href="#step-6--connect-your-email-and-calendar">Step 6</a> for full instr
 <details class="question">
 <summary><code>ModuleNotFoundError: No module named 'backend'</code></summary>
 <p>You are running <code>uvicorn</code> from inside the <code>backend/</code> folder. Run it from the <strong>repo root</strong>:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nb">cd</span><span class="w"> </span>phil-knowledge-navigator<span class="w">  </span><span class="c1"># make sure you&#39;re here</span>
-<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>uvicorn<span class="w"> </span>backend.main:app<span class="w"> </span>--reload<span class="w"> </span>--port<span class="w"> </span><span class="m">8001</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="nb">cd</span><span class="w"> </span>phil-knowledge-navigator<span class="w">  </span><span class="c1"># make sure you&#39;re here</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>uvicorn<span class="w"> </span>backend.main:app<span class="w"> </span>--reload<span class="w"> </span>--port<span class="w"> </span><span class="m">8001</span>
 </code></pre></div></p>
 </details>
 <details class="question">
@@ -1935,11 +2081,11 @@ See <a href="#step-6--connect-your-email-and-calendar">Step 6</a> for full instr
 <div class="tabbed-set tabbed-alternate" data-tabs="5:4"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Windows</label><label for="__tabbed_5_3">Linux (Ubuntu / Debian)</label><label for="__tabbed_5_4">Linux (Fedora / RHEL)</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="c1"># Install Homebrew (package manager for macOS)</span>
-<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>/bin/bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&quot;</span>
-<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>
-<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="c1"># Then install Python and Node</span>
-<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>brew<span class="w"> </span>install<span class="w"> </span>python@3.12<span class="w"> </span>node<span class="w"> </span>git
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="c1"># Install Homebrew (package manager for macOS)</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>/bin/bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&quot;</span>
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="c1"># Then install Python and Node</span>
+<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>brew<span class="w"> </span>install<span class="w"> </span>python@3.12<span class="w"> </span>node<span class="w"> </span>git
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -1950,12 +2096,12 @@ See <a href="#step-6--connect-your-email-and-calendar">Step 6</a> for full instr
 </ol>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
-<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3.12<span class="w"> </span>python3.12-venv<span class="w"> </span>python3-pip<span class="w"> </span>nodejs<span class="w"> </span>npm<span class="w"> </span>git
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3.12<span class="w"> </span>python3.12-venv<span class="w"> </span>python3-pip<span class="w"> </span>nodejs<span class="w"> </span>npm<span class="w"> </span>git
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>python3.12<span class="w"> </span>nodejs<span class="w"> </span>npm<span class="w"> </span>git
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>python3.12<span class="w"> </span>nodejs<span class="w"> </span>npm<span class="w"> </span>git
 </code></pre></div>
 </div>
 </div>
@@ -1963,15 +2109,15 @@ See <a href="#step-6--connect-your-email-and-calendar">Step 6</a> for full instr
 <hr />
 <h2 id="maintenance">Maintenance</h2>
 <h3 id="keeping-phil-up-to-date">Keeping Phil up to date</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="nb">cd</span><span class="w"> </span>phil-knowledge-navigator
-<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>git<span class="w"> </span>pull
-<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>
-<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="c1"># Re-install backend dependencies (if requirements.txt changed)</span>
-<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
-<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>backend/requirements.txt
-<a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a>
-<a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a><span class="c1"># Re-install frontend dependencies (if package.json changed)</span>
-<a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a><span class="nb">cd</span><span class="w"> </span>frontend<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>npm<span class="w"> </span>install<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="nb">cd</span><span class="w"> </span>phil-knowledge-navigator
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>git<span class="w"> </span>pull
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="c1"># Re-install backend dependencies (if requirements.txt changed)</span>
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>backend/requirements.txt
+<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a>
+<a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a><span class="c1"># Re-install frontend dependencies (if package.json changed)</span>
+<a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a><span class="nb">cd</span><span class="w"> </span>frontend<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>npm<span class="w"> </span>install<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..
 </code></pre></div>
 <p>For Docker: <code>docker compose -f docker-compose.local.yml up --build</code> automatically rebuilds on every start.</p>
 <h3 id="data-directories">Data directories</h3>
@@ -1998,12 +2144,12 @@ See <a href="#step-6--connect-your-email-and-calendar">Step 6</a> for full instr
 </tbody>
 </table>
 <p>To clear the knowledge base (e.g. after a major data change):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>rm<span class="w"> </span>-rf<span class="w"> </span>/tmp/phil_chroma
-<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="c1"># Then triage your mails again in the app to re-populate</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>rm<span class="w"> </span>-rf<span class="w"> </span>/tmp/phil_chroma
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="c1"># Then triage your mails again in the app to re-populate</span>
 </code></pre></div>
 <p>To clear Phil's memory (start fresh):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>rm<span class="w"> </span>memory.db<span class="w">           </span><span class="c1"># dev</span>
-<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="c1"># or in Docker: docker compose exec kn-mail rm /data/memory.db</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>rm<span class="w"> </span>memory.db<span class="w">           </span><span class="c1"># dev</span>
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="c1"># or in Docker: docker compose exec kn-mail rm /data/memory.db</span>
 </code></pre></div>
 <h3 id="log-access">Log access</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Dev mode</label><label for="__tabbed_6_2">Docker</label></div>
@@ -2012,11 +2158,11 @@ See <a href="#step-6--connect-your-email-and-calendar">Step 6</a> for full instr
 <p>Backend logs appear in the terminal where you ran <code>uvicorn</code>. Frontend build/HMR messages appear in the npm terminal.</p>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="c1"># Follow live logs</span>
-<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>-f
-<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>
-<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="c1"># Last 100 lines</span>
-<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>--tail<span class="o">=</span><span class="m">100</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="c1"># Follow live logs</span>
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>-f
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>
+<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a><span class="c1"># Last 100 lines</span>
+<a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>--tail<span class="o">=</span><span class="m">100</span>
 </code></pre></div>
 </div>
 </div>
@@ -2031,8 +2177,8 @@ See <a href="#step-6--connect-your-email-and-calendar">Step 6</a> for full instr
 </ol>
 <h3 id="re-authenticating-google-calendar">Re-authenticating Google Calendar</h3>
 <p>If <code>gog auth login</code> needs to be re-run (token expired or revoked):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>gog<span class="w"> </span>auth<span class="w"> </span><span class="nb">logout</span>
-<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>gog<span class="w"> </span>auth<span class="w"> </span>login
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>gog<span class="w"> </span>auth<span class="w"> </span><span class="nb">logout</span>
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>gog<span class="w"> </span>auth<span class="w"> </span>login
 </code></pre></div>
 <p>The new token is stored in the system keyring automatically. No changes to <code>.env</code> needed.</p>
 <p>For Docker: export the new <code>GOG_KEYRING_PASSWORD</code> and restart the container.</p>
@@ -2044,12 +2190,12 @@ Requirements:</p>
 <li>Traefik running on the same Docker network (<code>traefik-net</code>)</li>
 <li>A Let's Encrypt email configured in your Traefik config</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="c1"># Deploy (production)</span>
-<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
-<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>
-<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="c1"># Check status</span>
-<a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>docker<span class="w"> </span>compose<span class="w"> </span>ps
-<a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a>docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>kn-mail
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="c1"># Deploy (production)</span>
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>
+<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a><span class="c1"># Check status</span>
+<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>docker<span class="w"> </span>compose<span class="w"> </span>ps
+<a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>kn-mail
 </code></pre></div>
 <p>The app will be available at <code>https://kn-mail.yourdomain.com</code> (edit the host rule in <code>docker-compose.yml</code>).</p>
 
