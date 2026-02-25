@@ -1,18 +1,97 @@
 # Getting Started
 
-This guide takes you from zero to a running Phil instance. Follow it top to bottom. Every command is shown exactly as you should type it.
+Three ways to run Phil — pick the one that fits:
 
-**Time to first run: ~20 minutes** (faster if you already have Python and Node installed)
+| Method | Prerequisites | Time | Best for |
+|--------|--------------|------|---------|
+| **Docker Hub** | Docker only | ~2 min | Quickest start, no dev tools needed |
+| **Docker Compose (build)** | Docker + Git | ~5 min | Local testing with source code |
+| **Dev mode** | Python 3.12, Node 20, Git | ~20 min | Development and customisation |
 
 ---
 
-## What you will need
+## Option A — Docker Hub (fastest)
 
-Before you start, make sure you have access to:
+No Python, no Node, no Git required. Just Docker and a `.env` file.
+
+**Step 1 — Install Docker**
+
+Download [Docker Desktop](https://www.docker.com/get-docker) (free, works on Mac, Windows, Linux). Start it and confirm `docker info` runs without errors.
+
+**Step 2 — Create your `.env` file**
+
+Download the example and fill it in:
+
+```bash
+curl -o backend.env https://raw.githubusercontent.com/swrobuts/phil-knowledge-navigator/main/backend/.env.example
+# Edit backend.env — fill in at minimum:
+#   ANTHROPIC_API_KEY=sk-ant-...
+#   GOG_ACCOUNT=you@gmail.com
+```
+
+**Step 3 — Run**
+
+```bash
+docker run -d \
+  --name phil \
+  -p 8000:8000 \
+  --env-file backend.env \
+  swrobuts/phil:latest
+```
+
+Open **[http://localhost:8000](http://localhost:8000)**. That's it.
+
+**Managing the container:**
+
+```bash
+# Stop
+docker stop phil && docker rm phil
+
+# Update to latest version
+docker pull swrobuts/phil:latest
+docker stop phil && docker rm phil
+docker run -d --name phil -p 8000:8000 --env-file backend.env swrobuts/phil:latest
+
+# View logs
+docker logs -f phil
+```
+
+!!! tip "Image on Docker Hub"
+    `swrobuts/phil` is a public image — no Docker Hub account needed to pull it.
+
+---
+
+## Option B — Docker Compose (build from source)
+
+Use this if you want to run the source code locally without setting up Python and Node manually.
+
+**Prerequisites:** [Docker Desktop](https://www.docker.com/get-docker) + Git
+
+```bash
+git clone https://github.com/swrobuts/phil-knowledge-navigator.git
+cd phil-knowledge-navigator
+
+cp backend/.env.example backend/.env
+# (edit backend/.env)
+
+docker compose -f docker-compose.local.yml up --build
+```
+
+Open **[http://localhost:8000](http://localhost:8000)**.
+
+---
+
+## Option C — Dev mode (full setup)
+
+Use this for active development. Hot-reload for both frontend and backend.
+
+**Time to first run: ~20 minutes** (faster if Python and Node are already installed)
+
+### What you will need
 
 | Requirement | Minimum version | How to check |
 |-------------|----------------|-------------|
-| Python | 3.11 | `python3 --version` |
+| Python | 3.12 | `python3 --version` |
 | Node.js | 20 | `node --version` |
 | npm | 9 | `npm --version` |
 | Git | any | `git --version` |

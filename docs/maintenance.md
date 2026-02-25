@@ -2,19 +2,32 @@
 
 ## Keeping Phil up to date
 
-```bash
-cd phil-knowledge-navigator
-git pull
+=== "Docker Hub (Option A)"
 
-# Re-install backend dependencies (if requirements.txt changed)
-source .venv/bin/activate
-pip install -r backend/requirements.txt
+    ```bash
+    docker pull swrobuts/phil:latest
+    docker stop phil && docker rm phil
+    docker run -d --name phil -p 8000:8000 --env-file backend.env swrobuts/phil:latest
+    ```
 
-# Re-install frontend dependencies (if package.json changed)
-cd frontend && npm install && cd ..
-```
+=== "Docker Compose (Option B)"
 
-For Docker: `docker compose -f docker-compose.local.yml up --build` rebuilds on every start.
+    ```bash
+    git pull
+    docker compose -f docker-compose.local.yml up --build
+    ```
+
+=== "Dev mode (Option C)"
+
+    ```bash
+    cd phil-knowledge-navigator
+    git pull
+
+    source .venv/bin/activate
+    pip install -r backend/requirements.txt
+
+    cd frontend && npm install && cd ..
+    ```
 
 ---
 
