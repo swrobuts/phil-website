@@ -11,3 +11,4 @@ help you manage your daily information flow without drowning in it.
 | [Meeting Preparation](meeting-prep.md) | Briefing before every appointment |
 | [Memory & Learning](memory-learning.md) | Persistent facts, RLHF feedback |
 | [Semantic Search](rag-search.md) | Vector search over emails and attachments |
+| [Speech Output](speech-output.md) | OpenAI TTS — read briefings and responses aloud |

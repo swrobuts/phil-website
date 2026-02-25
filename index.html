@@ -323,11 +323,11 @@
     <div class="ss-text reveal-left">
       <span class="ss-label">Speech Output · Text-to-Speech</span>
       <h2>Briefings that<br>speak themselves.</h2>
-      <p class="ss-body">Phil reads out summaries and responses using the browser's native speech synthesis. No additional API, no setup, works offline — hands-free morning briefings while you get ready.</p>
+      <p class="ss-body">Phil reads out summaries and responses using the OpenAI Text-to-Speech API — natural, high-quality voice synthesis that makes AI-generated briefings actually pleasant to listen to. One click, hands-free.</p>
       <ul class="ss-bullets stagger">
-        <li class="reveal-up"><span class="ss-check">✓</span> Browser-native Web Speech API — no server round-trip</li>
-        <li class="reveal-up"><span class="ss-check">✓</span> Works fully offline — zero extra API key or cost</li>
-        <li class="reveal-up"><span class="ss-check">✓</span> One click activates TTS for any Phil response</li>
+        <li class="reveal-up"><span class="ss-check">✓</span> OpenAI TTS API — natural voice quality, not robotic synthesis</li>
+        <li class="reveal-up"><span class="ss-check">✓</span> One click activates read-aloud for any Phil response</li>
+        <li class="reveal-up"><span class="ss-check">✓</span> Streams audio directly in the browser — no page reload</li>
         <li class="reveal-up"><span class="ss-check">✓</span> Ideal for commuting or hands-free morning routines</li>
       </ul>
       <a href="features/" class="ss-cta">Explore all features →</a>
@@ -646,7 +646,7 @@
         <span class="feature-row-num">11</span>
         <div class="feature-row-body">
           <strong>Speech Output</strong>
-          <p><em>Problem:</em> Reading briefings at your desk ties you to a screen. <em>Solution:</em> Phil reads out briefings and responses using browser-native text-to-speech. Useful while commuting or getting ready — no additional API, no setup, works offline.</p>
+          <p><em>Problem:</em> Reading briefings at your desk ties you to a screen. <em>Solution:</em> Phil reads out briefings and responses via the OpenAI TTS API — high-quality, natural-sounding voice, streamed directly to the browser. Useful while commuting or getting ready.</p>
         </div>
         <a href="features/" class="feature-row-link">Learn more →</a>
       </div>
@@ -742,7 +742,7 @@
       <div class="ct-row">
         <span class="ct-uc">UC 08</span>
         <div class="ct-apple">Touch, voice, and gesture — seamless, multimodal delegation of tasks without mode-switching.</div>
-        <div class="ct-phil"><strong>Multimodal Interaction</strong><p>Browser-native text-to-speech <strong>implemented</strong> — Phil reads out briefings and responses. Touch-ready React UI. Voice input not yet implemented.</p></div>
+        <div class="ct-phil"><strong>Multimodal Interaction</strong><p>OpenAI TTS API <strong>implemented</strong> — Phil reads out briefings and responses in natural-sounding voice. Touch-ready React UI. Voice input not yet implemented.</p></div>
         <span class="ct-status ct-status--partial">Speech out ✓</span>
       </div>
     </div>
@@ -898,7 +898,7 @@
         <span class="tech-card-label">JavaScript / TypeScript — Frontend &amp; Web Platform</span>
         <h3>JavaScript — The web as the universal UI</h3>
         <p>Phil's frontend is built with <strong>React 18</strong> and <strong>TypeScript</strong> — bundled by Vite for sub-second hot reload. Every dashboard tile, mail card, calendar event, and knowledge graph interaction is a typed React component. CSS Modules prevent style collisions across the growing component tree.</p>
-        <p>Beyond UI: the <strong>Web Speech API</strong> (JavaScript native, no API key) powers Phil's speech output — the assistant reads briefings aloud, hands-free, in the browser. <code>speechSynthesis.speak()</code> is two lines of JavaScript that replace an entire cloud TTS subscription.</p>
+        <p>Beyond UI: Phil integrates the <strong>OpenAI TTS API</strong> for speech output — the backend requests audio from OpenAI and streams it to the browser, so the assistant reads briefings aloud in natural, high-quality voice. The frontend triggers playback with a single button click, no page reload required.</p>
         <p>JavaScript is not a compromise — it is the deployment target that requires zero installation for every user. The browser is the universal runtime; TypeScript adds the type safety needed when an AI backend and a reactive frontend exchange structured JSON at every keystroke.</p>
       </div>
 
@@ -942,7 +942,7 @@
           <span class="badge">JavaScript</span>
           <span class="badge">Vite</span>
           <span class="badge">CSS Modules</span>
-          <span class="badge">Web Speech API</span>
+          <span class="badge">OpenAI TTS</span>
         </div>
         <span class="stack-label" style="margin-top:1.5rem;">Integrations</span>
         <div class="badges">

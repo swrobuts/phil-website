@@ -47,6 +47,7 @@ nav:
       - Meeting Preparation: features/meeting-prep.md
       - Memory & Learning: features/memory-learning.md
       - Semantic Search: features/rag-search.md
+      - Speech Output: features/speech-output.md
   - Getting Started: setup.md
   - Architecture: architecture.md
   - Maintenance: maintenance.md
