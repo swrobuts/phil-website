@@ -878,7 +878,7 @@
         <span class="tech-card-label">Hybrid LLM Architecture</span>
         <h3>Cloud or local — you decide</h3>
         <p>Phil's <code>LLMClient</code> class supports both a local LM Studio endpoint (<code>localhost:1234/v1</code>) and the Anthropic cloud API. You configure which one to use in <code>backend/.env</code> — local is the recommended default for cost and data-privacy reasons.</p>
-        <p>This enables two real deployment scenarios: <strong>local-only</strong> (open-source model, no internet required, fully DSGVO-compliant) and <strong>cloud reference</strong> (Anthropic Claude for benchmarking and demos where local hardware is unavailable).</p>
+        <p>This enables three deployment scenarios: <strong>local-only</strong> (open-source model, fully DSGVO-compliant — recommended default), <strong>cloud reference</strong> (Anthropic Claude for benchmarking and demos), and <strong>hybrid</strong> (local for personal data, cloud for non-sensitive tasks where the local model reaches its limits — e.g. very long documents or complex multi-step reasoning). In hybrid mode, ensure no personal or sensitive data is routed to the cloud endpoint.</p>
         <p>LM Studio runs as a desktop application and serves any GGUF-quantised model as a REST API. <strong>Qwen2.5-32B-Instruct at Q4_K_M quantisation</strong> fits in 22 GB of unified memory and produces approximately 22 tokens per second on Apple M4 Pro — sufficient for real-time chat.</p>
       </div>
 

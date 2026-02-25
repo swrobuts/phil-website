@@ -945,6 +945,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Step 7 — Get an LLM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hybrid-mode-local-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hybrid mode (local + cloud)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1363,6 +1378,21 @@
       Step 7 — Get an LLM
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Step 7 — Get an LLM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hybrid-mode-local-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hybrid mode (local + cloud)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1905,6 +1935,17 @@ See <a href="#step-6--connect-your-email-and-calendar">Step 6</a> for full instr
 <p>The same data-privacy considerations as above apply — data leaves your machine.</p>
 </div>
 </div>
+</div>
+<hr />
+<h3 id="hybrid-mode-local-cloud">Hybrid mode (local + cloud)</h3>
+<p>Both <code>LOCAL_LLM_ENDPOINT</code> and <code>ANTHROPIC_API_KEY</code> can be set simultaneously. Phil will use whichever you call explicitly — there is no automatic switching. This is useful when:</p>
+<ul>
+<li>The local model reaches its limits (e.g. very long documents, complex multi-step reasoning) and you want to route that specific request to the cloud</li>
+<li>You are benchmarking local vs. cloud quality side by side</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Do not route personal data to the cloud endpoint</p>
+<p>In hybrid mode, any request sent to the Anthropic API transmits its content to external servers. Only use the cloud endpoint for non-personal, non-sensitive content — public documents, anonymised test data, or synthetic examples. For all professional email, HR, medical, or legal content: local model only.</p>
 </div>
 <hr />
 <h2 id="step-8-run-phil">Step 8 — Run Phil</h2>
