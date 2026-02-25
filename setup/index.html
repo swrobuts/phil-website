@@ -64,10 +64,12 @@
   
     
     
+      
     
     
     
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="amber">
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="amber">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -118,7 +120,33 @@
     </div>
     
       
+        <form class="md-header__option" data-md-component="palette">
+  
     
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
@@ -727,54 +755,141 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#what-you-will-need" class="md-nav__link">
     <span class="md-ellipsis">
-      Prerequisites
+      What you will need
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-1-clone-and-install" class="md-nav__link">
+  <a href="#step-1-clone-the-repository" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 1: Clone and install
+      Step 1 — Clone the repository
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-2-configure-env" class="md-nav__link">
+  <a href="#step-2-create-a-python-virtual-environment" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 2: Configure .env
+      Step 2 — Create a Python virtual environment
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-3-google-workspace-authentication" class="md-nav__link">
+  <a href="#step-3-install-python-dependencies" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 3: Google Workspace authentication
+      Step 3 — Install Python dependencies
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-4-run-phil" class="md-nav__link">
+  <a href="#step-4-install-javascript-dependencies" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 4: Run Phil
+      Step 4 — Install JavaScript dependencies
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#docker-compose-alternative" class="md-nav__link">
+  <a href="#step-5-configure-your-environment-file" class="md-nav__link">
     <span class="md-ellipsis">
-      Docker Compose (Alternative)
+      Step 5 — Configure your environment file
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 5 — Configure your environment file">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ai-llm-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI / LLM settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mail-and-calendar-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mail and calendar settings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-connect-your-email" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6 — Connect your email
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-get-an-llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 7 — Get an LLM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-run-phil" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 8 — Run Phil
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-compose-alternative-to-steps-28" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Compose (alternative to Steps 2–8)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running the tests
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security considerations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-limitations-and-open-risks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Known limitations and open risks
     </span>
   </a>
   
@@ -784,6 +899,15 @@
   <a href="#troubleshooting" class="md-nav__link">
     <span class="md-ellipsis">
       Troubleshooting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-helpers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install helpers
     </span>
   </a>
   
@@ -904,54 +1028,141 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#what-you-will-need" class="md-nav__link">
     <span class="md-ellipsis">
-      Prerequisites
+      What you will need
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-1-clone-and-install" class="md-nav__link">
+  <a href="#step-1-clone-the-repository" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 1: Clone and install
+      Step 1 — Clone the repository
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-2-configure-env" class="md-nav__link">
+  <a href="#step-2-create-a-python-virtual-environment" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 2: Configure .env
+      Step 2 — Create a Python virtual environment
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-3-google-workspace-authentication" class="md-nav__link">
+  <a href="#step-3-install-python-dependencies" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 3: Google Workspace authentication
+      Step 3 — Install Python dependencies
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-4-run-phil" class="md-nav__link">
+  <a href="#step-4-install-javascript-dependencies" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 4: Run Phil
+      Step 4 — Install JavaScript dependencies
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#docker-compose-alternative" class="md-nav__link">
+  <a href="#step-5-configure-your-environment-file" class="md-nav__link">
     <span class="md-ellipsis">
-      Docker Compose (Alternative)
+      Step 5 — Configure your environment file
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 5 — Configure your environment file">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ai-llm-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI / LLM settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mail-and-calendar-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mail and calendar settings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-connect-your-email" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6 — Connect your email
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-get-an-llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 7 — Get an LLM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-run-phil" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 8 — Run Phil
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-compose-alternative-to-steps-28" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Compose (alternative to Steps 2–8)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running the tests
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security considerations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-limitations-and-open-risks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Known limitations and open risks
     </span>
   </a>
   
@@ -961,6 +1172,15 @@
   <a href="#troubleshooting" class="md-nav__link">
     <span class="md-ellipsis">
       Troubleshooting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-helpers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install helpers
     </span>
   </a>
   
@@ -985,95 +1205,115 @@
 
 
 <h1 id="getting-started">Getting Started</h1>
-<p>Two ways to run Phil: <strong>directly</strong> with Python + Node, or with <strong>Docker Compose</strong>.</p>
-<h2 id="prerequisites">Prerequisites</h2>
+<p>This guide takes you from zero to a running Phil instance. Follow it top to bottom. Every command is shown exactly as you should type it.</p>
+<p><strong>Time to first run: ~20 minutes</strong> (faster if you already have Python and Node installed)</p>
+<hr />
+<h2 id="what-you-will-need">What you will need</h2>
+<p>Before you start, make sure you have access to:</p>
 <table>
 <thead>
 <tr>
 <th>Requirement</th>
-<th>Version</th>
-<th>Notes</th>
+<th>Minimum version</th>
+<th>How to check</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Python</td>
-<td>3.11+</td>
+<td>3.11</td>
 <td><code>python3 --version</code></td>
 </tr>
 <tr>
 <td>Node.js</td>
-<td>20+</td>
+<td>20</td>
 <td><code>node --version</code></td>
 </tr>
 <tr>
-<td>Anthropic API key</td>
-<td>—</td>
-<td><a href="https://console.anthropic.com">console.anthropic.com</a></td>
+<td>npm</td>
+<td>9</td>
+<td><code>npm --version</code></td>
 </tr>
 <tr>
-<td>Google Workspace account</td>
+<td>Git</td>
+<td>any</td>
+<td><code>git --version</code></td>
+</tr>
+<tr>
+<td>A text editor</td>
 <td>—</td>
-<td>Gmail + Google Calendar access</td>
+<td>VS Code recommended</td>
 </tr>
 </tbody>
 </table>
-<div class="admonition note">
-<p class="admonition-title">DE — Voraussetzungen</p>
-<p>Python 3.11+, Node 20+, ein Anthropic API-Key und ein Google Workspace Konto.
-Die <code>.env.example</code> erklärt jeden Parameter.</p>
-</div>
+<p>Don't have these yet? See the <a href="#install-helpers">install helpers</a> at the bottom of this page.</p>
 <hr />
-<h2 id="step-1-clone-and-install">Step 1: Clone and install</h2>
+<h2 id="step-1-clone-the-repository">Step 1 — Clone the repository</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/swrobuts/phil-knowledge-navigator.git
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>phil-knowledge-navigator
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Python dependencies</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>backend/requirements.txt
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># JavaScript dependencies</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nb">cd</span><span class="w"> </span>frontend
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>npm<span class="w"> </span>install
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nb">cd</span><span class="w"> </span>..
 </code></pre></div>
+<p>If you don't have Git: download the ZIP from the GitHub repository page (green "Code" button → "Download ZIP"), unzip it, and open a terminal in that folder.</p>
 <hr />
-<h2 id="step-2-configure-env">Step 2: Configure <code>.env</code></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cp<span class="w"> </span>backend/.env.example<span class="w"> </span>backend/.env
+<h2 id="step-2-create-a-python-virtual-environment">Step 2 — Create a Python virtual environment</h2>
+<p>Always use a virtual environment. This isolates Phil's dependencies from the rest of your system and prevents version conflicts.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
 </code></pre></div>
-<p>Open <code>backend/.env</code> and fill in:</p>
+<p>Then <strong>activate</strong> it. The command depends on your operating system:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">macOS / Linux</label><label for="__tabbed_1_2">Windows (Command Prompt)</label><label for="__tabbed_1_3">Windows (PowerShell)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>.venv\Scripts\activate.bat
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">.</span><span class="n">venv</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">Activate</span><span class="p">.</span><span class="n">ps1</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Your terminal prompt should now start with <code>(.venv)</code>. You'll need to do this every time you open a new terminal.</p>
+<hr />
+<h2 id="step-3-install-python-dependencies">Step 3 — Install Python dependencies</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>backend/requirements.txt
+</code></pre></div>
+<p>This installs FastAPI, exchangelib, RDFlib, ChromaDB, and all other backend libraries. Expect it to take 1–3 minutes.</p>
+<p>If you see <code>pip: command not found</code>, try <code>pip3</code> instead.</p>
+<hr />
+<h2 id="step-4-install-javascript-dependencies">Step 4 — Install JavaScript dependencies</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">cd</span><span class="w"> </span>frontend
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>npm<span class="w"> </span>install
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nb">cd</span><span class="w"> </span>..
+</code></pre></div>
+<p>This installs React, Vite, TypeScript, and all frontend dependencies. They go into <code>frontend/node_modules/</code> and are not uploaded to GitHub.</p>
+<hr />
+<h2 id="step-5-configure-your-environment-file">Step 5 — Configure your environment file</h2>
+<p>Copy the example file and open it in your text editor:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>cp<span class="w"> </span>backend/.env.example<span class="w"> </span>backend/.env
+</code></pre></div>
+<p>Now open <code>backend/.env</code>. Here is every variable explained:</p>
+<h3 id="ai-llm-settings">AI / LLM settings</h3>
 <table>
 <thead>
 <tr>
 <th>Variable</th>
 <th>Required</th>
-<th>Description</th>
+<th>What to put here</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>ANTHROPIC_API_KEY</code></td>
-<td>✅</td>
-<td>Your Claude API key</td>
-</tr>
-<tr>
-<td><code>OPENAI_API_KEY</code></td>
-<td>Optional</td>
-<td>For OpenAI embeddings (ChromaDB)</td>
-</tr>
-<tr>
-<td><code>GOG_ACCOUNT</code></td>
-<td>For mail/calendar</td>
-<td>Your Google Workspace email</td>
-</tr>
-<tr>
-<td><code>GOG_KEYRING_PASSWORD</code></td>
-<td>For mail/calendar</td>
-<td>App password or OAuth token</td>
+<td>✅ if using cloud</td>
+<td>Your Claude API key (starts with <code>sk-ant-</code>)</td>
 </tr>
 <tr>
 <td><code>LOCAL_LLM_ENDPOINT</code></td>
 <td>Optional</td>
-<td>LM Studio local LLM endpoint</td>
+<td><code>http://localhost:1234/v1</code> (LM Studio default)</td>
 </tr>
 <tr>
 <td><code>LOCAL_LLM_MODEL</code></td>
@@ -1082,68 +1322,365 @@ Die <code>.env.example</code> erklärt jeden Parameter.</p>
 </tr>
 </tbody>
 </table>
+<p><strong>You need at least one of these.</strong> If you set a local endpoint, Phil will try that first and fall back to Anthropic. If only <code>ANTHROPIC_API_KEY</code> is set, all requests go to Claude.</p>
+<h3 id="mail-and-calendar-settings">Mail and calendar settings</h3>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Required</th>
+<th>What to put here</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GOG_ACCOUNT</code></td>
+<td>For mail/calendar</td>
+<td>Your full email address</td>
+</tr>
+<tr>
+<td><code>GOG_KEYRING_PASSWORD</code></td>
+<td>For mail/calendar</td>
+<td>Your app password or EWS password</td>
+</tr>
+<tr>
+<td><code>EXCHANGE_EWS_URL</code></td>
+<td>For Exchange</td>
+<td>Your Exchange server EWS URL</td>
+</tr>
+</tbody>
+</table>
+<p>See <a href="#step-6--connect-your-email">Step 6</a> for detailed instructions on different email providers.</p>
 <div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Never commit your <code>.env</code> file. It is listed in <code>.gitignore</code>.
-The repo only contains <code>.env.example</code> with placeholder values.</p>
+<p class="admonition-title">Never commit your .env file</p>
+<p>The <code>.env</code> file contains your secrets. It is listed in <code>.gitignore</code> — Git will not track it. If you accidentally commit it, rotate your API keys immediately.</p>
 </div>
 <hr />
-<h2 id="step-3-google-workspace-authentication">Step 3: Google Workspace authentication</h2>
-<p>Phil connects to Gmail and Google Calendar via the Exchange Web Services (EWS) protocol.</p>
+<h2 id="step-6-connect-your-email">Step 6 — Connect your email</h2>
+<p>Phil supports three mail/calendar backends:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Google (Gmail + Google Calendar)</label><label for="__tabbed_2_2">Microsoft Exchange / Microsoft 365</label><label for="__tabbed_2_3">No email account (demo mode)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><strong>Option A — App Password (simplest)</strong></p>
 <ol>
-<li>Enable "Less Secure Apps" or generate an <strong>App Password</strong> in your Google Account</li>
-<li>Set <code>GOG_ACCOUNT</code> to your full Google email address</li>
-<li>Set <code>GOG_KEYRING_PASSWORD</code> to the generated App Password</li>
+<li>Go to <a href="https://myaccount.google.com/security">myaccount.google.com/security</a></li>
+<li>Enable <strong>2-Step Verification</strong> (required for App Passwords)</li>
+<li>Scroll to <strong>App Passwords</strong> → select app: "Mail" → device: "Other (Custom name)" → name it "Phil"</li>
+<li>Google shows you a 16-character password — copy it now (it won't be shown again)</li>
+<li>In <code>backend/.env</code>:
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>GOG_ACCOUNT=your.name@gmail.com
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>GOG_KEYRING_PASSWORD=abcd efgh ijkl mnop
+</code></pre></div></li>
 </ol>
-<div class="admonition note">
-<p class="admonition-title">DE</p>
-<p>Phil nutzt EWS (Exchange Web Services) für den Zugriff auf Gmail und Google Calendar.
-Du brauchst ein App-Passwort, das du in den Google-Kontoeinstellungen unter
-"Sicherheit → App-Passwörter" erstellen kannst.</p>
+<p><strong>Option B — OAuth (more complex, more secure)</strong></p>
+<p>See the <code>docs/oauth-setup.md</code> for the OAuth2 flow. Recommended for production use.</p>
+</div>
+<div class="tabbed-block">
+<p>Phil uses <code>exchangelib</code> to connect to Exchange Web Services (EWS).</p>
+<ol>
+<li>Ask your IT department for your <strong>EWS URL</strong> (often <code>https://mail.yourorg.com/EWS/Exchange.asmx</code>)</li>
+<li>Use your regular domain password:
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>GOG_ACCOUNT=firstname.lastname@yourcompany.com
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>GOG_KEYRING_PASSWORD=your_domain_password
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>EXCHANGE_EWS_URL=https://mail.yourcompany.com/EWS/Exchange.asmx
+</code></pre></div></li>
+</ol>
+<p>For <strong>Microsoft 365</strong> (Outlook online), the EWS URL is typically <code>https://outlook.office365.com/EWS/Exchange.asmx</code>.</p>
+</div>
+<div class="tabbed-block">
+<p>You can run Phil without any mail or calendar connection. The mail and calendar views will be empty, but everything else (chat, tasks, knowledge graph, LLM) works normally.</p>
+<p>Simply leave <code>GOG_ACCOUNT</code> and <code>GOG_KEYRING_PASSWORD</code> blank in your <code>.env</code>. Phil starts up without any mail errors.</p>
+</div>
+</div>
 </div>
 <hr />
-<h2 id="step-4-run-phil">Step 4: Run Phil</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Terminal 1 — Backend (FastAPI)</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>uvicorn<span class="w"> </span>backend.main:app<span class="w"> </span>--reload<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Terminal 2 — Frontend (Vite dev server)</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nb">cd</span><span class="w"> </span>frontend
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>npm<span class="w"> </span>run<span class="w"> </span>dev
-</code></pre></div>
-<p>Open your browser at <strong><a href="http://localhost:5173">http://localhost:5173</a></strong></p>
-<hr />
-<hr />
-<h2 id="docker-compose-alternative">Docker Compose (Alternative)</h2>
-<p>Prefer containers? Docker Compose starts backend, frontend, and Traefik in a single command.</p>
-<p><strong>Prerequisites:</strong> Docker Desktop (or Docker Engine + Compose plugin)</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Clone and configure as above (Steps 1–3), then:</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>--build
-</code></pre></div>
-<p>Open <strong><a href="http://localhost:5173">http://localhost:5173</a></strong> — same as the manual setup.</p>
-<div class="admonition note">
-<p class="admonition-title">DE — Docker Compose</p>
-<p><code>docker compose up --build</code> startet alle Dienste automatisch.
-Ideal für reproduzierbare Entwicklungsumgebungen und den Einsatz auf eigenen Servern.
-Voraussetzung: Docker Desktop oder Docker Engine mit Compose-Plugin.</p>
+<h2 id="step-7-get-an-llm">Step 7 — Get an LLM</h2>
+<p>Phil supports two LLM modes — cloud and local. You need at least one.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Cloud — Anthropic Claude (easiest)</label><label for="__tabbed_3_2">Cloud — OpenAI GPT (alternative)</label><label for="__tabbed_3_3">Local — LM Studio (no data leaves your machine)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Create a free account at <a href="https://console.anthropic.com">console.anthropic.com</a></li>
+<li>Go to <strong>API Keys</strong> → <strong>Create Key</strong></li>
+<li>Copy the key (starts with <code>sk-ant-</code>) into <code>backend/.env</code>:
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>ANTHROPIC_API_KEY=sk-ant-api03-...
+</code></pre></div></li>
+</ol>
+<p><strong>Cost:</strong> Roughly €0.02–0.10 per session for typical daily use. Much less than ChatGPT Plus. You can set a monthly spending limit in the Anthropic console.</p>
 </div>
+<div class="tabbed-block">
+<p>Phil is designed for Anthropic Claude but the <code>LLMClient</code> class can be adapted for any OpenAI-compatible API. If you prefer OpenAI:</p>
+<ol>
+<li>Get your API key at <a href="https://platform.openai.com">platform.openai.com</a></li>
+<li>Phil will use the local LLM client interface — set:
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>LOCAL_LLM_ENDPOINT=https://api.openai.com/v1
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>LOCAL_LLM_ENDPOINT_KEY=sk-...your-openai-key...
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>LOCAL_LLM_MODEL=gpt-4o-mini
+</code></pre></div></li>
+</ol>
+<p>The <code>LLMClient</code> in <code>backend/llm_client.py</code> uses the OpenAI-compatible endpoint for all local/hybrid calls.</p>
+</div>
+<div class="tabbed-block">
+<p><strong>System requirements:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Model tier</th>
+<th>GPU VRAM / Unified memory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7B Q4_K_M</td>
+<td>6 GB</td>
+</tr>
+<tr>
+<td>14B Q4_K_M</td>
+<td>10 GB</td>
+</tr>
+<tr>
+<td>32B Q4_K_M</td>
+<td>22 GB</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Setup:</strong></p>
+<ol>
+<li>Download <a href="https://lmstudio.ai">LM Studio</a> (free, works on Mac/Windows/Linux)</li>
+<li>In LM Studio: <strong>Discover</strong> tab → search for <code>Qwen2.5-32B-Instruct-Q4_K_M</code> (or a smaller model if needed)</li>
+<li>Download the model (this takes 10–30 min depending on size)</li>
+<li>In LM Studio: <strong>Local Server</strong> tab → <strong>Start Server</strong> (listens on port 1234 by default)</li>
+<li>In <code>backend/.env</code>:
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>LOCAL_LLM_ENDPOINT=http://localhost:1234/v1
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>LOCAL_LLM_MODEL=qwen2.5-32b-instruct
+</code></pre></div></li>
+</ol>
+<p>Phil checks whether LM Studio responds at startup. If yes: local model. If no: cloud fallback.</p>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="step-8-run-phil">Step 8 — Run Phil</h2>
+<p>Open <strong>two terminals</strong>, both in the repo root, both with the virtual environment activated.</p>
+<p><strong>Terminal 1 — Backend:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>uvicorn<span class="w"> </span>backend.main:app<span class="w"> </span>--reload<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span>
+</code></pre></div>
+<p>You should see:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>INFO:     Started reloader process ...
+</code></pre></div></p>
+<p><strong>Terminal 2 — Frontend:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nb">cd</span><span class="w"> </span>frontend
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>npm<span class="w"> </span>run<span class="w"> </span>dev
+</code></pre></div>
+<p>You should see:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>  VITE v5.x.x  ready in 400 ms
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>  ➜  Local:   http://localhost:5173/
+</code></pre></div></p>
+<p>Open <strong><a href="http://localhost:5173">http://localhost:5173</a></strong> in your browser. Log in with your username and password (set during first run, stored locally).</p>
+<hr />
+<h2 id="docker-compose-alternative-to-steps-28">Docker Compose (alternative to Steps 2–8)</h2>
+<p>If you have Docker installed, you can skip the Python/Node setup entirely.</p>
+<p><strong>Install Docker:</strong> <a href="https://www.docker.com/get-docker">docker.com/get-docker</a> — Docker Desktop works on Mac, Windows, and Linux. It's free for personal use.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># 1. Clone the repo (same as Step 1)</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/swrobuts/phil-knowledge-navigator.git
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="nb">cd</span><span class="w"> </span>phil-knowledge-navigator
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="c1"># 2. Create and fill in your .env (same as Steps 5–6)</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>cp<span class="w"> </span>backend/.env.example<span class="w"> </span>backend/.env
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="c1"># (edit backend/.env with your credentials)</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="c1"># 3. Start everything</span>
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>--build
+</code></pre></div>
+<p>Open <strong><a href="http://localhost:5173">http://localhost:5173</a></strong>.</p>
+<p><strong>What Docker Compose starts:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Port</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>backend</code></td>
+<td>8000</td>
+<td>FastAPI Python server</td>
+</tr>
+<tr>
+<td><code>frontend</code></td>
+<td>5173</td>
+<td>Vite/React dev server</td>
+</tr>
+</tbody>
+</table>
+<p>To stop: <code>Ctrl+C</code>, then <code>docker compose down</code>.</p>
+<p>To rebuild after code changes: <code>docker compose up --build</code>.</p>
 <div class="admonition tip">
-<p class="admonition-title">DSGVO-Hinweis</p>
-<p>Im lokalen Betrieb (mit oder ohne Docker) verlassen <strong>keine E-Mails, Prompts oder
-personenbezogenen Daten</strong> das eigene Gerät — insbesondere wenn der lokale LLM-Modus
-aktiviert ist. Dies erleichtert DSGVO-konformen Betrieb gemäß Art. 25 (Privacy by Design).</p>
+<p class="admonition-title">DSGVO / Data privacy</p>
+<p>In local mode (with or without Docker), no emails, prompts, or personal data leave your machine. This applies as long as <code>LOCAL_LLM_ENDPOINT</code> is set to a local LM Studio instance and <code>ANTHROPIC_API_KEY</code> is not used. This design supports GDPR compliance under Art. 25 (privacy by design).</p>
 </div>
+<hr />
+<h2 id="running-the-tests">Running the tests</h2>
+<p>Phil includes a test suite for the backend. Run it from the repo root:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>pytest<span class="w"> </span>backend/tests/<span class="w"> </span>-v
+</code></pre></div>
+<p>For a single test file:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>pytest<span class="w"> </span>backend/tests/test_llm_client.py<span class="w"> </span>-v
+</code></pre></div>
+<p>If you see <code>pytest: command not found</code>, install it first: <code>pip install pytest</code>.</p>
+<p>Expected output when everything is working:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>PASSED backend/tests/test_mail_triage.py::test_categorise_vip_mail
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>PASSED backend/tests/test_llm_client.py::test_local_fallback
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>...
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>N passed in X.Xs
+</code></pre></div>
+<hr />
+<h2 id="security-considerations">Security considerations</h2>
+<div class="admonition danger">
+<p class="admonition-title">Before sharing or deploying Phil</p>
+<p>Phil is designed as a <strong>local personal tool</strong>, not a production service. Before running it for other people or exposing it to the internet, be aware of:</p>
+</div>
+<p><strong>API key exposure</strong></p>
+<ul>
+<li>Your <code>.env</code> file contains API keys and passwords. Never commit it. Never paste it into chat tools.</li>
+<li>If you suspect a key has been leaked: rotate it immediately in the Anthropic or Google console.</li>
+</ul>
+<p><strong>Email data stays local</strong></p>
+<ul>
+<li>Phil stores email summaries and embeddings in ChromaDB (at <code>/tmp/phil_chroma</code> by default). This folder contains your mail data. Back it up, and delete it when you stop using Phil.</li>
+</ul>
+<p><strong>No authentication hardening for public exposure</strong></p>
+<ul>
+<li>The default setup has a simple session-based login. It is <strong>not hardened</strong> for exposure to the internet.</li>
+<li>If you want to run Phil on a server, add a reverse proxy (nginx, Caddy) with HTTPS and access restriction.</li>
+</ul>
+<p><strong>LLM prompt injection</strong></p>
+<ul>
+<li>Phil passes email content directly to the LLM. A malicious email could attempt prompt injection (trying to make Phil execute unintended commands). Phil does not currently have prompt injection defences. Do not use Phil to triage emails from untrusted sources in security-critical contexts.</li>
+</ul>
+<p><strong>Local LLM vs cloud trade-off</strong></p>
+<ul>
+<li>Cloud LLMs (Anthropic Claude) transmit your email content to Anthropic's servers. For sensitive data (medical, legal, HR), use the local LLM mode exclusively.</li>
+<li>Anthropic's data retention policy: <a href="https://www.anthropic.com/privacy">anthropic.com/privacy</a>. By default, API inputs are not used for training.</li>
+</ul>
+<hr />
+<h2 id="known-limitations-and-open-risks">Known limitations and open risks</h2>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Current state</th>
+<th>Risk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mail sync</td>
+<td>Pulls only the most recent N emails</td>
+<td>Older emails are not indexed</td>
+</tr>
+<tr>
+<td>Calendar</td>
+<td>Google Calendar only in demo; Exchange required for full functionality</td>
+<td>Some users need manual calendar entry</td>
+</tr>
+<tr>
+<td>LLM hallucination</td>
+<td>RAG reduces but does not eliminate hallucinations</td>
+<td>Always verify AI-generated summaries against source emails</td>
+</tr>
+<tr>
+<td>Knowledge graph</td>
+<td>Built from email content only; no external data sources</td>
+<td>Graph may miss entities not mentioned in recent emails</td>
+</tr>
+<tr>
+<td>Session security</td>
+<td>Local single-user setup; no multi-user isolation</td>
+<td>Do not run as a shared service without adding auth</td>
+</tr>
+<tr>
+<td>GGUF model size</td>
+<td>32B model requires 22 GB RAM</td>
+<td>Smaller machines must use a 7B or 14B model</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="troubleshooting">Troubleshooting</h2>
-<p><strong><code>ModuleNotFoundError: No module named 'backend'</code></strong>
-Run <code>uvicorn</code> from the repo root, not from inside <code>backend/</code>.</p>
-<p><strong><code>ChromaDB SIGBUS error</code></strong>
-ChromaDB uses memory-mapped files that must not live on OneDrive or network drives.
-Phil stores them at <code>/tmp/phil_chroma</code> automatically.</p>
-<p><strong>Mail/calendar returns empty</strong>
-Check your <code>.env</code> credentials. Run <code>GET /api/mails</code> directly to see the raw response.</p>
-<p><strong>LLM returns errors</strong>
-Verify your <code>ANTHROPIC_API_KEY</code> is valid and has remaining credits.
-Phil will fall back to cloud automatically if a local LLM is configured but unavailable.</p>
+<details class="question">
+<summary><code>ModuleNotFoundError: No module named 'backend'</code></summary>
+<p>You are running <code>uvicorn</code> from inside the <code>backend/</code> folder. Run it from the <strong>repo root</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nb">cd</span><span class="w"> </span>phil-knowledge-navigator<span class="w">  </span><span class="c1"># make sure you&#39;re here</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>uvicorn<span class="w"> </span>backend.main:app<span class="w"> </span>--reload<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span>
+</code></pre></div></p>
+</details>
+<details class="question">
+<summary><code>ChromaDB SIGBUS error</code> or <code>mmap error</code></summary>
+<p>ChromaDB uses memory-mapped files. These <strong>must not</strong> live on a network drive, OneDrive, Dropbox, or iCloud folder. Phil stores them at <code>/tmp/phil_chroma</code> by default — this is intentional. Do not move the database to a synced folder.</p>
+</details>
+<details class="question">
+<summary>Mail / calendar returns empty</summary>
+<ol>
+<li>Check <code>backend/.env</code> — verify <code>GOG_ACCOUNT</code> and <code>GOG_KEYRING_PASSWORD</code> are correct.</li>
+<li>Test the API directly: open <code>http://localhost:8000/api/mails</code> in your browser. You should see JSON.</li>
+<li>For Google: make sure 2-Step Verification is enabled and the App Password is correct (no spaces needed in the password itself).</li>
+<li>For Exchange: verify the EWS URL by opening it in a browser — it should show an XML response.</li>
+</ol>
+</details>
+<details class="question">
+<summary><code>ANTHROPIC_API_KEY</code> error / 401 Unauthorized</summary>
+<p>Your key is either missing, incorrect, or has no credits. Check <a href="https://console.anthropic.com">console.anthropic.com</a> → usage. The key must start with <code>sk-ant-</code>.</p>
+</details>
+<details class="question">
+<summary>LM Studio returns timeout / local LLM not responding</summary>
+<ol>
+<li>Open LM Studio → <strong>Local Server</strong> tab → confirm "Running" is shown.</li>
+<li>Test: <code>curl http://localhost:1234/v1/models</code> should return JSON.</li>
+<li>Phil will <strong>automatically fall back</strong> to Anthropic if the local server is unavailable, as long as <code>ANTHROPIC_API_KEY</code> is set.</li>
+</ol>
+</details>
+<details class="question">
+<summary>Frontend shows blank page or cannot reach backend</summary>
+<p>Confirm both servers are running: backend on port 8000, frontend on port 5173. The frontend proxies API requests to the backend — if the backend is down, the frontend will show network errors in the browser console (F12).</p>
+</details>
+<details class="question">
+<summary>I don't have a Google account — can I use Phil?</summary>
+<p>Yes. See <a href="#step-6--connect-your-email">Step 6 — Exchange / Microsoft 365</a> for the Exchange option. Or run in demo mode (leave mail credentials blank) and use only the chat, tasks, and knowledge features.</p>
+</details>
+<hr />
+<h2 id="install-helpers">Install helpers</h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:4"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Windows</label><label for="__tabbed_4_3">Linux (Ubuntu / Debian)</label><label for="__tabbed_4_4">Linux (Fedora / RHEL)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="c1"># Install Homebrew (package manager for macOS)</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>/bin/bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&quot;</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="c1"># Then install Python and Node</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>brew<span class="w"> </span>install<span class="w"> </span>python@3.12<span class="w"> </span>node<span class="w"> </span>git
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>Python: <a href="https://www.python.org/downloads/">python.org/downloads</a> → Download Python 3.12 → check "Add Python to PATH" during install</li>
+<li>Node.js: <a href="https://nodejs.org/">nodejs.org</a> → Download LTS version</li>
+<li>Git: <a href="https://git-scm.com/download/win">git-scm.com</a></li>
+</ol>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3.12<span class="w"> </span>python3.12-venv<span class="w"> </span>python3-pip<span class="w"> </span>nodejs<span class="w"> </span>npm<span class="w"> </span>git
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>python3.12<span class="w"> </span>nodejs<span class="w"> </span>npm<span class="w"> </span>git
+</code></pre></div>
+</div>
+</div>
+</div>
 
 
 
