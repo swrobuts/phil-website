@@ -1836,7 +1836,7 @@ See <a href="#step-6--connect-your-email-and-calendar">Step 6</a> for full instr
 <p>The Anthropic Claude API is supported as a <strong>technical reference and quality baseline</strong> — useful for benchmarking and demonstrations, but not the intended production setup.</p>
 <div class="admonition tip">
 <p class="admonition-title">Recommended: Local LM Studio</p>
-<p>Set up LM Studio (free, offline, DSGVO-compliant) and Phil uses it automatically. Cloud API remains as an optional fallback if the local server is unavailable.</p>
+<p>Set up LM Studio (free, offline, DSGVO-compliant) — no API costs, your data stays on your machine.</p>
 </div>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Local — LM Studio ✓ Empfohlen</label><label for="__tabbed_4_2">Cloud — Anthropic Claude (Referenz / Demo)</label><label for="__tabbed_4_3">Cloud — OpenAI-compatible APIs</label></div>
 <div class="tabbed-content">
@@ -2088,7 +2088,7 @@ See <a href="#step-6--connect-your-email-and-calendar">Step 6</a> for full instr
 <ol>
 <li>Open LM Studio → <strong>Local Server</strong> tab → confirm "Running" is shown.</li>
 <li>Test: <code>curl http://localhost:1234/v1/models</code> should return JSON.</li>
-<li>Phil will <strong>automatically fall back</strong> to Anthropic if the local server is unavailable, as long as <code>ANTHROPIC_API_KEY</code> is set.</li>
+<li>Check that <code>LOCAL_LLM_ENDPOINT</code> and <code>LOCAL_LLM_MODEL</code> are correctly set in <code>backend/.env</code>.</li>
 </ol>
 </details>
 <details class="question">
