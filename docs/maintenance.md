@@ -5,9 +5,9 @@
 === "Docker Hub (Option A)"
 
     ```bash
-    docker pull swrobuts/phil:latest
+    docker pull swrobutsdocker/phil:latest
     docker stop phil && docker rm phil
-    docker run -d --name phil -p 8000:8000 --env-file backend.env swrobuts/phil:latest
+    docker run -d --name phil -p 8000:8000 --env-file backend.env swrobutsdocker/phil:latest
     ```
 
 === "Docker Compose (Option B)"

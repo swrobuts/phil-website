@@ -36,7 +36,7 @@ docker run -d \
   --name phil \
   -p 8000:8000 \
   --env-file backend.env \
-  swrobuts/phil:latest
+  swrobutsdocker/phil:latest
 ```
 
 Open **[http://localhost:8000](http://localhost:8000)**. That's it.
@@ -48,16 +48,16 @@ Open **[http://localhost:8000](http://localhost:8000)**. That's it.
 docker stop phil && docker rm phil
 
 # Update to latest version
-docker pull swrobuts/phil:latest
+docker pull swrobutsdocker/phil:latest
 docker stop phil && docker rm phil
-docker run -d --name phil -p 8000:8000 --env-file backend.env swrobuts/phil:latest
+docker run -d --name phil -p 8000:8000 --env-file backend.env swrobutsdocker/phil:latest
 
 # View logs
 docker logs -f phil
 ```
 
 !!! tip "Image on Docker Hub"
-    `swrobuts/phil` is a public image — no Docker Hub account needed to pull it.
+    `swrobutsdocker/phil` is a public image — no Docker Hub account needed to pull it.
 
 ---
 
