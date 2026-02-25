@@ -302,48 +302,31 @@ You should see your next 5 events as JSON.
 
 ## Step 7 — Get an LLM
 
-Phil supports two LLM modes — cloud and local. You need at least one.
+Phil supports local and cloud LLMs. **Local is the recommended default** for two reasons:
 
-=== "Cloud — Anthropic Claude (easiest)"
+- **Cost:** Running a local model is free after the hardware investment. Cloud APIs charge per token — the costs are low, but they accumulate over time.
+- **DSGVO / data privacy:** With a local model, your emails, prompts, and personal data never leave your machine. Cloud APIs transmit your data to external servers (US jurisdiction), which is legally problematic for professional email in a German university or business context (Art. 25 DSGVO — privacy by design).
 
-    1. Create a free account at [console.anthropic.com](https://console.anthropic.com)
-    2. Go to **API Keys** → **Create Key**
-    3. Copy the key (starts with `sk-ant-`) into `backend/.env`:
-       ```
-       ANTHROPIC_API_KEY=sk-ant-api03-...
-       ```
+The Anthropic Claude API is supported as a **technical reference and quality baseline** — useful for benchmarking and demonstrations, but not the intended production setup.
 
-    **Cost:** Roughly €0.02–0.10 per session for typical daily use. Much less than ChatGPT Plus. You can set a monthly spending limit in the Anthropic console.
+!!! tip "Recommended: Local LM Studio"
+    Set up LM Studio (free, offline, DSGVO-compliant) and Phil uses it automatically. Cloud API remains as an optional fallback if the local server is unavailable.
 
-=== "Cloud — OpenAI GPT (alternative)"
-
-    Phil is designed for Anthropic Claude but the `LLMClient` class can be adapted for any OpenAI-compatible API. If you prefer OpenAI:
-
-    1. Get your API key at [platform.openai.com](https://platform.openai.com)
-    2. Phil will use the local LLM client interface — set:
-       ```
-       LOCAL_LLM_ENDPOINT=https://api.openai.com/v1
-       LOCAL_LLM_ENDPOINT_KEY=sk-...your-openai-key...
-       LOCAL_LLM_MODEL=gpt-4o-mini
-       ```
-
-    The `LLMClient` in `backend/llm_client.py` uses the OpenAI-compatible endpoint for all local/hybrid calls.
-
-=== "Local — LM Studio (no data leaves your machine)"
+=== "Local — LM Studio ✓ Empfohlen"
 
     **System requirements:**
 
-    | Model tier | GPU VRAM / Unified memory |
-    |-----------|--------------------------|
-    | 7B Q4_K_M | 6 GB |
-    | 14B Q4_K_M | 10 GB |
-    | 32B Q4_K_M | 22 GB |
+    | Model tier | Unified memory / VRAM | Quality |
+    |-----------|----------------------|---------|
+    | 7B Q4_K_M | 6 GB | Good for simple triage |
+    | 14B Q4_K_M | 10 GB | Good balance |
+    | 32B Q4_K_M | 22 GB | Best results, recommended |
 
     **Setup:**
 
     1. Download [LM Studio](https://lmstudio.ai) (free, works on Mac/Windows/Linux)
-    2. In LM Studio: **Discover** tab → search for `Qwen2.5-32B-Instruct-Q4_K_M` (or a smaller model if needed)
-    3. Download the model (this takes 10–30 min depending on size)
+    2. In LM Studio: **Discover** tab → search for `Qwen2.5-32B-Instruct-Q4_K_M` (or a smaller model if your machine requires it)
+    3. Download the model (10–30 min depending on size and connection)
     4. In LM Studio: **Local Server** tab → **Start Server** (listens on port 1234 by default)
     5. In `backend/.env`:
        ```
@@ -351,7 +334,37 @@ Phil supports two LLM modes — cloud and local. You need at least one.
        LOCAL_LLM_MODEL=qwen2.5-32b-instruct
        ```
 
-    Phil checks whether LM Studio responds at startup. If yes: local model. If no: cloud fallback.
+    Phil checks whether LM Studio responds at startup. If yes: local model is used. If the local server is off: Phil falls back to the cloud API (if configured).
+
+    No email content, no prompts, no personal data ever leave your machine.
+
+=== "Cloud — Anthropic Claude (Referenz / Demo)"
+
+    !!! warning "Datenschutz-Hinweis"
+        Mit einem Cloud-API-Key werden Ihre E-Mails und Prompts an externe Server (Anthropic, USA) übertragen. Für professionelle oder personenbezogene Daten empfehlen wir ausschließlich den Local-Modus.
+
+    The Anthropic API is useful as a quality baseline and for demonstrations where local hardware is unavailable.
+
+    1. Create a free account at [console.anthropic.com](https://console.anthropic.com)
+    2. Go to **API Keys** → **Create Key**
+    3. Copy the key into `backend/.env`:
+       ```
+       ANTHROPIC_API_KEY=sk-ant-api03-...
+       ```
+
+    **Cost:** Roughly €0.02–0.10 per session for typical daily use. You can set a monthly spending limit in the Anthropic console.
+
+=== "Cloud — OpenAI-compatible APIs"
+
+    Any OpenAI-compatible API endpoint (OpenAI, Mistral, Together AI, etc.) works via the local client interface:
+
+    ```
+    LOCAL_LLM_ENDPOINT=https://api.openai.com/v1
+    LOCAL_LLM_ENDPOINT_KEY=sk-...your-key...
+    LOCAL_LLM_MODEL=gpt-4o-mini
+    ```
+
+    The same data-privacy considerations as above apply — data leaves your machine.
 
 ---
 
