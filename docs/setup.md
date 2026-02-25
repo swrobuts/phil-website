@@ -310,7 +310,7 @@ Phil supports local and cloud LLMs. **Local is the recommended default** for two
 The Anthropic Claude API is supported as a **technical reference and quality baseline** — useful for benchmarking and demonstrations, but not the intended production setup.
 
 !!! tip "Recommended: Local LM Studio"
-    Set up LM Studio (free, offline, DSGVO-compliant) and Phil uses it automatically. Cloud API remains as an optional fallback if the local server is unavailable.
+    Set up LM Studio (free, offline, DSGVO-compliant) — no API costs, your data stays on your machine.
 
 === "Local — LM Studio ✓ Empfohlen"
 
@@ -537,7 +537,7 @@ N passed in X.Xs
 ??? question "LM Studio returns timeout / local LLM not responding"
     1. Open LM Studio → **Local Server** tab → confirm "Running" is shown.
     2. Test: `curl http://localhost:1234/v1/models` should return JSON.
-    3. Phil will **automatically fall back** to Anthropic if the local server is unavailable, as long as `ANTHROPIC_API_KEY` is set.
+    3. Check that `LOCAL_LLM_ENDPOINT` and `LOCAL_LLM_MODEL` are correctly set in `backend/.env`.
 
 ??? question "Frontend shows blank page or cannot reach backend"
     Confirm both servers are running: backend on port **8001**, frontend on port 5173. The frontend proxies API requests to the backend — if the backend is down, the frontend will show network errors in the browser console (F12).
