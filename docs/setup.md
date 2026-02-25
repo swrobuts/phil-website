@@ -226,11 +226,7 @@ Phil's login screen supports four institutions out of the box. The credentials y
 
     Phil tries both `mmueller` and `mmueller@fhws.de` automatically if you enter the short form.
 
-=== "DHBW"
-
-    - Protocol: EWS only (Exchange autodiscover)
-    - Username: full email address (e.g. `name@dhbw-xyz.de`)
-    - Password: your DHBW password
+    Official THWS mail client setup guide: [itsc.thws.de → THWS-Mail einrichten](https://itsc.thws.de/itsc/hochschulweite-dienste/thws-mail/einrichtung-e-mail-client/)
 
 === "Microsoft 365 / generic Exchange"
 
@@ -390,7 +386,7 @@ You should see:
 
 Open **[http://localhost:5173](http://localhost:5173)** in your browser.
 
-The login screen will ask for your Exchange/IMAP account (THWS, DHBW, Microsoft 365, or generic IMAP). These credentials are held in memory for the session only — they are never written to disk.
+The login screen will ask for your Exchange/IMAP account (THWS, Microsoft 365, or generic IMAP). These credentials are held in memory for the session only — they are never written to disk.
 
 !!! tip "Vite proxies /api automatically"
     The frontend dev server (port 5173) proxies all `/api/*` requests to the backend (port 8001). You never need to open port 8001 directly during development.
@@ -536,7 +532,7 @@ N passed in X.Xs
     Confirm both servers are running: backend on port **8001**, frontend on port 5173. The frontend proxies API requests to the backend — if the backend is down, the frontend will show network errors in the browser console (F12).
 
 ??? question "I don't have a Google account — can I use Phil?"
-    Yes. Log in with your Exchange credentials (THWS, DHBW, or Microsoft 365) on the login screen. Calendar events will come from Exchange EWS. Or use demo mode and skip the login.
+    Yes. Log in with your Exchange credentials (THWS or Microsoft 365) on the login screen. Calendar events will come from Exchange EWS. Or use demo mode and skip the login.
 
 ??? question "`gog: command not found`"
     The `gog` binary is not installed or not in your `$PATH`. Install it with Homebrew (`brew install nicholasgasior/tap/gog`) or download the binary from [github.com/nicholasgasior/gog/releases](https://github.com/nicholasgasior/gog/releases) and place it in `~/bin/` or `/usr/local/bin/`.
