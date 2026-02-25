@@ -103,68 +103,125 @@ Now open `backend/.env`. Here is every variable explained:
 
 | Variable | Required | What to put here |
 |----------|----------|-----------------|
-| `ANTHROPIC_API_KEY` | ✅ if using cloud | Your Claude API key (starts with `sk-ant-`) |
+| `ANTHROPIC_API_KEY` | ✅ for cloud LLM | Your Claude API key (starts with `sk-ant-`) |
+| `OPENAI_API_KEY` | ✅ for TTS + search | OpenAI key for embeddings and text-to-speech (starts with `sk-proj-`) |
 | `LOCAL_LLM_ENDPOINT` | Optional | `http://localhost:1234/v1` (LM Studio default) |
 | `LOCAL_LLM_MODEL` | Optional | e.g. `qwen2.5-32b-instruct` |
 
-**You need at least one of these.** If you set a local endpoint, Phil will try that first and fall back to Anthropic. If only `ANTHROPIC_API_KEY` is set, all requests go to Claude.
+**LLM:** You need at least one of `ANTHROPIC_API_KEY` or `LOCAL_LLM_ENDPOINT`. If both are set, Phil tries the local endpoint first and falls back to Anthropic.
 
-### Mail and calendar settings
+**OpenAI:** Used for ChromaDB embeddings (semantic search over your emails) and the text-to-speech "read aloud" feature. These features are silently disabled if the key is missing.
+
+### Google Calendar settings
 
 | Variable | Required | What to put here |
 |----------|----------|-----------------|
-| `GOG_ACCOUNT` | For mail/calendar | Your full email address |
-| `GOG_KEYRING_PASSWORD` | For mail/calendar | Your app password or EWS password |
-| `EXCHANGE_EWS_URL` | For Exchange | Your Exchange server EWS URL |
+| `GOG_ACCOUNT` | For Google Calendar | Your Gmail address (e.g. `you@gmail.com`) |
+| `GOG_KEYRING_PASSWORD` | In Docker only | Keyring password for the gog OAuth token |
 
-See [Step 6](#step-6--connect-your-email) for detailed instructions on different email providers.
+Exchange / IMAP credentials are entered via the **login screen**, not in `.env`.
+See [Step 6](#step-6--connect-your-email-and-calendar) for full instructions.
 
 !!! warning "Never commit your .env file"
     The `.env` file contains your secrets. It is listed in `.gitignore` — Git will not track it. If you accidentally commit it, rotate your API keys immediately.
 
 ---
 
-## Step 6 — Connect your email
+## Step 6 — Connect your email and calendar
 
-Phil supports three mail/calendar backends:
+Phil has two separate mail/calendar backends that work independently:
 
-=== "Google (Gmail + Google Calendar)"
+- **Exchange / IMAP** — for reading email and syncing tasks (credentials entered via login UI)
+- **Google Calendar** — for calendar events (requires the `gog` CLI binary + OAuth)
 
-    **Option A — App Password (simplest)**
+### 6a — Exchange / IMAP login
 
-    1. Go to [myaccount.google.com/security](https://myaccount.google.com/security)
-    2. Enable **2-Step Verification** (required for App Passwords)
-    3. Scroll to **App Passwords** → select app: "Mail" → device: "Other (Custom name)" → name it "Phil"
-    4. Google shows you a 16-character password — copy it now (it won't be shown again)
-    5. In `backend/.env`:
-       ```
-       GOG_ACCOUNT=your.name@gmail.com
-       GOG_KEYRING_PASSWORD=abcd efgh ijkl mnop
-       ```
+Phil's login screen supports four institutions out of the box. The credentials you enter there are **never written to disk** — they are held in the server's memory only for the duration of your session.
 
-    **Option B — OAuth (more complex, more secure)**
+=== "THWS (Würzburg-Schweinfurt)"
 
-    See the `docs/oauth-setup.md` for the OAuth2 flow. Recommended for production use.
+    - Protocol: IMAP (port 993 SSL) for email + EWS for calendar and tasks
+    - Server: `webmail.thws.de`
+    - Username: your short login name (e.g. `mmueller`) **or** full email (`max.mueller@fhws.de`)
+    - Password: your THWS/RZ password
 
-=== "Microsoft Exchange / Microsoft 365"
+    Phil tries both `mmueller` and `mmueller@fhws.de` automatically if you enter the short form.
 
-    Phil uses `exchangelib` to connect to Exchange Web Services (EWS).
+=== "DHBW"
 
-    1. Ask your IT department for your **EWS URL** (often `https://mail.yourorg.com/EWS/Exchange.asmx`)
-    2. Use your regular domain password:
-       ```
-       GOG_ACCOUNT=firstname.lastname@yourcompany.com
-       GOG_KEYRING_PASSWORD=your_domain_password
-       EXCHANGE_EWS_URL=https://mail.yourcompany.com/EWS/Exchange.asmx
-       ```
+    - Protocol: EWS only (Exchange autodiscover)
+    - Username: full email address (e.g. `name@dhbw-xyz.de`)
+    - Password: your DHBW password
 
-    For **Microsoft 365** (Outlook online), the EWS URL is typically `https://outlook.office365.com/EWS/Exchange.asmx`.
+=== "Microsoft 365 / generic Exchange"
+
+    - Protocol: EWS
+    - Username: full email address
+    - Password: your Microsoft 365 / domain password
+    - EWS URL: Phil uses autodiscover by default; THWS is the only hardcoded exception
 
 === "No email account (demo mode)"
 
-    You can run Phil without any mail or calendar connection. The mail and calendar views will be empty, but everything else (chat, tasks, knowledge graph, LLM) works normally.
+    You can run Phil without any mail connection. The mail and tasks views will be empty, but chat, calendar (if `gog` is configured), the knowledge graph, and the LLM all work normally.
 
-    Simply leave `GOG_ACCOUNT` and `GOG_KEYRING_PASSWORD` blank in your `.env`. Phil starts up without any mail errors.
+    Simply click **Skip / Demo** on the login screen.
+
+### 6b — Google Calendar (`gog` CLI)
+
+Phil reads and writes Google Calendar events via the [`gog`](https://github.com/nicholasgasior/gog) CLI binary. This is a separate OAuth-based tool that stores your Google tokens in the system keyring.
+
+**Install gog:**
+
+=== "macOS (Homebrew)"
+
+    ```bash
+    brew install nicholasgasior/tap/gog
+    ```
+
+=== "Linux / manual install"
+
+    Download the latest binary from the [gog GitHub releases page](https://github.com/nicholasgasior/gog/releases) and place it in `~/bin/gog` or anywhere in your `$PATH`:
+
+    ```bash
+    chmod +x ~/bin/gog
+    ```
+
+=== "Verify"
+
+    ```bash
+    gog version
+    gog --help
+    ```
+
+**Authenticate gog:**
+
+```bash
+gog auth login
+```
+
+This opens a browser window for Google OAuth. After authorising, gog stores the token in your system keyring.
+
+**Configure Phil:**
+
+```bash
+# In backend/.env:
+GOG_ACCOUNT=your.name@gmail.com
+```
+
+**Verify calendar access:**
+
+```bash
+gog calendar events --account your.name@gmail.com --max 5
+```
+
+You should see your next 5 events as JSON.
+
+!!! warning "Docker and the keyring"
+    Inside a Docker container there is no GUI keyring. To use Google Calendar in Docker, you need to export the OAuth token password:
+
+    1. On the host (after `gog auth login`): the token is stored in your system keyring. The `GOG_KEYRING_PASSWORD` is the password that protects the keyring file.
+    2. Set `GOG_KEYRING_PASSWORD=your-keyring-password` in `backend/.env` before running Docker.
+    3. Phil passes this variable to `gog` so it can unlock the keyring without a GUI.
 
 ---
 
@@ -230,12 +287,12 @@ Open **two terminals**, both in the repo root, both with the virtual environment
 **Terminal 1 — Backend:**
 
 ```bash
-uvicorn backend.main:app --reload --port 8000
+uvicorn backend.main:app --reload --port 8001
 ```
 
 You should see:
 ```
-INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
 INFO:     Started reloader process ...
 ```
 
@@ -252,7 +309,12 @@ You should see:
   ➜  Local:   http://localhost:5173/
 ```
 
-Open **[http://localhost:5173](http://localhost:5173)** in your browser. Log in with your username and password (set during first run, stored locally).
+Open **[http://localhost:5173](http://localhost:5173)** in your browser.
+
+The login screen will ask for your Exchange/IMAP account (THWS, DHBW, Microsoft 365, or generic IMAP). These credentials are held in memory for the session only — they are never written to disk.
+
+!!! tip "Vite proxies /api automatically"
+    The frontend dev server (port 5173) proxies all `/api/*` requests to the backend (port 8001). You never need to open port 8001 directly during development.
 
 ---
 
@@ -275,18 +337,19 @@ cp backend/.env.example backend/.env
 docker compose up --build
 ```
 
-Open **[http://localhost:5173](http://localhost:5173)**.
+Open **[http://localhost:8000](http://localhost:8000)**.
 
-**What Docker Compose starts:**
+**What Docker builds:**
 
-| Service | Port | What it does |
-|---------|------|-------------|
-| `backend` | 8000 | FastAPI Python server |
-| `frontend` | 5173 | Vite/React dev server |
+| Container | Port | What it does |
+|-----------|------|-------------|
+| `kn-mail` | 8000 | FastAPI serving both the API **and** the pre-built React frontend as static files |
 
-To stop: `Ctrl+C`, then `docker compose down`.
+Unlike the dev mode, Docker uses a single container. The Dockerfile uses a two-stage build: Node 20 compiles the React frontend, then the Python 3.12-slim image serves everything through uvicorn on port 8000.
 
-To rebuild after code changes: `docker compose up --build`.
+To stop: `Ctrl+C`, then `docker compose -f docker-compose.local.yml down`.
+
+To rebuild after code changes: `docker compose -f docker-compose.local.yml up --build`.
 
 !!! tip "DSGVO / Data privacy"
     In local mode (with or without Docker), no emails, prompts, or personal data leave your machine. This applies as long as `LOCAL_LLM_ENDPOINT` is set to a local LM Studio instance and `ANTHROPIC_API_KEY` is not used. This design supports GDPR compliance under Art. 25 (privacy by design).
@@ -370,7 +433,7 @@ N passed in X.Xs
     You are running `uvicorn` from inside the `backend/` folder. Run it from the **repo root**:
     ```bash
     cd phil-knowledge-navigator  # make sure you're here
-    uvicorn backend.main:app --reload --port 8000
+    uvicorn backend.main:app --reload --port 8001
     ```
 
 ??? question "`ChromaDB SIGBUS error` or `mmap error`"
@@ -378,9 +441,9 @@ N passed in X.Xs
 
 ??? question "Mail / calendar returns empty"
     1. Check `backend/.env` — verify `GOG_ACCOUNT` and `GOG_KEYRING_PASSWORD` are correct.
-    2. Test the API directly: open `http://localhost:8000/api/mails` in your browser. You should see JSON.
-    3. For Google: make sure 2-Step Verification is enabled and the App Password is correct (no spaces needed in the password itself).
-    4. For Exchange: verify the EWS URL by opening it in a browser — it should show an XML response.
+    2. Test the API directly: open `http://localhost:8001/api/mails` in your browser. You should see JSON.
+    3. For Google Calendar: verify `GOG_ACCOUNT` is set and run `gog calendar events --account you@gmail.com --max 3` to test the CLI directly.
+    4. For Exchange: check your login credentials — click the account icon in the sidebar to re-enter them.
 
 ??? question "`ANTHROPIC_API_KEY` error / 401 Unauthorized"
     Your key is either missing, incorrect, or has no credits. Check [console.anthropic.com](https://console.anthropic.com) → usage. The key must start with `sk-ant-`.
@@ -391,10 +454,16 @@ N passed in X.Xs
     3. Phil will **automatically fall back** to Anthropic if the local server is unavailable, as long as `ANTHROPIC_API_KEY` is set.
 
 ??? question "Frontend shows blank page or cannot reach backend"
-    Confirm both servers are running: backend on port 8000, frontend on port 5173. The frontend proxies API requests to the backend — if the backend is down, the frontend will show network errors in the browser console (F12).
+    Confirm both servers are running: backend on port **8001**, frontend on port 5173. The frontend proxies API requests to the backend — if the backend is down, the frontend will show network errors in the browser console (F12).
 
 ??? question "I don't have a Google account — can I use Phil?"
-    Yes. See [Step 6 — Exchange / Microsoft 365](#step-6--connect-your-email) for the Exchange option. Or run in demo mode (leave mail credentials blank) and use only the chat, tasks, and knowledge features.
+    Yes. Log in with your Exchange credentials (THWS, DHBW, or Microsoft 365) on the login screen. Calendar events will come from Exchange EWS. Or use demo mode and skip the login.
+
+??? question "`gog: command not found`"
+    The `gog` binary is not installed or not in your `$PATH`. Install it with Homebrew (`brew install nicholasgasior/tap/gog`) or download the binary from [github.com/nicholasgasior/gog/releases](https://github.com/nicholasgasior/gog/releases) and place it in `~/bin/` or `/usr/local/bin/`.
+
+??? question "Google Calendar shows empty / `gog calendar: empty calendarId`"
+    Set `GOG_ACCOUNT` in `backend/.env` to your full Gmail address. Then restart the backend (`Ctrl+C` and re-run `uvicorn ...`). Phil reads `.env` at startup — changes do not hot-reload automatically.
 
 ---
 
@@ -428,3 +497,104 @@ N passed in X.Xs
     ```bash
     sudo dnf install python3.12 nodejs npm git
     ```
+
+---
+
+## Maintenance
+
+### Keeping Phil up to date
+
+```bash
+cd phil-knowledge-navigator
+git pull
+
+# Re-install backend dependencies (if requirements.txt changed)
+source .venv/bin/activate
+pip install -r backend/requirements.txt
+
+# Re-install frontend dependencies (if package.json changed)
+cd frontend && npm install && cd ..
+```
+
+For Docker: `docker compose -f docker-compose.local.yml up --build` automatically rebuilds on every start.
+
+### Data directories
+
+Phil stores persistent data in two locations:
+
+| Path | What it contains | Important notes |
+|------|-----------------|-----------------|
+| `/tmp/phil_chroma` | ChromaDB — email embeddings for RAG | **Must be on local disk** (not OneDrive/Dropbox). Cleared on reboot on macOS/Linux. |
+| `/data/memory.db` (Docker) or `./memory.db` (dev) | SQLite — facts Phil has learned from conversations | Persists across restarts. Back this up if you want to keep your memory. |
+
+To clear the knowledge base (e.g. after a major data change):
+
+```bash
+rm -rf /tmp/phil_chroma
+# Then triage your mails again in the app to re-populate
+```
+
+To clear Phil's memory (start fresh):
+
+```bash
+rm memory.db           # dev
+# or in Docker: docker compose exec kn-mail rm /data/memory.db
+```
+
+### Log access
+
+=== "Dev mode"
+
+    Backend logs appear in the terminal where you ran `uvicorn`. Frontend build/HMR messages appear in the npm terminal.
+
+=== "Docker"
+
+    ```bash
+    # Follow live logs
+    docker compose logs -f
+
+    # Last 100 lines
+    docker compose logs --tail=100
+    ```
+
+### Rotating API keys
+
+If you need to replace an API key:
+
+1. Generate the new key in [console.anthropic.com](https://console.anthropic.com) or [platform.openai.com](https://platform.openai.com)
+2. Update `backend/.env`
+3. Restart the backend: `Ctrl+C` → `uvicorn backend.main:app --reload --port 8001`
+4. Revoke the old key in the provider console
+
+### Re-authenticating Google Calendar
+
+If `gog auth login` needs to be re-run (token expired or revoked):
+
+```bash
+gog auth logout
+gog auth login
+```
+
+The new token is stored in the system keyring automatically. No changes to `.env` needed.
+
+For Docker: export the new `GOG_KEYRING_PASSWORD` and restart the container.
+
+### Production deployment (Traefik)
+
+The production `docker-compose.yml` includes Traefik labels for automatic HTTPS via Let's Encrypt.
+Requirements:
+
+- A domain name pointing to your server (A record)
+- Traefik running on the same Docker network (`traefik-net`)
+- A Let's Encrypt email configured in your Traefik config
+
+```bash
+# Deploy (production)
+docker compose up -d
+
+# Check status
+docker compose ps
+docker compose logs kn-mail
+```
+
+The app will be available at `https://kn-mail.yourdomain.com` (edit the host rule in `docker-compose.yml`).

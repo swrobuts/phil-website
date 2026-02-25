@@ -49,6 +49,7 @@ nav:
       - Semantic Search: features/rag-search.md
   - Getting Started: setup.md
   - Architecture: architecture.md
+  - Maintenance: maintenance.md
   - Tech Stack: tech-stack.md
   - Prompts (CO-STAR): prompts.md
   - Contributing: contributing.md
