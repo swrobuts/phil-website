@@ -366,6 +366,18 @@ The Anthropic Claude API is supported as a **technical reference and quality bas
 
 ---
 
+### Hybrid mode (local + cloud)
+
+Both `LOCAL_LLM_ENDPOINT` and `ANTHROPIC_API_KEY` can be set simultaneously. Phil will use whichever you call explicitly — there is no automatic switching. This is useful when:
+
+- The local model reaches its limits (e.g. very long documents, complex multi-step reasoning) and you want to route that specific request to the cloud
+- You are benchmarking local vs. cloud quality side by side
+
+!!! warning "Do not route personal data to the cloud endpoint"
+    In hybrid mode, any request sent to the Anthropic API transmits its content to external servers. Only use the cloud endpoint for non-personal, non-sensitive content — public documents, anonymised test data, or synthetic examples. For all professional email, HR, medical, or legal content: local model only.
+
+---
+
 ## Step 8 — Run Phil
 
 Open **two terminals**, both in the repo root, both with the virtual environment activated.
