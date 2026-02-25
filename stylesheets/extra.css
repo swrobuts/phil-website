@@ -1,0 +1,45 @@
+/* ── Mobile responsiveness for Phil docs ─────────────────────────────── */
+
+/* Scrollable tables on narrow screens */
+.md-typeset table:not([class]) {
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent code blocks from blowing out the layout */
+.md-typeset pre {
+  overflow-x: auto;
+}
+
+/* Tabs: allow horizontal scroll on mobile instead of wrapping ugly */
+.md-typeset .tabbed-labels {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.md-typeset .tabbed-labels::-webkit-scrollbar {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  /* Tighten admonition padding */
+  .md-typeset .admonition,
+  .md-typeset details {
+    padding: .6rem .8rem .6rem 2.6rem;
+  }
+
+  /* Nav tabs become a compact scrollable row */
+  .md-tabs__list {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .md-tabs__list::-webkit-scrollbar { display: none; }
+
+  /* Reduce hero / content padding */
+  .md-content__inner {
+    padding: 0 .8rem 1rem;
+  }
+}

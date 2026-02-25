@@ -52,6 +52,8 @@
       
     
     
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1805,67 +1807,82 @@ See <a href="#step-6--connect-your-email-and-calendar">Step 6</a> for full instr
 </div>
 <hr />
 <h2 id="step-7-get-an-llm">Step 7 — Get an LLM</h2>
-<p>Phil supports two LLM modes — cloud and local. You need at least one.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Cloud — Anthropic Claude (easiest)</label><label for="__tabbed_4_2">Cloud — OpenAI GPT (alternative)</label><label for="__tabbed_4_3">Local — LM Studio (no data leaves your machine)</label></div>
+<p>Phil supports local and cloud LLMs. <strong>Local is the recommended default</strong> for two reasons:</p>
+<ul>
+<li><strong>Cost:</strong> Running a local model is free after the hardware investment. Cloud APIs charge per token — the costs are low, but they accumulate over time.</li>
+<li><strong>DSGVO / data privacy:</strong> With a local model, your emails, prompts, and personal data never leave your machine. Cloud APIs transmit your data to external servers (US jurisdiction), which is legally problematic for professional email in a German university or business context (Art. 25 DSGVO — privacy by design).</li>
+</ul>
+<p>The Anthropic Claude API is supported as a <strong>technical reference and quality baseline</strong> — useful for benchmarking and demonstrations, but not the intended production setup.</p>
+<div class="admonition tip">
+<p class="admonition-title">Recommended: Local LM Studio</p>
+<p>Set up LM Studio (free, offline, DSGVO-compliant) and Phil uses it automatically. Cloud API remains as an optional fallback if the local server is unavailable.</p>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Local — LM Studio ✓ Empfohlen</label><label for="__tabbed_4_2">Cloud — Anthropic Claude (Referenz / Demo)</label><label for="__tabbed_4_3">Cloud — OpenAI-compatible APIs</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block">
-<ol>
-<li>Create a free account at <a href="https://console.anthropic.com">console.anthropic.com</a></li>
-<li>Go to <strong>API Keys</strong> → <strong>Create Key</strong></li>
-<li>Copy the key (starts with <code>sk-ant-</code>) into <code>backend/.env</code>:
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>ANTHROPIC_API_KEY=sk-ant-api03-...
-</code></pre></div></li>
-</ol>
-<p><strong>Cost:</strong> Roughly €0.02–0.10 per session for typical daily use. Much less than ChatGPT Plus. You can set a monthly spending limit in the Anthropic console.</p>
-</div>
-<div class="tabbed-block">
-<p>Phil is designed for Anthropic Claude but the <code>LLMClient</code> class can be adapted for any OpenAI-compatible API. If you prefer OpenAI:</p>
-<ol>
-<li>Get your API key at <a href="https://platform.openai.com">platform.openai.com</a></li>
-<li>Phil will use the local LLM client interface — set:
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>LOCAL_LLM_ENDPOINT=https://api.openai.com/v1
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>LOCAL_LLM_ENDPOINT_KEY=sk-...your-openai-key...
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>LOCAL_LLM_MODEL=gpt-4o-mini
-</code></pre></div></li>
-</ol>
-<p>The <code>LLMClient</code> in <code>backend/llm_client.py</code> uses the OpenAI-compatible endpoint for all local/hybrid calls.</p>
-</div>
 <div class="tabbed-block">
 <p><strong>System requirements:</strong></p>
 <table>
 <thead>
 <tr>
 <th>Model tier</th>
-<th>GPU VRAM / Unified memory</th>
+<th>Unified memory / VRAM</th>
+<th>Quality</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>7B Q4_K_M</td>
 <td>6 GB</td>
+<td>Good for simple triage</td>
 </tr>
 <tr>
 <td>14B Q4_K_M</td>
 <td>10 GB</td>
+<td>Good balance</td>
 </tr>
 <tr>
 <td>32B Q4_K_M</td>
 <td>22 GB</td>
+<td>Best results, recommended</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Setup:</strong></p>
 <ol>
 <li>Download <a href="https://lmstudio.ai">LM Studio</a> (free, works on Mac/Windows/Linux)</li>
-<li>In LM Studio: <strong>Discover</strong> tab → search for <code>Qwen2.5-32B-Instruct-Q4_K_M</code> (or a smaller model if needed)</li>
-<li>Download the model (this takes 10–30 min depending on size)</li>
+<li>In LM Studio: <strong>Discover</strong> tab → search for <code>Qwen2.5-32B-Instruct-Q4_K_M</code> (or a smaller model if your machine requires it)</li>
+<li>Download the model (10–30 min depending on size and connection)</li>
 <li>In LM Studio: <strong>Local Server</strong> tab → <strong>Start Server</strong> (listens on port 1234 by default)</li>
 <li>In <code>backend/.env</code>:
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>LOCAL_LLM_ENDPOINT=http://localhost:1234/v1
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>LOCAL_LLM_MODEL=qwen2.5-32b-instruct
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>LOCAL_LLM_ENDPOINT=http://localhost:1234/v1
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>LOCAL_LLM_MODEL=qwen2.5-32b-instruct
 </code></pre></div></li>
 </ol>
-<p>Phil checks whether LM Studio responds at startup. If yes: local model. If no: cloud fallback.</p>
+<p>Phil checks whether LM Studio responds at startup. If yes: local model is used. If the local server is off: Phil falls back to the cloud API (if configured).</p>
+<p>No email content, no prompts, no personal data ever leave your machine.</p>
+</div>
+<div class="tabbed-block">
+<div class="admonition warning">
+<p class="admonition-title">Datenschutz-Hinweis</p>
+<p>Mit einem Cloud-API-Key werden Ihre E-Mails und Prompts an externe Server (Anthropic, USA) übertragen. Für professionelle oder personenbezogene Daten empfehlen wir ausschließlich den Local-Modus.</p>
+</div>
+<p>The Anthropic API is useful as a quality baseline and for demonstrations where local hardware is unavailable.</p>
+<ol>
+<li>Create a free account at <a href="https://console.anthropic.com">console.anthropic.com</a></li>
+<li>Go to <strong>API Keys</strong> → <strong>Create Key</strong></li>
+<li>Copy the key into <code>backend/.env</code>:
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>ANTHROPIC_API_KEY=sk-ant-api03-...
+</code></pre></div></li>
+</ol>
+<p><strong>Cost:</strong> Roughly €0.02–0.10 per session for typical daily use. You can set a monthly spending limit in the Anthropic console.</p>
+</div>
+<div class="tabbed-block">
+<p>Any OpenAI-compatible API endpoint (OpenAI, Mistral, Together AI, etc.) works via the local client interface:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>LOCAL_LLM_ENDPOINT=https://api.openai.com/v1
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>LOCAL_LLM_ENDPOINT_KEY=sk-...your-key...
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>LOCAL_LLM_MODEL=gpt-4o-mini
+</code></pre></div>
+<p>The same data-privacy considerations as above apply — data leaves your machine.</p>
 </div>
 </div>
 </div>
