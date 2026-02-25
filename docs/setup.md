@@ -187,7 +187,7 @@ Now open `backend/.env`. Here is every variable explained:
 | `LOCAL_LLM_ENDPOINT` | Optional | `http://localhost:1234/v1` (LM Studio default) |
 | `LOCAL_LLM_MODEL` | Optional | e.g. `qwen2.5-32b-instruct` |
 
-**LLM:** You need at least one of `ANTHROPIC_API_KEY` or `LOCAL_LLM_ENDPOINT`. If both are set, Phil tries the local endpoint first and falls back to Anthropic.
+**LLM:** Set `LOCAL_LLM_ENDPOINT` for local mode (recommended) or `ANTHROPIC_API_KEY` for cloud reference/demo use. Both can be set simultaneously for hybrid use — see the [Hybrid mode](#hybrid-mode-local--cloud) section below for caveats.
 
 **OpenAI:** Used for ChromaDB embeddings (semantic search over your emails) and the text-to-speech "read aloud" feature. These features are silently disabled if the key is missing.
 
