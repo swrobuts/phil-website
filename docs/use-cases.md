@@ -35,11 +35,13 @@ and preparing for the day ahead.
 
 ## What Phil Does Not Do (and why)
 
-Phil does not implement video conferencing (UC 3), data visualisation (UC 5),
-complex simulation (UC 7) or voice input (UC 8). This is not a shortcoming — it is a scope decision.
+Phil does not implement video conferencing (UC 3), complex simulation (UC 7) or voice input (UC 8).
+This is not a shortcoming — it is a scope decision.
 These are better served by dedicated tools. Phil's value is in the daily information layer.
 
 !!! note "DE — Für Studierende"
     Phil ist kein Alleskönner. Jede Funktion wurde bewusst ausgewählt: Was bringt den
-    größten Mehrwert im Hochschulalltag? Die Use Cases 3, 5, 7, 8 sind im Vortrag
+    größten Mehrwert im Hochschulalltag? Die Use Cases 3, 7, 8 sind im Vortrag
     konzeptuelle Parallelen (Zoom für UC3, Perplexity für UC4 usw.) — nicht Ziele für Phil selbst.
+    UC 5 (Datenvisualisierung) ist durch das eigenständige Rainforest Dashboard unter
+    rainforest.butscher.cloud abgedeckt.
