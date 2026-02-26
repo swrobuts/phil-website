@@ -14,7 +14,7 @@ between what **Phil implements directly** and what today's other tools provide.
 | 2 | **Calendar Management** — scheduling, reminders, agenda | ✅ Calendar view, natural-language search, meeting briefings | Google Calendar, Siri |
 | 3 | **Video Conferencing** — real-time video with colleague | — Not in Phil | Zoom, Teams, Google Meet |
 | 4 | **Knowledge Research** — intelligent search in scientific databases | ✅ Semantic RAG search over emails + attachments | Perplexity, Semantic Scholar |
-| 5 | **Data Visualisation** — interactive charts, geographic simulations | — Not in Phil (see WorldHappiness project) | ChatGPT Code Interpreter, Plotly |
+| 5 | **Data Visualisation** — interactive charts, geographic simulations | ✅ Live Rainforest Dashboard at [rainforest.butscher.cloud](https://rainforest.butscher.cloud) — real INPE PRODES data, KPI cards, animated treemap, choropleth map, deforestation simulation | ChatGPT Code Interpreter, Plotly |
 | 6 | **Document Summarisation** — briefing from papers and messages | ✅ Mail summaries, attachment extraction, meeting prep briefings | NotebookLM, Claude |
 | 7 | **Simulation** — complex scenario modelling | — Not in Phil | Specialist tools |
 | 8 | **Multimodal Interaction** — touch, voice, gesture | — Web UI only; no voice input | Siri, Alexa, Google Assistant |
